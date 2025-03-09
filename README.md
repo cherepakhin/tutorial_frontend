@@ -1,5 +1,9 @@
 # React.js CRUD App with React Router & Axios
 
+Проект от [React CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/). 
+
+Заготовка для React проекта.
+
 Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
 
 React Tutorial Application in that:
