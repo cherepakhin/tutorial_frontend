@@ -34,7 +34,7 @@ class App extends Component {
             <Route path="/" element={<TutorialsList/>} />
             <Route path="/tutorials" element={<TutorialsList/>} />
             <Route path="/add" element={<AddTutorial/>} />
-            <Route path="/tutorials/:id" element={<Tutorial/>} />
+            <Route path="/tutorials/:n" element={<Tutorial/>} />
           </Routes>
         </div>
       </div>

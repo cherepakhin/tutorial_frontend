@@ -10,7 +10,7 @@ export default class AddTutorial extends Component {
     this.newTutorial = this.newTutorial.bind(this);
 
     this.state = {
-      id: null,
+      n: null,
       title: "",
       description: "", 
       published: false,
@@ -40,7 +40,7 @@ export default class AddTutorial extends Component {
     TutorialDataService.create(data)
       .then(response => {
         this.setState({
-          id: response.data.id,
+          n: response.data.n,
           title: response.data.title,
           description: response.data.description,
           published: response.data.published,
@@ -56,7 +56,7 @@ export default class AddTutorial extends Component {
 
   newTutorial() {
     this.setState({
-      id: null,
+      n: null,
       title: "",
       description: "",
       published: false,

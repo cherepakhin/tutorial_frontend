@@ -14,8 +14,8 @@ class Tutorial extends Component {
 
     this.state = {
       currentTutorial: {
-        id: null,
-        title: "",
+        n: null,
+        name: "",
         description: "",
         published: false
       },
@@ -24,17 +24,19 @@ class Tutorial extends Component {
   }
 
   componentDidMount() {
-    this.getTutorial(this.props.router.params.id);
+    console.log(this.props);
+    this.getTutorial(this.props.router.params.n);
   }
 
   onChangeTitle(e) {
-    const title = e.target.value;
+    console.log(e.target.value);
+    const name = e.target.value;
 
     this.setState(function(prevState) {
       return {
         currentTutorial: {
           ...prevState.currentTutorial,
-          title: title
+          name: name
         }
       };
     });
@@ -51,8 +53,9 @@ class Tutorial extends Component {
     }));
   }
 
-  getTutorial(id) {
-    TutorialDataService.get(id)
+  getTutorial(n) {
+    console.log(n);
+    TutorialDataService.get(n)
       .then(response => {
         this.setState({
           currentTutorial: response.data
@@ -66,13 +69,13 @@ class Tutorial extends Component {
 
   updatePublished(status) {
     var data = {
-      id: this.state.currentTutorial.id,
-      title: this.state.currentTutorial.title,
+      n: this.state.currentTutorial.n,
+      name: this.state.currentTutorial.name,
       description: this.state.currentTutorial.description,
       published: status
     };
 
-    TutorialDataService.update(this.state.currentTutorial.id, data)
+    TutorialDataService.update(this.state.currentTutorial.n, data)
       .then(response => {
         this.setState(prevState => ({
           currentTutorial: {
@@ -89,7 +92,7 @@ class Tutorial extends Component {
 
   updateTutorial() {
     TutorialDataService.update(
-      this.state.currentTutorial.id,
+      this.state.currentTutorial.n,
       this.state.currentTutorial
     )
       .then(response => {
@@ -104,7 +107,7 @@ class Tutorial extends Component {
   }
 
   deleteTutorial() {    
-    TutorialDataService.delete(this.state.currentTutorial.id)
+    TutorialDataService.delete(this.state.currentTutorial.n)
       .then(response => {
         console.log(response.data);
         this.props.router.navigate('/tutorials');
@@ -129,7 +132,7 @@ class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentTutorial.title}
+                  value={currentTutorial.name}
                   onChange={this.onChangeTitle}
                 />
               </div>
