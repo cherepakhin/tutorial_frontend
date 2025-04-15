@@ -77,7 +77,7 @@ export default class TutorialsList extends Component {
       currentIndex: -1
     });
 
-    TutorialDataService.findByName(this.state.searchName) // http.get(`/tutorial/by?name=${name}`)
+    TutorialDataService.findByTitle(this.state.searchName) // http.get(`/tutorial/by?name=${name}`)
       .then(response => {
         this.setState({
           tutorials: response.data
@@ -120,7 +120,7 @@ export default class TutorialsList extends Component {
           <ul className="list-group">
             {tutorials &&
               tutorials.map((tutorial, index) => (
-                <li
+                <div
                   className={
                     "list-group-item " +
                     (index === currentIndex ? "active" : "")
@@ -128,8 +128,8 @@ export default class TutorialsList extends Component {
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
                 >
-                  {tutorial.name}
-                </li>
+                  {tutorial.title}
+                </div>
               ))}
           </ul>
 
@@ -148,7 +148,7 @@ export default class TutorialsList extends Component {
                 <label>
                   <strong>Title:</strong>
                 </label>{" "}
-                {currentTutorial.name}
+                {currentTutorial.title}
               </div>
               <div>
                 <label>
@@ -160,7 +160,7 @@ export default class TutorialsList extends Component {
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {currentTutorial.published ? "Published" : "Pending"}
+                {currentTutorial.submitted ? "Submitted" : "Not submitted"}
               </div>
 
               <Link
