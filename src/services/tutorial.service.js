@@ -38,8 +38,6 @@ class TutorialDataService {
   findByTitle(title) {
     console.log("findByTitle: " + title);
     let tutors = http.get(`/tutorial/by_title/${title}`);
-    // tutors - это promise. Поэтому для разрешения promise использовано ".then"
-    tutors.then(result => {console.log(result.data);});
     return tutors;
   }
 }
