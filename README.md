@@ -100,6 +100,8 @@ The page will reload if you make edits.
 
 Test
 
+yarn add --dev enzyme enzyme-adapter-react-16
+
 ````shell
 yarn add --dev sinon
 ````
