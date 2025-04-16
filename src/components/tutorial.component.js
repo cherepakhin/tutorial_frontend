@@ -36,7 +36,7 @@ class Tutorial extends Component {
       return {
         currentTutorial: {
           ...prevState.currentTutorial,
-          name: name
+          title: name
         }
       };
     });
@@ -132,7 +132,7 @@ class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentTutorial.name}
+                  value={currentTutorial.title}
                   onChange={this.onChangeTitle}
                 />
               </div>
