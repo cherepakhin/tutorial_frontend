@@ -165,8 +165,7 @@ export default class TutorialsList extends Component {
 
               <Link
                 to={"/tutorials/" + currentTutorial.n}
-
-                className="m-3 btn btn-sm btn-warning"
+                className="m-0 btn btn-sm btn-warning"
               >
                 Edit
               </Link>
