@@ -18,6 +18,12 @@ export default class TutorialsList extends Component {
       currentIndex: -1,
       searchName: ""
     };
+
+    console.log("TutorialsList.constructor");
+    console.log("TutorialsList.props:");
+    console.log(props);
+    this.refreshList();
+    console.log(props);
   }
 
   componentDidMount() {
@@ -33,16 +39,16 @@ export default class TutorialsList extends Component {
   }
 
   retrieveTutorials() {
-    TutorialDataService.getAll()
-      .then(response => {
-        this.setState({
-          tutorials: response.data
-        });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+     TutorialDataService.getAll()
+          .then(response => {
+            this.setState({
+              tutorials: response.data
+            });
+            console.log(response.data);
+          })
+          .catch(e => {
+            console.log(e);
+          });
   }
 
   refreshList() {

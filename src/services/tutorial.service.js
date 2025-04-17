@@ -2,17 +2,11 @@ import http from "../http-common";
 
 class TutorialDataService {
   getAll() {
-//    const tutorials = http.get("/tutorial/");
-    console.log("tutorials:");
-    var tutorials = http.get("/tutorial/");
-    tutorials.then((response) => {
-        const reducedArray = response.data.reduce((acc, curr) => `${acc}{n: ${curr.n}, title: ${curr.title}},` ,'');
-
-        console.log(reducedArray);
-        console.log("getAll received result: " + response.data[0].n);
-        console.log("getAll received result: " + response.data[1].n);
-    });
-    return tutorials;
+    let tutors = http.get(`/tutorial/`);
+//    tutorials.then(function (response) {
+//        console.log("findByTitle received result: " + tutors);
+//    }
+    return tutors;
   }
 
   get(n) {
