@@ -118,3 +118,47 @@ v16.20.2
 ````
 
 Для mock использован sinon. (см. tutorial.service.spec.js)
+
+### Build
+
+````shell
+$ yarn build
+yarn run v1.22.5
+$ react-scripts build
+Creating an optimized production build...
+Browserslist: caniuse-lite is outdated. Please run:
+npx update-browserslist-db@latest
+Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Browserslist: caniuse-lite is outdated. Please run:
+npx update-browserslist-db@latest
+Why you should do it regularly: https://github.com/browserslist/update-db#readme
+Compiled successfully.
+
+File sizes after gzip:
+
+73.6 kB   build/static/js/main.0f4da891.js
+23.43 kB  build/static/css/main.7b1271f9.css
+
+The project was built assuming it is hosted at /.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+You may serve it with a static server:
+
+yarn global add serve
+serve -s build
+
+Find out more about deployment here:
+
+https://cra.link/deployment
+
+Done in 28.39s.
+
+````
+Собранные файлы будут в папке __buikd__.
+
+Запуск билда:
+
+````shell
+$ serve -s build
+````
