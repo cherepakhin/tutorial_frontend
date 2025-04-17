@@ -82,6 +82,9 @@ export default class TutorialsList extends Component {
       currentIndex: -1
     });
 
+    if(this.state.searchName === '') {
+        return this.retrieveTutorials();
+    }
     TutorialDataService.findByTitle(this.state.searchName) // http.get(`/tutorial/by?name=${name}`)
       .then(response => {
         this.setState({
@@ -139,7 +142,7 @@ export default class TutorialsList extends Component {
           </ul>
 
           <button
-            className="ml-0 mt-2 btn btn-sm btn-danger"
+            className="ml-0 mt-2 btn btn-danger"
             onClick={this.removeAllTutorials}
           >
             Remove All
@@ -176,7 +179,7 @@ export default class TutorialsList extends Component {
 
               <Link
                 to={"/tutorials/" + currentTutorial.n}
-                className="m-0 btn btn-sm btn-warning"
+                className="m-0 btn btn-warning"
               >
                 Edit
               </Link>
