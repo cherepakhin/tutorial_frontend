@@ -116,3 +116,5 @@ yarn test
 $ node --version
 v16.20.2
 ````
+
+Для mock http-запросов использован sinon. (см. tutorial.service.spec.js)
