@@ -11,7 +11,7 @@ function App() {
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/tutorials"} className="navbar-brand">
-            bezKoder
+            Home
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">

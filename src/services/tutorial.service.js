@@ -2,35 +2,30 @@ import http from "../http-common";
 
 class TutorialDataService {
   getAll() {
+    console.log("TutorialDataService.getAll()");
     let tutors = http.get(`/tutorial/`);
-//    tutorials.then(function (response) {
-//        console.log("findByTitle received result: " + tutors);
-//    }
     return tutors;
   }
 
   get(n) {
-    console.log("Get");
-    console.log(n);
+    console.log("TutorialDataService.get" + n);
     return http.get(`/tutorial/${n}`);
   }
 
   create(data) {
-    console.log("Create");
+    console.log("TutorialDataService.create");
     console.log(data);
-    return http.post("/tutorial", data);
+    return http.post("/tutorial/", data);
   }
 
   update(n, data) {
-    console.log("Update");
-    console.log(n);
+    console.log("TutorialDataService.update" + n);
     console.log(data);
     return http.post(`/tutorial/${n}`, data);
   }
 
   delete(n) {
-    console.log("Delete");
-    console.log(n);
+    console.log("TutorialDataService.delete" + n);
     return http.delete(`/tutorial/${n}`);
   }
 

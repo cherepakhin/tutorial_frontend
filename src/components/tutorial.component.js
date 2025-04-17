@@ -8,7 +8,8 @@ class Tutorial extends Component {
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getTutorial = this.getTutorial.bind(this);
-    this.updatePublished = this.updatePublished.bind(this);
+
+    this.updateSubmitted = this.updateSubmitted.bind(this);
     this.updateTutorial = this.updateTutorial.bind(this);
     this.deleteTutorial = this.deleteTutorial.bind(this);
 
@@ -17,7 +18,7 @@ class Tutorial extends Component {
         n: null,
         name: "",
         description: "",
-        published: false
+        submitted: false
       },
       message: ""
     };
@@ -60,23 +61,24 @@ class Tutorial extends Component {
         this.setState({
           currentTutorial: response.data
         });
-        console.log(response.data);
+//        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
       });
   }
 
-  updatePublished(status) {
-    var data = {
+  updateSubmitted(status) {
+    let data = {
       n: this.state.currentTutorial.n,
-      name: this.state.currentTutorial.name,
+      title: this.state.currentTutorial.title,
       description: this.state.currentTutorial.description,
-      published: status
+      submitted: status
     };
 
     TutorialDataService.update(this.state.currentTutorial.n, data)
       .then(response => {
+        console.log(response);
         this.setState(prevState => ({
           currentTutorial: {
             ...prevState.currentTutorial,
@@ -88,6 +90,16 @@ class Tutorial extends Component {
       .catch(e => {
         console.log(e);
       });
+
+    this.setState(function(prevState) {
+      return {
+        currentTutorial: {
+          ...prevState.currentTutorial,
+          submitted: status
+        }
+      };
+    });
+
   }
 
   updateTutorial() {
@@ -149,25 +161,25 @@ class Tutorial extends Component {
 
               <div className="form-group">
                 <label>
-                  <strong>Status:</strong>
+                  <strong>Status:&nbsp;&nbsp;</strong>
                 </label>
-                {currentTutorial.published ? "Published" : "Pending"}
+                {currentTutorial.submitted ? "Submitted" : "UnSubmitted"}
               </div>
             </form>
 
-            {currentTutorial.published ? (
+            {currentTutorial.submitted ? (
               <button
                 className="btn btn-primary mr-2"
-                onClick={() => this.updatePublished(false)}
+                onClick={() => this.updateSubmitted(false)}
               >
-                UnPublish
+                UnSubmit
               </button>
             ) : (
               <button
                 className="btn btn-primary mr-2"
-                onClick={() => this.updatePublished(true)}
+                onClick={() => this.updateSubmitted(true)}
               >
-                Publish
+                Submit
               </button>
             )}
 

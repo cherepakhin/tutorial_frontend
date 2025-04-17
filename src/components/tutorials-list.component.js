@@ -40,23 +40,22 @@ export default class TutorialsList extends Component {
 
   retrieveTutorials() {
      TutorialDataService.getAll()
-          .then(response => {
-            this.setState({
-              tutorials: response.data
-            });
-            console.log(response.data);
-          })
-          .catch(e => {
-            console.log(e);
+       .then(response => {
+          this.setState({
+            tutorials: response.data
           });
+          console.log(response.data);
+       }).catch(e => {
+         console.log(e);
+       });
   }
 
   refreshList() {
     this.retrieveTutorials();
-    this.setState({
-      currentTutorial: null,
-      currentIndex: -1
-    });
+//    this.setState({
+//      currentTutorial: null,
+//      currentIndex: -1
+//    });
   }
 
   setActiveTutorial(tutorial, index) {
@@ -150,6 +149,12 @@ export default class TutorialsList extends Component {
           {currentTutorial ? (
             <div>
               <h4>Tutorial</h4>
+              <div>
+                <label>
+                  <strong>N:</strong>
+                </label>{" "}
+                {currentTutorial.n}
+              </div>
               <div>
                 <label>
                   <strong>Title:</strong>
