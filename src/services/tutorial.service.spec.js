@@ -35,7 +35,7 @@ describe('TutorialDataService', () => {
     const postStub = sandbox.stub(http, 'post');
     const data = { title: 'Test', description: 'Test' };
     TutorialDataService.create(data);
-    expect(postStub.calledOnceWith('/tutorial', data)).toBe(true);
+    expect(postStub.calledOnceWith('/tutorial/', data)).toBe(true);
   });
 
   it('should call http.post with correct url and data when update is called', () => {
