@@ -109,3 +109,10 @@ yarn add --dev sinon
 ````shell
 yarn test
 ````
+
+На моем ноуте работает версия Node 16.20.2:
+
+````shell
+$ node --version
+v16.20.2
+````

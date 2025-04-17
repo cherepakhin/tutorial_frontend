@@ -2,7 +2,17 @@ import http from "../http-common";
 
 class TutorialDataService {
   getAll() {
-    return http.get("/tutorial/");
+//    const tutorials = http.get("/tutorial/");
+    console.log("tutorials:");
+    var tutorials = http.get("/tutorial/");
+    tutorials.then((response) => {
+        const reducedArray = response.data.reduce((acc, curr) => `${acc}{n: ${curr.n}, title: ${curr.title}},` ,'');
+
+        console.log(reducedArray);
+        console.log("getAll received result: " + response.data[0].n);
+        console.log("getAll received result: " + response.data[1].n);
+    });
+    return tutorials;
   }
 
   get(n) {
@@ -38,6 +48,9 @@ class TutorialDataService {
   findByTitle(title) {
     console.log("findByTitle: " + title);
     let tutors = http.get(`/tutorial/by_title/${title}`);
+//    tutorials.then(function (response) {
+//        console.log("findByTitle received result: " + tutors);
+//    }
     return tutors;
   }
 }
