@@ -1,6 +1,6 @@
 import TutorialDataService from './tutorial.service.js';
 import http from '../http-common';
-import sinon from 'sinon';
+import sinon from 'sinon'; // sinon - MOCK for http request
 
 describe('TutorialDataService', () => {
   let sandbox;
