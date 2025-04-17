@@ -117,4 +117,4 @@ $ node --version
 v16.20.2
 ````
 
-Для mock http-запросов использован sinon. (см. tutorial.service.spec.js)
+Для mock использован sinon. (см. tutorial.service.spec.js)
