@@ -119,6 +119,12 @@ v16.20.2
 
 Для mock использован sinon. (см. tutorial.service.spec.js)
 
+### Start
+
+````shell
+yarn start
+````
+
 ### Build
 
 ````shell
@@ -162,3 +168,30 @@ Done in 28.39s.
 ````shell
 $ serve -s build
 ````
+
+Файлы из папки build скопировать в Apache /var/www/main/tutorials.
+
+Адрес __backend сервиса__  указан в src/http-common.js:
+
+````shell
+export default axios.create({
+  baseURL: "http://192.168.1.57:8980/api",
+  mode: "no-cors",
+  headers: {
+    "Content-type": "application/json"
+  }
+});
+````
+
+Корневой адрес приложения для frontend указан в package.json:
+
+````shell
+  "scripts": {
+    ....
+    "build": "PUBLIC_URL=/tutorials react-scripts build",
+    ....
+}
+````
+
+Открыть http://<адрес apache2 сервера>/tutorials/.
+
