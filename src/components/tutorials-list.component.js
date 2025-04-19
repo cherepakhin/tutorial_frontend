@@ -136,7 +136,7 @@ export default class TutorialsList extends Component {
                   onClick={() => this.setActiveTutorial(tutorial, index)}
                   key={index}
                 >
-                  {tutorial.title}
+                  {tutorial.n}. {tutorial.title}
                 </div>
               ))}
           </ul>
