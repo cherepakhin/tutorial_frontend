@@ -37,6 +37,7 @@ class TutorialDataService {
   findByTitle(title) {
     console.log("findByTitle: " + title);
     let tutors = http.get(`/tutorial/by_title/${title}`);
+    console.log(tutors);
 //    tutorials.then(function (response) {
 //        console.log("findByTitle received result: " + tutors);
 //    }

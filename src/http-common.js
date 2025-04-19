@@ -12,7 +12,8 @@ import axios from "axios";
 //})
 
 export default axios.create({
-  baseURL: "http://192.168.1.57:8980/api",
+  baseURL: "https://127.0.0.1:8980/api",
+
   mode: "no-cors",
   headers: {
     "Content-type": "application/json"
