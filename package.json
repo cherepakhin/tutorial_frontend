@@ -1,8 +1,8 @@
 {
-  "name": "tutorial_frontend",
+  "name": "vacancy_frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://v.perm.ru/tutorial/",
+  "homepage": "https://v.perm.ru/vacancy/",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=/tutorials react-scripts build",
+    "build": "PUBLIC_URL=/vacancys react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
