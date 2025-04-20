@@ -195,3 +195,5 @@ export default axios.create({
 
 Открыть http://<адрес apache2 сервера>/tutorials/.
 
+
+mapStateToProps (redux) 

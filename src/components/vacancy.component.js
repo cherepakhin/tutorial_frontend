@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import TutorialDataService from "../services/tutorial.service";
+import VacancyService from "../services/vacancy.service";
 import { withRouter } from '../common/with-router';
 
-class Tutorial extends Component {
+class Vacancy extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.getTutorial = this.getTutorial.bind(this);
+    this.getVacancy = this.getVacancy.bind(this);
 
     this.updateSubmitted = this.updateSubmitted.bind(this);
-    this.updateTutorial = this.updateTutorial.bind(this);
-    this.deleteTutorial = this.deleteTutorial.bind(this);
+    this.updateVacancy = this.updateVacancy.bind(this);
+    this.deleteVacancy = this.deleteVacancy.bind(this);
 
     this.state = {
-      currentTutorial: {
+      currentVacancy: {
         n: null,
         name: "",
         description: "",
@@ -26,7 +26,7 @@ class Tutorial extends Component {
 
   componentDidMount() {
     console.log(this.props);
-    this.getTutorial(this.props.router.params.n);
+    this.getVacancy(this.props.router.params.n);
   }
 
   onChangeTitle(e) {
@@ -35,8 +35,8 @@ class Tutorial extends Component {
 
     this.setState(function(prevState) {
       return {
-        currentTutorial: {
-          ...prevState.currentTutorial,
+        currentVacancy: {
+          ...prevState.currentVacancy,
           title: name
         }
       };
@@ -47,19 +47,19 @@ class Tutorial extends Component {
     const description = e.target.value;
     
     this.setState(prevState => ({
-      currentTutorial: {
-        ...prevState.currentTutorial,
+      currentVacancy: {
+        ...prevState.currentVacancy,
         description: description
       }
     }));
   }
 
-  getTutorial(n) {
+  getVacancy(n) {
     console.log(n);
-    TutorialDataService.get(n)
+    VacancyService.get(n)
       .then(response => {
         this.setState({
-          currentTutorial: response.data
+          currentVacancy: response.data
         });
 //        console.log(response.data);
       })
@@ -70,18 +70,18 @@ class Tutorial extends Component {
 
   updateSubmitted(status) {
     let data = {
-      n: this.state.currentTutorial.n,
-      title: this.state.currentTutorial.title,
-      description: this.state.currentTutorial.description,
+      n: this.state.currentVacancy.n,
+      title: this.state.currentVacancy.title,
+      description: this.state.currentVacancy.description,
       submitted: status
     };
 
-    TutorialDataService.update(this.state.currentTutorial.n, data)
+    VacancyService.update(this.state.currentVacancy.n, data)
       .then(response => {
         console.log(response);
         this.setState(prevState => ({
-          currentTutorial: {
-            ...prevState.currentTutorial,
+          currentVacancy: {
+            ...prevState.currentVacancy,
             published: status
           }
         }));
@@ -93,8 +93,8 @@ class Tutorial extends Component {
 
     this.setState(function(prevState) {
       return {
-        currentTutorial: {
-          ...prevState.currentTutorial,
+        currentVacancy: {
+          ...prevState.currentVacancy,
           submitted: status
         }
       };
@@ -102,10 +102,10 @@ class Tutorial extends Component {
 
   }
 
-  updateTutorial() {
-    TutorialDataService.update(
-      this.state.currentTutorial.n,
-      this.state.currentTutorial
+  updateVacancy() {
+    VacancyService.update(
+      this.state.currentVacancy.n,
+      this.state.currentVacancy
     )
       .then(response => {
         console.log(response.data);
@@ -118,8 +118,8 @@ class Tutorial extends Component {
       });
   }
 
-  deleteTutorial() {    
-    TutorialDataService.delete(this.state.currentTutorial.n)
+  deleteVacancy() {    
+    VacancyService.delete(this.state.currentVacancy.n)
       .then(response => {
         console.log(response.data);
         this.props.router.navigate('/tutorials');
@@ -130,13 +130,13 @@ class Tutorial extends Component {
   }
 
   render() {
-    const { currentTutorial } = this.state;
+    const { currentVacancy } = this.state;
 
     return (
       <div>
-        {currentTutorial ? (
+        {currentVacancy ? (
           <div className="edit-form">
-            <h4>Tutorial</h4>
+            <h4>Vacancy</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Title</label>
@@ -144,7 +144,7 @@ class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="title"
-                  value={currentTutorial.title}
+                  value={currentVacancy.title}
                   onChange={this.onChangeTitle}
                 />
               </div>
@@ -154,7 +154,7 @@ class Tutorial extends Component {
                   type="text"
                   className="form-control"
                   id="description"
-                  value={currentTutorial.description}
+                  value={currentVacancy.description}
                   onChange={this.onChangeDescription}
                 />
               </div>
@@ -163,11 +163,11 @@ class Tutorial extends Component {
                 <label>
                   <strong>Status:&nbsp;&nbsp;</strong>
                 </label>
-                {currentTutorial.submitted ? "Submitted" : "UnSubmitted"}
+                {currentVacancy.submitted ? "Submitted" : "UnSubmitted"}
               </div>
             </form>
 
-            {currentTutorial.submitted ? (
+            {currentVacancy.submitted ? (
               <button
                 className="btn btn-primary mr-2"
                 onClick={() => this.updateSubmitted(false)}
@@ -185,7 +185,7 @@ class Tutorial extends Component {
 
             <button
               className="btn btn-danger mr-2"
-              onClick={this.deleteTutorial}
+              onClick={this.deleteVacancy}
             >
               Delete
             </button>
@@ -193,7 +193,7 @@ class Tutorial extends Component {
             <button
               type="submit"
               className="btn btn-warning"
-              onClick={this.updateTutorial}
+              onClick={this.updateVacancy}
             >
               Update
             </button>
@@ -202,7 +202,7 @@ class Tutorial extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Tutorial...</p>
+            <p>Please click on a Vacancy...</p>
           </div>
         )}
       </div>
@@ -210,4 +210,4 @@ class Tutorial extends Component {
   }
 }
 
-export default withRouter(Tutorial);
+export default withRouter(Vacancy);
