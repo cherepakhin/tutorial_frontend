@@ -40,63 +40,63 @@ export default class VacancyList extends Component {
   }
 
   retrieveVacancies() {
-    this.setState({
-            "vacancies": [
-                                {
-                                    "comment": "",
-                                    "company": {
-                                        "n": 1,
-                                        "name": "Company 1"
-                                    },
-                                    "description": "Description Vacancy 1 Company 1",
-                                    "n": 1,
-                                    "source": "",
-                                    "title": "Vacancy 1 Company 1"
-                                },
-                                {
-                                    "comment": "",
-                                    "company": {
-                                        "n": 1,
-                                        "name": "Company 1"
-                                    },
-                                    "description": "Description Vacancy 2 Company 1",
-                                    "n": 2,
-                                    "source": "",
-                                    "title": "Vacancy 2 Company 1"
-                                },
-                                {
-                                    "comment": "",
-                                    "company": {
-                                        "n": 2,
-                                        "name": "Company 2"
-                                    },
-                                    "description": "Description Vacancy 1 Company 2",
-                                    "n": 3,
-                                    "source": "",
-                                    "title": "Vacancy 1 Company 2"
-                                },
-                                {
-                                    "comment": "",
-                                    "company": {
-                                        "n": 2,
-                                        "name": "Company 2"
-                                    },
-                                    "description": "Description Vacancy 2 Company 2",
-                                    "n": 4,
-                                    "source": "",
-                                    "title": "Vacancy 2 Company 2"
-                                }
-                            ],
-
-    });
-//     VacancyService.getAll().then(response => {
-//          console.log(response.data);
-//          this.setState({
-//            vacancies: response.data
-//          });
-//       }).catch(e => {
-//         console.log(e);
-//       });
+//    this.setState({
+//            "vacancies": [
+//                                {
+//                                    "comment": "",
+//                                    "company": {
+//                                        "n": 1,
+//                                        "name": "Company 1"
+//                                    },
+//                                    "description": "Description Vacancy 1 Company 1",
+//                                    "n": 1,
+//                                    "source": "",
+//                                    "title": "Vacancy 1 Company 1"
+//                                },
+//                                {
+//                                    "comment": "",
+//                                    "company": {
+//                                        "n": 1,
+//                                        "name": "Company 1"
+//                                    },
+//                                    "description": "Description Vacancy 2 Company 1",
+//                                    "n": 2,
+//                                    "source": "",
+//                                    "title": "Vacancy 2 Company 1"
+//                                },
+//                                {
+//                                    "comment": "",
+//                                    "company": {
+//                                        "n": 2,
+//                                        "name": "Company 2"
+//                                    },
+//                                    "description": "Description Vacancy 1 Company 2",
+//                                    "n": 3,
+//                                    "source": "",
+//                                    "title": "Vacancy 1 Company 2"
+//                                },
+//                                {
+//                                    "comment": "",
+//                                    "company": {
+//                                        "n": 2,
+//                                        "name": "Company 2"
+//                                    },
+//                                    "description": "Description Vacancy 2 Company 2",
+//                                    "n": 4,
+//                                    "source": "",
+//                                    "title": "Vacancy 2 Company 2"
+//                                }
+//                            ],
+//
+//    });
+     VacancyService.getAll().then(response => {
+          console.log(response.data);
+          this.setState({
+            vacancies: response.data
+          });
+       }).catch(e => {
+         console.log(e);
+       });
   }
 
   refreshList() {

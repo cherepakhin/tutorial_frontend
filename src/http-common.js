@@ -11,8 +11,11 @@ import axios from "axios";
 //  return response
 //})
 
+//  Local:            http://localhost:8081/vacancy - РАБОТАЕТ
+//  On Your Network:  http://192.168.1.57:8081/vacancy - НЕ РАБОТАЕТ
+
 export default axios.create({
-  baseURL: "https://127.0.0.1:8980/api",
+  baseURL: "http://127.0.0.1:8080/api",
 
   mode: "no-cors",
   headers: {
