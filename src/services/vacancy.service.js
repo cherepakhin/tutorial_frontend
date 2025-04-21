@@ -97,13 +97,11 @@ class VacancyService {
 
   findByTitle(title) {
     console.log("findByTitle: " + title);
-//TODO: uncomment
-//    let vacancies = http.get(`/vacancy/by_title/${title}`);
-    let vacancies = http.get(`/vacancy/`);
+    let critery = {
+        "byName": title
+    }
+    let vacancies = http.post(`/vacancy/find`, critery);
     console.log(vacancies);
-//    vacancys.then(function (response) {
-//        console.log("findByTitle received result: " + vacancies);
-//    }
     return vacancies;
   }
 }
