@@ -61,12 +61,12 @@ describe('VacancyService', () => {
   it('VacancyService.findByTitle()', () => {
     const httpStub = sandbox.stub(http, 'post');
     let title = "TITLE";
-    let critery = {
+    let criterySearch = {
         "byName": title
     };
 
     VacancyService.findByTitle(title);
-    expect(httpStub.calledOnceWith('/vacancy/find', critery)).toBe(true);
+    expect(httpStub.calledOnceWith('/vacancy/find', criterySearch)).toBe(true);
   });
 
 });
