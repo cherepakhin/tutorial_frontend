@@ -16,7 +16,13 @@ describe('VacancyService', () => {
     sandbox.restore();
   });
 
-  it('should get all vacancies', async () => {
+  it('http.get /vacancy/1', () => {
+    const getStub = sandbox.stub(http, 'get');
+    VacancyService.get(1);
+    expect(getStub.calledOnceWith('/vacancy/1')).toBe(true);
+  });
+
+  it('http.get /vacancy/', async () => {
     const getStub = sandbox.stub(http, 'get');
     VacancyService.getAll();
     expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
