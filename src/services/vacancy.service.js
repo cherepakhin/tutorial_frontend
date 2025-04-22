@@ -1,4 +1,4 @@
-import http from "../http-common";
+import axios from "../http-common";
 // Не удалять комментарий. Пример запроса.
 // import axios from "axios";
 
@@ -8,7 +8,7 @@ class VacancyService {
 
 // Не удалять комментарий. Это пример запроса.
 //    let req= axios.create({
-//      baseURL: "http://127.0.0.1:8080/api",
+//      baseURL: "axios://127.0.0.1:8080/api",
 //
 //      mode: "no-cors",
 //      headers: {
@@ -22,7 +22,7 @@ class VacancyService {
 //                  });
 //
 
-    let vacancies = http.get(`/vacancy/`);
+    let vacancies = axios.get(`/vacancy/`);
     console.log("getAll received result: " + vacancies);
     console.log(vacancies);
     return vacancies;
@@ -30,29 +30,29 @@ class VacancyService {
 
   get(n) {
     console.log("VacancyService.get n=" + n);
-    return http.get(`/vacancy/${n}`);
+    return axios.get(`/vacancy/${n}`);
   }
 
   create(data) {
     console.log("VacancyService.create");
     console.log(data);
-    return http.post("/vacancy/", data);
+    return axios.post("/vacancy/", data);
   }
 
   update(n, data) {
     console.log("VacancyService.update: n=" + n);
     console.log(data);
-    return http.post(`/vacancy/`, data);
+    return axios.post(`/vacancy/`, data);
   }
 
   delete(n) {
     console.log("VacancyService.delete n=" + n);
-    return http.delete(`/vacancy/${n}`);
+    return axios.delete(`/vacancy/${n}`);
   }
 
   deleteAll() {
     console.log("Delete all");
-    return http.delete(`/vacancy`);
+    return axios.delete(`/vacancy`);
   }
 
   findByTitle(title) {
@@ -60,7 +60,7 @@ class VacancyService {
     let critery = {
         "byName": title
     }
-    let vacancies = http.post(`/vacancy/find`, critery);
+    let vacancies = axios.post(`/vacancy/find`, critery);
     console.log(vacancies);
     return vacancies;
   }
