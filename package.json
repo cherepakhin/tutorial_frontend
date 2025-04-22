@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=/vacancy react-scripts build",
+    "build": "PUBLIC_URL=/tutorials react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -39,7 +39,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
-    "axios-mock-adapter": "^2.1.0",
     "enzyme": "^3.11.0",
     "jest": "^27.5.1",
     "sinon": "^20.0.0"
