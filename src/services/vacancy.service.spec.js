@@ -2,16 +2,16 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import VacancyService from './vacancy.service';
 
-describe('VacancyService', () => {
-  let mock;
-
-  beforeEach(() => {
-    mock = new MockAdapter(axios);
-  });
-
-  afterEach(() => {
-    mock.reset();
-  });
+describe('VacancyService Integration test', () => {
+//  let mock;
+//
+//  beforeEach(() => {
+//    mock = new MockAdapter(axios);
+//  });
+//
+//  afterEach(() => {
+//    mock.reset();
+//  });
 
   it('should get all vacancies', async () => {
     const expectedData = [
