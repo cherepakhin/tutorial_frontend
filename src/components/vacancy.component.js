@@ -79,6 +79,7 @@ class Vacancy extends Component {
     VacancyService.update(this.state.currentVacancy.n, data)
       .then(response => {
         console.log(response);
+        console.log(status);
         this.setState(prevState => ({
           currentVacancy: {
             ...prevState.currentVacancy,
@@ -91,11 +92,10 @@ class Vacancy extends Component {
         console.log(e);
       });
 
-    this.setState(function(prevState) {
+    this.setState(function(newState) {
       return {
         currentVacancy: {
-          ...prevState.currentVacancy,
-          submitted: status
+          ...newState.currentVacancy
         }
       };
     });
@@ -122,7 +122,8 @@ class Vacancy extends Component {
     VacancyService.delete(this.state.currentVacancy.n)
       .then(response => {
         console.log(response.data);
-        this.props.router.navigate('/tutorials');
+        // Переход на страницу со списком
+        this.props.router.navigate('/vacancy');
       })
       .catch(e => {
         console.log(e);

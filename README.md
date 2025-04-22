@@ -195,5 +195,22 @@ export default axios.create({
 
 Открыть http://<адрес apache2 сервера>/tutorials/.
 
-
 mapStateToProps (redux) 
+
+
+Переход на главную страницу после удаления позиции ("this.props.router.navigate('/vacancy')"):
+
+````shell
+deleteVacancy() {    
+    VacancyService.delete(this.state.currentVacancy.n)
+        .then(response => {
+            console.log(response.data);
+            // Переход на страницу со списком
+            this.props.router.navigate('/vacancy');
+        })
+        .catch(e => {
+        console.log(e);
+    });
+}
+
+````

@@ -29,7 +29,7 @@ class VacancyService {
   }
 
   get(n) {
-    console.log("VacancyService.get" + n);
+    console.log("VacancyService.get n=" + n);
     return http.get(`/vacancy/${n}`);
   }
 
@@ -40,13 +40,13 @@ class VacancyService {
   }
 
   update(n, data) {
-    console.log("VacancyService.update" + n);
+    console.log("VacancyService.update: n=" + n);
     console.log(data);
-    return http.post(`/vacancy/${n}`, data);
+    return http.post(`/vacancy/`, data);
   }
 
   delete(n) {
-    console.log("VacancyService.delete" + n);
+    console.log("VacancyService.delete n=" + n);
     return http.delete(`/vacancy/${n}`);
   }
 

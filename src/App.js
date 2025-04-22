@@ -32,7 +32,7 @@ function App() {
             <Route path="/" element={<VacancyList/>} />
             <Route path="/vacancy" element={<VacancyList/>} />
             <Route path="/add" element={<AddVacancy/>} />
-            <Route path="/vacancy/:n" element={<Vacancy/>} />
+            <Route path="/vacancies/:n" element={<Vacancy/>} />
           </Routes>
         </div>
       </div>

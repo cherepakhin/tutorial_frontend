@@ -43,7 +43,7 @@ describe('VacancyService', () => {
     const httpStub = sandbox.stub(http, 'post');
     const data = { title: 'Test', description: 'Test' };
     VacancyService.update(1, data);
-    expect(httpStub.calledOnceWith('/vacancy/1', data)).toBe(true);
+    expect(httpStub.calledOnceWith('/vacancy/', data)).toBe(true);
   });
 
   it('VacancyService.delete(1)', () => {
