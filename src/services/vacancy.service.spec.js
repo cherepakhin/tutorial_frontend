@@ -68,21 +68,31 @@ describe('VacancyService', () => {
 //    expect(result.data).toEqual(expectedData);
   });
 
-//  it('should get a vacancy by id', async () => {
-//    const expectedData = {
-//                             "n": 2,
-//                             "title": "Vacancy 2 Company 1",
-//                             "description": "Description Vacancy 2 Company 1",
-//                             "comment": "",
-//                             "source": "TODO",
-//                             "company": {
-//                                 "n": 1,
-//                                 "name": "Company 1"
-//                             }
-//                         };
-//    const result = await VacancyService.get(2);
-//    expect(result.data).toEqual(expectedData);
-//  });
+  it('should get a vacancy by id', async () => {
+    const expectedData = {
+                             "n": 2,
+                             "title": "Vacancy 2 Company 1",
+                             "description": "Description Vacancy 2 Company 1",
+                             "comment": "",
+                             "source": "TODO",
+                             "company": {
+                                 "n": 1,
+                                 "name": "Company 1"
+                             }
+                         };
+    // МОКИРУЕТСЯ только HTTP запрос GET
+    const getStub = sandbox.stub(http, 'get');
+
+    // ТЕСТ
+    const result = await VacancyService.get(2);
+
+    // Проверка
+    getStub.onCall(0).yields(null, expectedData);
+    console.log(result);
+
+    // Проверяется что HTTP запрос /vacancy/2 был вызван
+    expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
+  });
 //
 //  it('should find vacancies by title', async () => {
 //
