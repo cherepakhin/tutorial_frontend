@@ -63,7 +63,6 @@ describe('VacancyService Integration test', () => {
   });
 
   it('should find vacancies by title', async () => {
-//    mock.onPost('/vacancy/find').reply(200, expectedData);
 
     const result = await VacancyService.findByTitle('Vacancy 2 Company 1');
     console.log(result);
