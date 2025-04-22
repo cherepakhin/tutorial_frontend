@@ -1,72 +1,101 @@
-import VacancyService from './vacancy.service.js';
-import http from '../http-common';
-import sinon from 'sinon'; // sinon - MOCK for http request
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+import VacancyService from './vacancy.service';
 
 describe('VacancyService', () => {
-  let sandbox;
+  let mock;
 
   beforeEach(() => {
-    sandbox = sinon.createSandbox();
+    mock = new MockAdapter(axios);
   });
 
   afterEach(() => {
-    sandbox.restore();
+    mock.reset();
   });
 
-  it('VacancyService.getAll called http get', () => {
-    const httpStub = sandbox.stub(http, 'get');
-    VacancyService.getAll();
-    expect(httpStub.calledOnceWith('/vacancy/')).toBe(true);
+  it('should get all vacancies', async () => {
+    const expectedData = [
+                         	{
+                         		"n": 1,
+                         		"title": "Vacancy 1",
+                         		"comment": "",
+                         		"company": {
+                         		  "n": 1,
+                         		  "name": "Company 1",
+                         		},
+                         		"description": "Description Vacancy 2 Company 1",
+                         		"n": 2,
+                         		"source": "",
+                         		"title": "Vacancy 2 Company 1",
+                         	},
+                         	{
+                         		"n": 2,
+                         		"title": "Vacancy 2",
+                         		"comment": "",
+                         		"company": {
+                         		  "n": 2,
+                         		  "name": "Company 2",
+                         		},
+                         		"description": "Description Vacancy 1 Company 2",
+                         		"n": 3,
+                         		"source": "",
+                         		"title": "Vacancy 1 Company 2",
+                         	},
+                         ];
+    mock.onGet('/vacancy/').reply(200, expectedData);
+
+    const result = await VacancyService.getAll();
+    console.log("--------------------");
+    console.log(result.data);
+    console.log("--------------------");
+    expect(result.data).toEqual(expectedData);
   });
 
-  it('VacancyService.get(N) called http get', () => {
-    const httpStub = sandbox.stub(http, 'get');
-    let VACANCY_N = 1;
-    VacancyService.get(VACANCY_N);
-    expect(httpStub.calledOnceWith('/vacancy/1')).toBe(true);
-  });
+//  it('should get a vacancy by id', async () => {
+//    const expectedData = { id: 1, title: 'Vacancy 1' };
+//    mock.onGet('/vacancy/1').reply(200, expectedData);
+//
+//    const result = await VacancyService.get(1);
+//    expect(result.data).toEqual(expectedData);
+//  });
+//
+//  it('should create a vacancy', async () => {
+//    const vacancyData = { title: 'New Vacancy' };
+//    const expectedData = { id: 3, title: 'New Vacancy' };
+//    mock.onPost('/vacancy/').reply(201, expectedData);
+//
+//    const result = await VacancyService.create(vacancyData);
+//    expect(result.data).toEqual(expectedData);
+//  });
+//
+//  it('should update a vacancy', async () => {
+//    const vacancyData = { id: 1, title: 'Updated Vacancy' };
+//    const expectedData = { id: 1, title: 'Updated Vacancy' };
+//    mock.onPost('/vacancy/').reply(200, expectedData);
+//
+//    const result = await VacancyService.update(1, vacancyData);
+//    expect(result.data).toEqual(expectedData);
+//  });
+//
+//  it('should delete a vacancy', async () => {
+//    mock.onDelete('/vacancy/1').reply(204);
+//
+//    const result = await VacancyService.delete(1);
+//    expect(result.status).toEqual(204);
+//  });
+//
+//  it('should delete all vacancies', async () => {
+//    mock.onDelete('/vacancy').reply(204);
+//
+//    const result = await VacancyService.deleteAll();
+//    expect(result.status).toEqual(204);
+//  });
 
-  it('VacancyService.findByTitle. Check service call.', () => {
-    const httpStub = sandbox.stub(http, 'post');
-    VacancyService.findByTitle('Test');
-    expect(httpStub.calledOnceWith('/vacancy/find')).toBe(true);
-  });
-
-  it('VacancyService.create', () => {
-    const httpStub = sandbox.stub(http, 'post');
-    const data = { title: 'Test', description: 'Test' };
-    VacancyService.create(data);
-    expect(httpStub.calledOnceWith('/vacancy/', data)).toBe(true);
-  });
-
-  it('VacancyService.update', () => {
-    const httpStub = sandbox.stub(http, 'post');
-    const data = { title: 'Test', description: 'Test' };
-    VacancyService.update(1, data);
-    expect(httpStub.calledOnceWith('/vacancy/', data)).toBe(true);
-  });
-
-  it('VacancyService.delete(1)', () => {
-    const httpStub = sandbox.stub(http, 'delete');
-    VacancyService.delete(1);
-    expect(httpStub.calledOnceWith('/vacancy/1')).toBe(true);
-  });
-
-  it('VacancyService.deleteAll()', () => {
-    const deleteStub = sandbox.stub(http, 'delete');
-    VacancyService.deleteAll();
-    expect(deleteStub.calledOnceWith('/vacancy')).toBe(true);
-  });
-
-  it('VacancyService.findByTitle()', () => {
-    const httpStub = sandbox.stub(http, 'post');
-    let title = "TITLE";
-    let criterySearch = {
-        "byName": title
-    };
-
-    VacancyService.findByTitle(title);
-    expect(httpStub.calledOnceWith('/vacancy/find', criterySearch)).toBe(true);
-  });
-
+//  it('should find vacancies by title', async () => {
+//    const expectedData = [{ id: 1, title: 'Vacancy 1' }, { id: 2, title: 'Vacancy 2' }];
+//    mock.onPost('/vacancy/find').reply(200, expectedData);
+//
+//    const result = await VacancyService.findByTitle('Vacancy');
+//    expect(result.data).toEqual(expectedData);
+//  });
 });

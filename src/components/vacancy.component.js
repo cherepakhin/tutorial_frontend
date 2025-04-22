@@ -210,5 +210,5 @@ class Vacancy extends Component {
     );
   }
 }
-
+export {Vacancy};
 export default withRouter(Vacancy);
