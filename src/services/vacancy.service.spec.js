@@ -1,5 +1,5 @@
 import axios from 'axios';
-import MockAdapter from 'axios-mock-adapter';
+//import MockAdapter from 'axios-mock-adapter';
 import VacancyService from './vacancy.service';
 import http from '../http-common';
 import sinon from 'sinon'; // sinon - MOCK for http request
@@ -20,6 +20,14 @@ describe('VacancyService', () => {
     const getStub = sandbox.stub(http, 'get');
     VacancyService.get(1);
     expect(getStub.calledOnceWith('/vacancy/1')).toBe(true);
+  });
+
+  it('create /vacancy/', () => {
+    const postStub = sandbox.stub(http, 'post');
+    const vacancy = "{n: 100}"
+    const result = VacancyService.create(vacancy);
+
+    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
   });
 
   it('http.get /vacancy/', async () => {
@@ -69,26 +77,15 @@ describe('VacancyService', () => {
   });
 
   it('should get a vacancy by id', async () => {
-    const expectedData = {
-                             "n": 2,
-                             "title": "Vacancy 2 Company 1",
-                             "description": "Description Vacancy 2 Company 1",
-                             "comment": "",
-                             "source": "TODO",
-                             "company": {
-                                 "n": 1,
-                                 "name": "Company 1"
-                             }
-                         };
     // МОКИРУЕТСЯ только HTTP запрос GET
     const getStub = sandbox.stub(http, 'get');
 
     // ТЕСТ
-    const result = await VacancyService.get(2);
+    await VacancyService.get(2);
 
     // Проверка
-    getStub.onCall(0).yields(null, expectedData);
-    console.log(result);
+//    getStub.onCall(0).yields(null, expectedData);
+//    getStub.onCall(0).yields(null, {});
 
     // Проверяется что HTTP запрос /vacancy/2 был вызван
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
