@@ -1,7 +1,5 @@
-import axios from 'axios';
-//import MockAdapter from 'axios-mock-adapter';
 import VacancyService from './vacancy.service';
-import http from '../http-common';
+import httpMyParam from '../http-common';
 import sinon from 'sinon'; // sinon - MOCK for http request
 
 // Нужно запустить backend. Это !!!ИНТЕГАЦИОННЫЙ ТЕСТ!!!
@@ -17,71 +15,35 @@ describe('VacancyService', () => {
   });
 
   it('http.get /vacancy/1', () => {
-    const getStub = sandbox.stub(http, 'get');
-    VacancyService.get(1);
-    expect(getStub.calledOnceWith('/vacancy/1')).toBe(true);
-  });
+    // Создание stub для http запросов
+    // МОКИРУЕТСЯ только HTTP запрос GET с параметрами запроса (адрес, cors) httpMyParam
+    // из 'http-common'
+    const getStub = sandbox.stub(httpMyParam, 'get');
 
-  it('create /vacancy/', () => {
-    const postStub = sandbox.stub(http, 'post');
-    const vacancy = "{n: 100}"
-    const result = VacancyService.create(vacancy);
+    // ТЕСТ (parameter 111)
+    // VacancyService:
+    // get(n) {
+    //   console.log("VacancyService.get n=" + n);
+    //   return axios.get(`/vacancy/${n}`);
+    // }
+    VacancyService.get(111);
 
-    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
+    // Проверяется что HTTP запрос /vacancy/1 был вызван
+    // console.log отработает
+    // axios.get(`/vacancy/${n}`) - замокан
+    expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
   });
 
   it('http.get /vacancy/', async () => {
-    const getStub = sandbox.stub(http, 'get');
+    const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.getAll();
     expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
-
-//      const expectedData =  [
-//                                 {
-//                                   n: 1,
-//                                   title: 'Vacancy 1 Company 1',
-//                                   description: 'Description Vacancy 1 Company 1',
-//                                   company: { n: 1, name: 'Company 1' },
-//                                   source: '',
-//                                   comment: ''
-//                                 },
-//                                 {
-//                                   n: 2,
-//                                   title: 'Vacancy 2 Company 1',
-//                                   description: 'Description Vacancy 2 Company 1',
-//                                   company: { n: 1, name: 'Company 1' },
-//                                   source: '',
-//                                   comment: ''
-//                                 },
-//                                 {
-//                                   n: 3,
-//                                   title: 'Vacancy 1 Company 2',
-//                                   description: 'Description Vacancy 1 Company 2',
-//                                   company: { n: 2, name: 'Company 2' },
-//                                   source: '',
-//                                   comment: ''
-//                                 },
-//                                 {
-//                                   n: 4,
-//                                   title: 'Vacancy 2 Company 2',
-//                                   description: 'Description Vacancy 2 Company 2',
-//                                   company: { n: 2, name: 'Company 2' },
-//                                   source: '',
-//                                   comment: ''
-//                                 }
-//                               ];
-//    const result = await VacancyService.getAll();
-//    console.log("--------------------");
-//    console.log(result.data);
-//    console.log("--------------------");
-//    expect(result.data).toEqual(expectedData);
   });
 
   it('should get a vacancy by id', async () => {
-    // МОКИРУЕТСЯ только HTTP запрос GET
-    const getStub = sandbox.stub(http, 'get');
+    const getStub = sandbox.stub(httpMyParam, 'get');
 
-    // ТЕСТ
-    await VacancyService.get(2);
+    VacancyService.get(2);
 
     // Проверка
 //    getStub.onCall(0).yields(null, expectedData);
@@ -90,23 +52,24 @@ describe('VacancyService', () => {
     // Проверяется что HTTP запрос /vacancy/2 был вызван
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
-//
-//  it('should find vacancies by title', async () => {
-//
-//    const result = await VacancyService.findByTitle('Vacancy 2 Company 1');
-//    console.log(result);
-//    const expectedData = [{
-//                             "n": 2,
-//                             "title": "Vacancy 2 Company 1",
-//                             "description": "Description Vacancy 2 Company 1",
-//                             "comment": "",
-//                             "source": "",
-//                             "company": {
-//                                 "n": 1,
-//                                 "name": "Company 1"
-//                             }
-//    }];
-//    expect(result.data).toEqual(expectedData);
-//  });
 
+  it('create /vacancy/', () => {
+    // postStub - mock,stub для http.
+    // в vacancy.create использован axios. Axios СОЗДАЕТ http запросчик.
+    // И ниже мокируется именно http.
+    const postStub = sandbox.stub(httpMyParam, 'post');
+    const vacancy = "{n: 100}";
+    // Тест VacancyService.create
+    VacancyService.create(vacancy);
+    // POST запрос был выполнен с параметром "vacancy"
+    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
+
+    postStub.onCall(0).yields(null, {n: 100});
+// А так ошибка, т.к. вызвано с {n: 100}
+//    postStub.onCall(0).yields(null, {n: 200});
+
+    // Для примера
+    const vacancyFake = "{n: 1}"
+    expect(postStub.calledOnceWith('/vacancy/', vacancyFake)).toBe(false);
+  });
 });
