@@ -2,7 +2,7 @@ import VacancyService from './vacancy.service';
 import httpMyParam from '../http-common';
 import sinon from 'sinon'; // sinon - MOCK for http request
 
-// Нужно запустить backend. Это !!!ИНТЕГАЦИОННЫЙ ТЕСТ!!!
+// НЕ нужно запускать backend. Сделан mock на sinon.
 describe('VacancyService', () => {
   let sandbox;
 
@@ -55,8 +55,20 @@ describe('VacancyService', () => {
 
   it('create /vacancy/', () => {
     // postStub - mock,stub для http.
-    // в vacancy.create использован axios. Axios СОЗДАЕТ http запросчик.
-    // И ниже мокируется именно http.
+    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
+    // И sandbox.stub мокирует именно http requester.
+    const postStub = sandbox.stub(httpMyParam, 'post');
+    const vacancy = "{n: 100}";
+    // Тест VacancyService.create
+    VacancyService.create(vacancy);
+    // POST запрос был выполнен с параметром "vacancy"
+    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
+  });
+
+  it('create /vacancy/ with example fakevacancy', () => {
+    // postStub - mock,stub для http.
+    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
+    // И sandbox.stub мокирует именно http requester.
     const postStub = sandbox.stub(httpMyParam, 'post');
     const vacancy = "{n: 100}";
     // Тест VacancyService.create
@@ -64,12 +76,9 @@ describe('VacancyService', () => {
     // POST запрос был выполнен с параметром "vacancy"
     expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
 
-    postStub.onCall(0).yields(null, {n: 100});
-// А так ошибка, т.к. вызвано с {n: 100}
-//    postStub.onCall(0).yields(null, {n: 200});
-
-    // Для примера
+    // Для примера. С vacancyFake вызовов не было.
     const vacancyFake = "{n: 1}"
     expect(postStub.calledOnceWith('/vacancy/', vacancyFake)).toBe(false);
   });
+
 });

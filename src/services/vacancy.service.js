@@ -1,12 +1,12 @@
 import axios from "../http-common";
-// Не удалять комментарий. Пример запроса.
+// Не удалять комментарий этот коммент и ниже строчку. Эта зависимость нужна для кода "Пример запроса".
 // import axios from "axios";
 
 class VacancyService {
   getAll() {
     console.log("VacancyService.getAll()");
 
-// Не удалять комментарий. Это пример запроса.
+// "Пример запроса". Не удалять комментарий.
 //    let req= axios.create({
 //      baseURL: "axios://127.0.0.1:8080/api",
 //
@@ -36,7 +36,10 @@ class VacancyService {
   create(data) {
     console.log("VacancyService.create");
     console.log(data);
-    return axios.post("/vacancy/", data);
+    let createdVacancy = axios.post("/vacancy/", data);
+    console.log("createdVacancy");
+    console.log(createdVacancy);
+    return createdVacancy;
   }
 
   update(n, data) {
@@ -58,7 +61,7 @@ class VacancyService {
   findByTitle(title) {
     console.log("findByTitle: " + title);
     let critery = {
-        "byName": title
+        "byName": '%' + title + '%'
     }
     let vacancies = axios.post(`/vacancy/find`, critery);
     console.log(vacancies);
