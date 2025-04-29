@@ -62,7 +62,7 @@ describe('VacancyService', () => {
             n: -1,
             title: 'title100',
             description: 'description100',
-            link: 'link100',
+            source: 'source100',
             comment: 'comment',
             company: {
                 n: 10
@@ -82,7 +82,7 @@ describe('VacancyService', () => {
             n: -1,
             title: 'title100',
             description: 'description100',
-            link: 'link100',
+            source: 'source100',
             comment: 'comment',
             company: {
                 n: 10
