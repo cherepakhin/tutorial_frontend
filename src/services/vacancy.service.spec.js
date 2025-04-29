@@ -57,28 +57,54 @@ describe('VacancyService', () => {
     // postStub - mock,stub для http.
     // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
     // И sandbox.stub мокирует именно http requester.
-    const postStub = sandbox.stub(httpMyParam, 'post');
-    const vacancy = "{n: 100}";
+    const putStub = sandbox.stub(httpMyParam, 'put');
+    const newVacancy = {
+            n: -1,
+            title: 'title100',
+            description: 'description100',
+            link: 'link100',
+            comment: 'comment',
+            company: {
+                n: 10
+            }
+        };
+    putStub.onCall(0).returns(newVacancy);
+
     // Тест VacancyService.create
-    VacancyService.create(vacancy);
-    // POST запрос был выполнен с параметром "vacancy"
-    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
+    const createdVacancy = VacancyService.create(newVacancy);
+
+    console.log("createdVacancy");
+    console.log(createdVacancy);
+
+    expect(putStub.calledOnceWith('/vacancy/', newVacancy)).toBe(true);
+
+    const expectedVacancy = {
+            n: -1,
+            title: 'title100',
+            description: 'description100',
+            link: 'link100',
+            comment: 'comment',
+            company: {
+                n: 10
+            }
+        };
+    expect(createdVacancy).toStrictEqual(expectedVacancy);
   });
 
-  it('create /vacancy/ with example fakevacancy', () => {
-    // postStub - mock,stub для http.
-    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
-    // И sandbox.stub мокирует именно http requester.
-    const postStub = sandbox.stub(httpMyParam, 'post');
-    const vacancy = "{n: 100}";
-    // Тест VacancyService.create
-    VacancyService.create(vacancy);
-    // POST запрос был выполнен с параметром "vacancy"
-    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
-
-    // Для примера. С vacancyFake вызовов не было.
-    const vacancyFake = "{n: 1}"
-    expect(postStub.calledOnceWith('/vacancy/', vacancyFake)).toBe(false);
-  });
+//  it('create /vacancy/ with example fakevacancy', () => {
+//    // postStub - mock,stub для http.
+//    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
+//    // И sandbox.stub мокирует именно http requester.
+//    const postStub = sandbox.stub(httpMyParam, 'post');
+//    const vacancy = "{n: 100}";
+//    // Тест VacancyService.create
+//    VacancyService.create(vacancy);
+//    // POST запрос был выполнен с параметром "vacancy"
+//    expect(postStub.calledOnceWith('/vacancy/', vacancy)).toBe(true);
+//
+//    // Для примера. С vacancyFake вызовов не было.
+//    const vacancyFake = "{n: 1}"
+//    expect(postStub.calledOnceWith('/vacancy/', vacancyFake)).toBe(false);
+//  });
 
 });

@@ -33,10 +33,22 @@ class VacancyService {
     return axios.get(`/vacancy/${n}`);
   }
 
-  create(data) {
+  create(vacancy) {
     console.log("VacancyService.create");
-    console.log(data);
-    let createdVacancy = axios.post("/vacancy/", data);
+    console.log(vacancy);
+    console.log("------------------");
+    let newVacancy = {
+        n: -1,
+        title: vacancy.title,
+        description: vacancy.description,
+        link: vacancy.link,
+        comment: vacancy.comment,
+        company: vacancy.company
+    };
+    console.log("VacancyService json for put")
+    console.log(newVacancy);
+
+    let createdVacancy = axios.put("/vacancy/", newVacancy);
     console.log("createdVacancy");
     console.log(createdVacancy);
     return createdVacancy;

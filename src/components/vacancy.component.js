@@ -54,6 +54,17 @@ class Vacancy extends Component {
     }));
   }
 
+  onChangeLink(e) {
+    const link = e.target.value;
+
+    this.setState(prevState => ({
+      currentVacancy: {
+        ...prevState.currentVacancy,
+        link: link
+      }
+    }));
+  }
+
   getVacancy(n) {
     console.log(n);
     VacancyService.get(n)
@@ -157,6 +168,16 @@ class Vacancy extends Component {
                   id="description"
                   value={currentVacancy.description}
                   onChange={this.onChangeDescription}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="link">Link</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="link"
+                  value={currentVacancy.link}
+                  onChange={this.onChangeLink}
                 />
               </div>
 
