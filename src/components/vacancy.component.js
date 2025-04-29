@@ -175,7 +175,7 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="link">Link</label>
+                <label htmlFor="link">Source</label>
                 <input
                   type="text"
                   className="form-control"

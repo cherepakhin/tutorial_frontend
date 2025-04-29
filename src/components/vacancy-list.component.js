@@ -168,7 +168,7 @@ export default class VacancyList extends Component {
               </div>
               <div>
                 <label>
-                  <strong>Link:</strong>
+                  <strong>Source:</strong>
                 </label>{" "}
                 <a href={currentVacancy.source}
                    target="_blank" rel="noopener noreferrer">
