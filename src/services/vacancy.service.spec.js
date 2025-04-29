@@ -45,10 +45,6 @@ describe('VacancyService', () => {
 
     VacancyService.get(2);
 
-    // Проверка
-//    getStub.onCall(0).yields(null, expectedData);
-//    getStub.onCall(0).yields(null, {});
-
     // Проверяется что HTTP запрос /vacancy/2 был вызван
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
