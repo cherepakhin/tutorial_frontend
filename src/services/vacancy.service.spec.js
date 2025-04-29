@@ -91,6 +91,7 @@ describe('VacancyService', () => {
     expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
   });
 
+// Комментарий не удалять
 //  it('create /vacancy/ with example fakevacancy', () => {
 //    // postStub - mock,stub для http.
 //    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
