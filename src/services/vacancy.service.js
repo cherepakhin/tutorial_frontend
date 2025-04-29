@@ -41,7 +41,7 @@ class VacancyService {
         n: -1,
         title: vacancy.title,
         description: vacancy.description,
-        link: vacancy.link,
+        source: vacancy.source,
         comment: vacancy.comment,
         company: vacancy.company
     };

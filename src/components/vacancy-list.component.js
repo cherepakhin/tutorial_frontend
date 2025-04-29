@@ -56,7 +56,7 @@ export default class VacancyList extends Component {
 
   setActiveVacancy(vacancy, index) {
     this.setState({
-      currentVacancy: vacancy,
+      currentVacancy: {...vacancy},
       currentIndex: index
     });
   }
@@ -165,6 +165,14 @@ export default class VacancyList extends Component {
                   <strong>Description:</strong>
                 </label>{" "}
                 {currentVacancy.description}
+              </div>
+              <div>
+                <label>
+                  <strong>Link:</strong>
+                </label>{" "}
+                <a href={currentVacancy.source}
+                   target="_blank" rel="noopener noreferrer">
+                    {currentVacancy.source}</a>
               </div>
               <div>
                 <label>

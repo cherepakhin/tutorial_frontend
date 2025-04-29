@@ -12,12 +12,14 @@ class Vacancy extends Component {
     this.updateSubmitted = this.updateSubmitted.bind(this);
     this.updateVacancy = this.updateVacancy.bind(this);
     this.deleteVacancy = this.deleteVacancy.bind(this);
+    this.onChangeSource = this.onChangeSource.bind(this);
 
     this.state = {
       currentVacancy: {
         n: null,
         name: "",
         description: "",
+        source: "",
         submitted: false
       },
       message: ""
@@ -54,13 +56,14 @@ class Vacancy extends Component {
     }));
   }
 
-  onChangeLink(e) {
-    const link = e.target.value;
+  onChangeSource(e) {
+    console.log(e);
+    const source = e.target.value;
 
     this.setState(prevState => ({
       currentVacancy: {
         ...prevState.currentVacancy,
-        link: link
+        source: source
       }
     }));
   }
@@ -83,6 +86,7 @@ class Vacancy extends Component {
     let data = {
       n: this.state.currentVacancy.n,
       title: this.state.currentVacancy.title,
+      link: this.state.currentVacancy.link,
       description: this.state.currentVacancy.description,
       submitted: status
     };
@@ -176,8 +180,8 @@ class Vacancy extends Component {
                   type="text"
                   className="form-control"
                   id="link"
-                  value={currentVacancy.link}
-                  onChange={this.onChangeLink}
+                  value={currentVacancy.source}
+                  onChange={this.onChangeSource}
                 />
               </div>
 

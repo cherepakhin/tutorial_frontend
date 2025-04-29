@@ -6,15 +6,16 @@ export default class AddVacancy extends Component {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeSource = this.onChangeSource.bind(this);
     this.saveVacancy = this.saveVacancy.bind(this);
     this.newVacancy = this.newVacancy.bind(this);
 
     this.state = {
-      n: null,
+      n: -1,
       title: "",
       description: "", 
       published: false,
-
+      source: "",
       submitted: false
     };
   }
@@ -31,10 +32,19 @@ export default class AddVacancy extends Component {
     });
   }
 
+  onChangeSource(e) {
+    this.setState({
+      source: e.target.value
+    });
+  }
+
   saveVacancy() {
     let data = {
       title: this.state.title,
-      description: this.state.description
+      description: this.state.description,
+      source: this.state.source,
+      published: this.state.published,
+      submitted: this.state.submitted
     };
 
     VacancyService.create(data)
@@ -43,8 +53,8 @@ export default class AddVacancy extends Component {
           n: response.data.n,
           title: response.data.title,
           description: response.data.description,
+          link: response.data.link,
           published: response.data.published,
-
           submitted: true
         });
         console.log(response.data);
@@ -59,8 +69,8 @@ export default class AddVacancy extends Component {
       n: null,
       title: "",
       description: "",
+      link: "",
       published: false,
-
       submitted: false
     });
   }
@@ -100,6 +110,19 @@ export default class AddVacancy extends Component {
                 value={this.state.description}
                 onChange={this.onChangeDescription}
                 name="description"
+              />
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="link">Source</label>
+              <input
+                type="text"
+                className="form-control"
+                id="sourceVacancy"
+                required
+                value={this.state.source}
+                onChange={this.onChangeSource}
+                name="sourceVacancy"
               />
             </div>
 
