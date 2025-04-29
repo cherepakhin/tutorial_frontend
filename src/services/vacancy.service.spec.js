@@ -68,7 +68,17 @@ describe('VacancyService', () => {
                 n: 10
             }
         };
-    putStub.onCall(0).returns(newVacancy);
+    const createdVacancyFromBackend = {
+            n: 100,
+            title: 'title100',
+            description: 'description100',
+            source: 'source100',
+            comment: 'comment',
+            company: {
+                n: 10
+            }
+        };
+    putStub.onCall(0).returns(createdVacancyFromBackend);
 
     // Тест VacancyService.create
     const createdVacancy = VacancyService.create(newVacancy);
@@ -78,17 +88,7 @@ describe('VacancyService', () => {
 
     expect(putStub.calledOnceWith('/vacancy/', newVacancy)).toBe(true);
 
-    const expectedVacancy = {
-            n: -1,
-            title: 'title100',
-            description: 'description100',
-            source: 'source100',
-            comment: 'comment',
-            company: {
-                n: 10
-            }
-        };
-    expect(createdVacancy).toStrictEqual(expectedVacancy);
+    expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
   });
 
 //  it('create /vacancy/ with example fakevacancy', () => {
