@@ -9,12 +9,11 @@ class Vacancy extends Component {
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.getVacancy = this.getVacancy.bind(this);
 
-    this.updateSubmitted = this.updateSubmitted.bind(this);
     this.updateVacancy = this.updateVacancy.bind(this);
     this.deleteVacancy = this.deleteVacancy.bind(this);
     this.onChangeSource = this.onChangeSource.bind(this);
     this.onChangeStatus = this.onChangeStatus.bind(this);
-    this.handleChangeFruit = this.handleChangeFruit.bind(this);
+    this.handleChangeStatus = this.handleChangeStatus.bind(this);
 
     this.state = {
       currentVacancy: {
@@ -22,7 +21,6 @@ class Vacancy extends Component {
         name: "",
         description: "",
         source: "",
-        submitted: false
       },
       message: "",
       fruit: 'coconut'
@@ -85,45 +83,18 @@ class Vacancy extends Component {
       });
   }
 
-  updateSubmitted(status) {
-    console.log(status);
-//    let data = {
-//      n: this.state.currentVacancy.n,
-//      title: this.state.currentVacancy.title,
-//      link: this.state.currentVacancy.link,
-//      description: this.state.currentVacancy.description,
-//      submitted: status
-//    };
-
-//    VacancyService.update(this.state.currentVacancy.n, data)
-//      .then(response => {
-//        console.log(response);
-//        console.log(status);
-//        this.setState(prevState => ({
-//          currentVacancy: {
-//            ...prevState.currentVacancy,
-//            published: status
-//          }
-//        }));
-//        console.log(response.data);
-//      })
-//      .catch(e => {
-//        console.log(e);
-//      });
-//
-//    this.setState(function(newState) {
-//      return {
-//        currentVacancy: {
-//          ...newState.currentVacancy
-//        }
-//      };
-//    });
-
-  }
-
   onChangeStatus(status) {
     console.log("status");
     console.log(status);
+//        const source = e.target.value;
+
+    this.setState(prevState => ({
+      currentVacancy: {
+        ...prevState.currentVacancy,
+        status: status
+      }
+    }));
+
 //    let data = {
 //      n: this.state.currentVacancy.n,
 //      title: this.state.currentVacancy.title,
@@ -174,13 +145,20 @@ class Vacancy extends Component {
       });
   }
 
-  handleChangeFruit(event) {
-    this.setState({
-      fruit: event.target.value
-    });
-    alert('Выбрано: ' + event.target.value);
+  handleChangeStatus(event) {
+//    this.setState({
+//      status: event.target.value
+//    });
+//    alert('Выбрано: ' + event.target.value);
     console.log('Выбрано: ' + event.target.value)
     event.preventDefault();
+    this.setState(prevState => ({
+      currentVacancy: {
+        ...prevState.currentVacancy,
+        status: event.target.value
+      }
+    }));
+
   }
 
   deleteVacancy() {
@@ -235,52 +213,28 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-              <label htmlFor="fruitselect">Выберите ваш любимый вкус:</label>
-                 <select id="fruitselect" className="form-control" value={this.state.fruit} onChange={this.handleChangeFruit}>
-                   <option value="grapefruit">Грейпфрут</option>
-                   <option value="lime">Лайм</option>
-                   <option value="coconut">Кокос</option>
-                   <option value="mango">Манго</option>
+                <label htmlFor="status_select">Status:</label>
+                 <select id="status_select" className="form-control" value={this.state.status} onChange={this.handleChangeStatus}>
+                   <option value="in_work">В работе</option>
+                   <option value="in_plan">Не откликался</option>
+                   <option value="deleted">Удалена</option>
                  </select>
-            </div>
-            <div className="form-group">
-                <label htmlFor="link">Status (bootstrap):</label>
-                <select className="form-control form-select" aria-label="Default select example" onSelect={status => console.log(status)}>
-                  <option>UnSubmitted</option>
-                  <option>Submitted</option>
-                </select>
               </div>
             </form>
 
-            {currentVacancy.submitted ? (
-              <button
-                className="btn btn-primary mr-2"
-                onClick={() => this.updateSubmitted(false)}
-              >
-                UnSubmit
-              </button>
-            ) : (
-              <button
-                className="btn btn-primary mr-2"
-                onClick={() => this.updateSubmitted(true)}
-              >
-                Submit
-              </button>
-            )}
-
             <button
-              className="btn btn-danger mr-2"
+              className="btn btn-danger mr-2 w-40"
               onClick={this.deleteVacancy}
             >
-              Delete
+              Удалить
             </button>
 
             <button
               type="submit"
-              className="btn btn-warning"
+              className="btn btn-primary w-40"
               onClick={this.updateVacancy}
             >
-              Update
+              Сохранить
             </button>
             <p>{this.state.message}</p>
           </div>
