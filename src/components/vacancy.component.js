@@ -223,15 +223,15 @@ class Vacancy extends Component {
             </form>
             <div className="btn-toolbar">
                 <button
-                  className="btn btn-danger mr-2"
+                  className="btn btn-danger mr-2 btn-7em"
                   onClick={this.deleteVacancy}
                 >
-                  &nbsp;Удалить&nbsp;
+                  Удалить
                 </button>
 
                 <button
                   type="submit"
-                  className="btn btn-primary"
+                  className="btn btn-primary btn-7em"
                   onClick={this.updateVacancy}
                 >
                   Сохранить
