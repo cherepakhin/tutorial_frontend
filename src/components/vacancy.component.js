@@ -221,21 +221,22 @@ class Vacancy extends Component {
                  </select>
               </div>
             </form>
+            <div className="btn-toolbar">
+                <button
+                  className="btn btn-danger mr-2"
+                  onClick={this.deleteVacancy}
+                >
+                  &nbsp;Удалить&nbsp;
+                </button>
 
-            <button
-              className="btn btn-danger mr-2 w-40"
-              onClick={this.deleteVacancy}
-            >
-              Удалить
-            </button>
-
-            <button
-              type="submit"
-              className="btn btn-primary w-40"
-              onClick={this.updateVacancy}
-            >
-              Сохранить
-            </button>
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={this.updateVacancy}
+                >
+                  Сохранить
+                </button>
+            </div>
             <p>{this.state.message}</p>
           </div>
         ) : (
