@@ -175,11 +175,12 @@ class Vacancy extends Component {
   }
 
   handleChangeFruit(event) {
-        this.setState({
-          fruit: event.target.value
-        });
-      alert('Ваш любимый вкус: ' + event.target.value);
-      event.preventDefault();
+    this.setState({
+      fruit: event.target.value
+    });
+    alert('Выбрано: ' + event.target.value);
+    console.log('Выбрано: ' + event.target.value)
+    event.preventDefault();
   }
 
   deleteVacancy() {
@@ -233,18 +234,16 @@ class Vacancy extends Component {
                   onChange={this.onChangeSource}
                 />
               </div>
-
-                      <label>
-                        Выберите ваш любимый вкус:
-                        <select value={this.state.fruit} onChange={this.handleChangeFruit}>
-                          <option value="grapefruit">Грейпфрут</option>
-                          <option value="lime">Лайм</option>
-                          <option value="coconut">Кокос</option>
-                          <option value="mango">Манго</option>
-                        </select>
-                      </label>
-
               <div className="form-group">
+              <label htmlFor="fruitselect">Выберите ваш любимый вкус:</label>
+                 <select id="fruitselect" className="form-control" value={this.state.fruit} onChange={this.handleChangeFruit}>
+                   <option value="grapefruit">Грейпфрут</option>
+                   <option value="lime">Лайм</option>
+                   <option value="coconut">Кокос</option>
+                   <option value="mango">Манго</option>
+                 </select>
+            </div>
+            <div className="form-group">
                 <label htmlFor="link">Status (bootstrap):</label>
                 <select className="form-control form-select" aria-label="Default select example" onSelect={status => console.log(status)}>
                   <option>UnSubmitted</option>
