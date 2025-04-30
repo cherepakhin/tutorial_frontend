@@ -138,12 +138,9 @@ export default class VacancyList extends Component {
               ))}
           </ul>
 
-          <button
-            className="ml-0 mt-2 btn btn-danger"
-            onClick={this.removeAllVacancies}
-          >
-            Remove All
-          </button>
+          <Link to={"/add"} className="ml-0 mt-2 btn btn-danger btn-7em">
+            Добавить
+          </Link>
         </div>
         <div className="col-md-6">
           {currentVacancy ? (
@@ -184,7 +181,7 @@ export default class VacancyList extends Component {
 
               <Link
                 to={"/vacancies/" + currentVacancy.n}
-                className="m-0 btn btn-warning"
+                className="btn btn-warning btn-7em"
               >
                 Edit
               </Link>
