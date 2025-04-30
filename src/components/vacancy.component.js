@@ -13,6 +13,7 @@ class Vacancy extends Component {
     this.updateVacancy = this.updateVacancy.bind(this);
     this.deleteVacancy = this.deleteVacancy.bind(this);
     this.onChangeSource = this.onChangeSource.bind(this);
+    this.onChangeStatus = this.onChangeStatus.bind(this);
 
     this.state = {
       currentVacancy: {
@@ -114,6 +115,42 @@ class Vacancy extends Component {
         }
       };
     });
+
+  }
+
+  onChangeStatus(status) {
+    console.log(status);
+//    let data = {
+//      n: this.state.currentVacancy.n,
+//      title: this.state.currentVacancy.title,
+//      link: this.state.currentVacancy.link,
+//      description: this.state.currentVacancy.description,
+//      submitted: status
+//    };
+
+//    VacancyService.update(this.state.currentVacancy.n, data)
+//      .then(response => {
+//        console.log(response);
+//        console.log(status);
+//        this.setState(prevState => ({
+//          currentVacancy: {
+//            ...prevState.currentVacancy,
+//            published: status
+//          }
+//        }));
+//        console.log(response.data);
+//      })
+//      .catch(e => {
+//        console.log(e);
+//      });
+//
+//    this.setState(function(newState) {
+//      return {
+//        currentVacancy: {
+//          ...newState.currentVacancy
+//        }
+//      };
+//    });
 
   }
 

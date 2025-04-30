@@ -101,6 +101,7 @@ export default class VacancyList extends Component {
         <div className="col-md-8">
           <div className="input-group mb-3">
             <input
+              id="input-search-by-name"
               type="text"
               className="form-control"
               placeholder="Search by name"
@@ -178,7 +179,7 @@ export default class VacancyList extends Component {
                 <label>
                   <strong>Status:</strong>
                 </label>{" "}
-                {currentVacancy.submitted ? "Submitted" : "Not submitted"}
+                {currentVacancy.status}
               </div>
 
               <Link
