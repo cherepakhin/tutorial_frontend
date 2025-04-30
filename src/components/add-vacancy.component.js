@@ -88,7 +88,7 @@ export default class AddVacancy extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Title</label>
+              <label htmlFor="title">Вакансия</label>
               <input
                 type="text"
                 className="form-control"
@@ -101,7 +101,7 @@ export default class AddVacancy extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="description">Описание</label>
               <input
                 type="text"
                 className="form-control"
@@ -114,7 +114,7 @@ export default class AddVacancy extends Component {
             </div>
 
             <div className="form-group">
-              <label htmlFor="link">Source</label>
+              <label htmlFor="link">Источник</label>
               <input
                 type="text"
                 className="form-control"
@@ -127,7 +127,7 @@ export default class AddVacancy extends Component {
             </div>
 
             <button onClick={this.saveVacancy} className="btn btn-success">
-              Submit
+              Сохранить
             </button>
           </div>
         )}

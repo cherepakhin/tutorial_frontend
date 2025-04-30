@@ -16,12 +16,12 @@ function App() {
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/vacancy"} className="nav-link">
-                VacancyList
+                Список вакансий
               </Link>
             </li>
             <li className="nav-item">
               <Link to={"/add"} className="nav-link">
-                Add
+                Добавить
               </Link>
             </li>
           </div>

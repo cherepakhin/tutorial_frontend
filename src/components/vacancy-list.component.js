@@ -93,6 +93,12 @@ export default class VacancyList extends Component {
       });
   }
 
+  translateStatus(status) {
+      if(status === 'in_plan') { return "В работе"; }
+      if(status === 'deleted') { return "Удалена"; }
+      return status;
+  }
+
   render() {
     const { searchName, vacancies, currentVacancy, currentIndex } = this.state;
 
@@ -104,7 +110,7 @@ export default class VacancyList extends Component {
               id="input-search-by-name"
               type="text"
               className="form-control"
-              placeholder="Search by name"
+              placeholder="Найти по названию"
               value={searchName}
               onChange={this.onChangeSearchName}
             />
@@ -114,13 +120,13 @@ export default class VacancyList extends Component {
                 type="button"
                 onClick={this.searchName}
               >
-                Search
+                Найти
               </button>
             </div>
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Vacancies List</h4>
+          <h4>Список вакансий</h4>
 
           <ul className="list-group">
             {vacancies &&
@@ -145,7 +151,7 @@ export default class VacancyList extends Component {
         <div className="col-md-6">
           {currentVacancy ? (
             <div>
-              <h4>Vacancy</h4>
+              <h4>Описание</h4>
               <div>
                 <label>
                   <strong>N:</strong>
@@ -154,19 +160,19 @@ export default class VacancyList extends Component {
               </div>
               <div>
                 <label>
-                  <strong>Title:</strong>
+                  <strong>Название:</strong>
                 </label>{" "}
                 {currentVacancy.title}
               </div>
               <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>Описание:</strong>
                 </label>{" "}
                 {currentVacancy.description}
               </div>
               <div>
                 <label>
-                  <strong>Source:</strong>
+                  <strong>Источник:</strong>
                 </label>{" "}
                 <a href={currentVacancy.source}
                    target="_blank" rel="noopener noreferrer">
@@ -174,22 +180,22 @@ export default class VacancyList extends Component {
               </div>
               <div>
                 <label>
-                  <strong>Status:</strong>
+                  <strong>Статус:</strong>
                 </label>{" "}
-                {currentVacancy.status}
+                {this.translateStatus(currentVacancy.status)}
               </div>
 
               <Link
                 to={"/vacancies/" + currentVacancy.n}
                 className="btn btn-warning btn-7em"
               >
-                Edit
+                Изменить
               </Link>
             </div>
           ) : (
             <div>
               <br />
-              <p>Please click on a Vacancy...</p>
+              <p>Нажми на вакансию...</p>
             </div>
           )}
         </div>

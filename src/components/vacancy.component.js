@@ -137,7 +137,7 @@ class Vacancy extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({
-          message: "The tutorial was updated successfully!"
+          message: "Обновлено."
         });
       })
       .catch(e => {
@@ -180,10 +180,10 @@ class Vacancy extends Component {
       <div>
         {currentVacancy ? (
           <div className="edit-form">
-            <h4>Vacancy</h4>
+            <h4>Описание вакансии</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="title">Title</label>
+                <label htmlFor="title">Название</label>
                 <input
                   type="text"
                   className="form-control"
@@ -193,7 +193,7 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">Описание</label>
                 <input
                   type="text"
                   className="form-control"
@@ -203,7 +203,7 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="link">Source</label>
+                <label htmlFor="link">Источник</label>
                 <input
                   type="text"
                   className="form-control"
@@ -213,7 +213,7 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="status_select">Status:</label>
+                <label htmlFor="status_select">Состояние:</label>
                  <select id="status_select" className="form-control" value={this.state.status} onChange={this.handleChangeStatus}>
                    <option value="in_work">В работе</option>
                    <option value="in_plan">Не откликался</option>
@@ -242,7 +242,7 @@ class Vacancy extends Component {
         ) : (
           <div>
             <br />
-            <p>Please click on a Vacancy...</p>
+            <p>Выбери вакансию...</p>
           </div>
         )}
       </div>
