@@ -237,7 +237,7 @@ class Vacancy extends Component {
                   Сохранить
                 </button>
             </div>
-            <p>{this.state.message}</p>
+            <div className="mt-2">{this.state.message}</div>
           </div>
         ) : (
           <div>
