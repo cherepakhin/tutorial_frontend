@@ -10,9 +10,7 @@ function App() {
   return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/vacancy"} className="navbar-brand">
-            Home
-          </Link>
+
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/vacancy"} className="nav-link">
