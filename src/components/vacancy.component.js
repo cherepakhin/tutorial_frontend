@@ -14,6 +14,7 @@ class Vacancy extends Component {
     this.deleteVacancy = this.deleteVacancy.bind(this);
     this.onChangeSource = this.onChangeSource.bind(this);
     this.onChangeStatus = this.onChangeStatus.bind(this);
+    this.handleChangeFruit = this.handleChangeFruit.bind(this);
 
     this.state = {
       currentVacancy: {
@@ -23,7 +24,8 @@ class Vacancy extends Component {
         source: "",
         submitted: false
       },
-      message: ""
+      message: "",
+      fruit: 'coconut'
     };
   }
 
@@ -84,41 +86,43 @@ class Vacancy extends Component {
   }
 
   updateSubmitted(status) {
-    let data = {
-      n: this.state.currentVacancy.n,
-      title: this.state.currentVacancy.title,
-      link: this.state.currentVacancy.link,
-      description: this.state.currentVacancy.description,
-      submitted: status
-    };
+    console.log(status);
+//    let data = {
+//      n: this.state.currentVacancy.n,
+//      title: this.state.currentVacancy.title,
+//      link: this.state.currentVacancy.link,
+//      description: this.state.currentVacancy.description,
+//      submitted: status
+//    };
 
-    VacancyService.update(this.state.currentVacancy.n, data)
-      .then(response => {
-        console.log(response);
-        console.log(status);
-        this.setState(prevState => ({
-          currentVacancy: {
-            ...prevState.currentVacancy,
-            published: status
-          }
-        }));
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-
-    this.setState(function(newState) {
-      return {
-        currentVacancy: {
-          ...newState.currentVacancy
-        }
-      };
-    });
+//    VacancyService.update(this.state.currentVacancy.n, data)
+//      .then(response => {
+//        console.log(response);
+//        console.log(status);
+//        this.setState(prevState => ({
+//          currentVacancy: {
+//            ...prevState.currentVacancy,
+//            published: status
+//          }
+//        }));
+//        console.log(response.data);
+//      })
+//      .catch(e => {
+//        console.log(e);
+//      });
+//
+//    this.setState(function(newState) {
+//      return {
+//        currentVacancy: {
+//          ...newState.currentVacancy
+//        }
+//      };
+//    });
 
   }
 
   onChangeStatus(status) {
+    console.log("status");
     console.log(status);
 //    let data = {
 //      n: this.state.currentVacancy.n,
@@ -170,7 +174,15 @@ class Vacancy extends Component {
       });
   }
 
-  deleteVacancy() {    
+  handleChangeFruit(event) {
+        this.setState({
+          fruit: event.target.value
+        });
+      alert('Ваш любимый вкус: ' + event.target.value);
+      event.preventDefault();
+  }
+
+  deleteVacancy() {
     VacancyService.delete(this.state.currentVacancy.n)
       .then(response => {
         console.log(response.data);
@@ -222,11 +234,22 @@ class Vacancy extends Component {
                 />
               </div>
 
+                      <label>
+                        Выберите ваш любимый вкус:
+                        <select value={this.state.fruit} onChange={this.handleChangeFruit}>
+                          <option value="grapefruit">Грейпфрут</option>
+                          <option value="lime">Лайм</option>
+                          <option value="coconut">Кокос</option>
+                          <option value="mango">Манго</option>
+                        </select>
+                      </label>
+
               <div className="form-group">
-                <label>
-                  <strong>Status:&nbsp;&nbsp;</strong>
-                </label>
-                {currentVacancy.submitted ? "Submitted" : "UnSubmitted"}
+                <label htmlFor="link">Status (bootstrap):</label>
+                <select className="form-control form-select" aria-label="Default select example" onSelect={status => console.log(status)}>
+                  <option>UnSubmitted</option>
+                  <option>Submitted</option>
+                </select>
               </div>
             </form>
 
