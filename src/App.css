@@ -26,3 +26,7 @@
 .btn-7em {
     width: 7em;
 }
+
+.btn {
+    border-radius: 0rem;
+ }
