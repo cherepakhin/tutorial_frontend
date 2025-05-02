@@ -13,6 +13,7 @@ class Vacancy extends Component {
     this.deleteVacancy = this.deleteVacancy.bind(this);
     this.onChangeSource = this.onChangeSource.bind(this);
     this.onChangeStatus = this.onChangeStatus.bind(this);
+    this.goBack = this.goBack.bind(this);
     this.handleChangeStatus = this.handleChangeStatus.bind(this);
 
     this.state = {
@@ -173,6 +174,11 @@ class Vacancy extends Component {
       });
   }
 
+  goBack() {
+    console.log("goBack");
+    this.props.router.navigate('/vacancy');
+  }
+
   render() {
     const { currentVacancy } = this.state;
 
@@ -223,7 +229,7 @@ class Vacancy extends Component {
             </form>
             <div className="btn-toolbar">
                 <button
-                  className="btn btn-danger mr-2 btn-7em"
+                  className="btn btn-danger btn-7em text-center"
                   onClick={this.deleteVacancy}
                 >
                   Удалить
@@ -231,10 +237,18 @@ class Vacancy extends Component {
 
                 <button
                   type="submit"
-                  className="btn btn-primary btn-7em"
+                  className="btn btn-primary btn-7em text-center pad1px margin1px"
                   onClick={this.updateVacancy}
                 >
                   Сохранить
+                </button>
+
+                <button
+                  type="submit"
+                  className="btn btn-warning btn-7em text-center"
+                  onClick={this.goBack}
+                >
+                  Вернуться
                 </button>
             </div>
             <div className="mt-2">{this.state.message}</div>

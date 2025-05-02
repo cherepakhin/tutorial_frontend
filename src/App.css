@@ -10,7 +10,7 @@
 }
 
 .edit-form {
-  max-width: 300px;
+  max-width: 400px;
   margin: 10px;
 }
 
@@ -24,9 +24,27 @@
 }
 
 .btn-7em {
-    width: 7em;
+    width: 8em;
+}
+
+.btn-8em {
+    width: 8em;
+}
+
+.btn-6em {
+    width: 6em;
 }
 
 .btn {
     border-radius: 0rem;
  }
+
+.pad1px {
+    padding-right: 1em;
+    padding-left: 1em;
+}
+
+.margin1px {
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+}

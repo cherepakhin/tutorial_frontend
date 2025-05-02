@@ -188,7 +188,7 @@ export default axios.create({
 ````shell
   "scripts": {
     ....
-    "build": "PUBLIC_URL=/tutorials react-scripts build",
+    "build": "PUBLIC_URL=/vacancy react-scripts build",
     ....
 }
 ````
