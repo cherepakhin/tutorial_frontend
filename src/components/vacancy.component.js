@@ -157,6 +157,7 @@ class Vacancy extends Component {
       });
     console.log("isChangedVacancy:" + this.isChangedVacancy);
     this.isChangedVacancy = false;
+    this.goBack();
     console.log("isChangedVacancy:" + this.isChangedVacancy);
   }
 
@@ -182,7 +183,8 @@ class Vacancy extends Component {
       .then(response => {
         console.log(response.data);
         // Переход на страницу со списком
-        this.props.router.navigate('/vacancy');
+        // this.props.router.navigate('/vacancy');
+        this.goBack();
       })
       .catch(e => {
         console.log(e);
