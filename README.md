@@ -98,9 +98,6 @@ Open [http://localhost:8081](http://localhost:8081) to view it in the browser.
 
 The page will reload if you make edits.
 
-Test
-
-yarn add --dev enzyme enzyme-adapter-react-16
 
 ````shell
 yarn add --dev sinon
@@ -214,3 +211,9 @@ deleteVacancy() {
 }
 
 ````
+
+[Enzyme больше не поддерживается. нужно использовать react-testing-library] (https://habr.com/ru/companies/ruvds/articles/353076/)
+
+"react-testing-library, в которой он видит простой инструмент, способный заменить enzyme"
+
+[A Guide To Testing React Components With Jest And React Testing Library](https://keploy.io/blog/community/a-guide-to-testing-react-components-with-jest-and-react-testing-library)
