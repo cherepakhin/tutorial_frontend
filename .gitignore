@@ -23,3 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 .gigaide/
 .idea/
+yarn.lock
+package-lock.json
