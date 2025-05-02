@@ -14,7 +14,7 @@ describe('VacancyService', () => {
     sandbox.restore();
   });
 
-  it('http.get /vacancy/1', () => {
+  test('http.get /vacancy/1', () => {
     // Создание stub для http запросов
     // МОКИРУЕТСЯ только HTTP запрос GET с параметрами запроса (адрес, cors) httpMyParam
     // из 'http-common'
@@ -34,13 +34,13 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
   });
 
-  it('http.get /vacancy/', async () => {
+  test('http.get /vacancy/', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.getAll();
     expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
   });
 
-  it('should get a vacancy by id', async () => {
+  test('should get a vacancy by id', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
 
     VacancyService.get(2);
@@ -49,7 +49,7 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
-  it('create /vacancy/', () => {
+  test('create /vacancy/', () => {
     // postStub - mock,stub для http.
     // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
     // И sandbox.stub мокирует именно http requester.
@@ -88,7 +88,7 @@ describe('VacancyService', () => {
   });
 
 // Комментарий не удалять
-//  it('create /vacancy/ with example fakevacancy', () => {
+//  test('create /vacancy/ with example fakevacancy', () => {
 //    // postStub - mock,stub для http.
 //    // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
 //    // И sandbox.stub мокирует именно http requester.
