@@ -14,6 +14,7 @@ class Vacancy extends Component {
     this.onChangeSource = this.onChangeSource.bind(this);
     this.onChangeStatus = this.onChangeStatus.bind(this);
     this.goBack = this.goBack.bind(this);
+    this.setChanged = this.setChanged.bind(this);
     this.handleChangeStatus = this.handleChangeStatus.bind(this);
 
     this.state = {
@@ -24,8 +25,8 @@ class Vacancy extends Component {
         source: "",
       },
       message: "",
-      fruit: 'coconut'
-    };
+      changedVacancy: false
+    }
   }
 
   componentDidMount() {
@@ -33,10 +34,16 @@ class Vacancy extends Component {
     this.getVacancy(this.props.router.params.n);
   }
 
+  setChanged() {
+    console.log("setChanged");
+    this.isChangedVacancy = true;
+    console.log("isChangedVacancy:" + this.isChangedVacancy);
+  }
+
   onChangeTitle(e) {
     console.log(e.target.value);
     const name = e.target.value;
-
+    this.setChanged();
     this.setState(function(prevState) {
       return {
         currentVacancy: {
@@ -49,7 +56,8 @@ class Vacancy extends Component {
 
   onChangeDescription(e) {
     const description = e.target.value;
-    
+    this.setChanged();
+
     this.setState(prevState => ({
       currentVacancy: {
         ...prevState.currentVacancy,
@@ -61,6 +69,7 @@ class Vacancy extends Component {
   onChangeSource(e) {
     console.log(e);
     const source = e.target.value;
+    this.setChanged();
 
     this.setState(prevState => ({
       currentVacancy: {
@@ -72,6 +81,7 @@ class Vacancy extends Component {
 
   getVacancy(n) {
     console.log(n);
+    this.isChangedVacancy=false;
     VacancyService.get(n)
       .then(response => {
         this.setState({
@@ -87,6 +97,7 @@ class Vacancy extends Component {
   onChangeStatus(status) {
     console.log("status");
     console.log(status);
+    this.setChanged();
 //        const source = e.target.value;
 
     this.setState(prevState => ({
@@ -144,6 +155,9 @@ class Vacancy extends Component {
       .catch(e => {
         console.log(e);
       });
+    console.log("isChangedVacancy:" + this.isChangedVacancy);
+    this.isChangedVacancy = false;
+    console.log("isChangedVacancy:" + this.isChangedVacancy);
   }
 
   handleChangeStatus(event) {
@@ -152,6 +166,7 @@ class Vacancy extends Component {
 //    });
 //    alert('Выбрано: ' + event.target.value);
     console.log('Выбрано: ' + event.target.value)
+    this.setChanged();
     event.preventDefault();
     this.setState(prevState => ({
       currentVacancy: {
@@ -176,6 +191,7 @@ class Vacancy extends Component {
 
   goBack() {
     console.log("goBack");
+    console.log("isChangedVacancy:" + this.isChangedVacancy);
     this.props.router.navigate('/vacancy');
   }
 
