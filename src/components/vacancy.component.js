@@ -206,10 +206,10 @@ class Vacancy extends Component {
       <div>
         {currentVacancy ? (
           <div id="edit-form" className="edit-form">
-            <h4 data-testid="title">Описание вакансии</h4>
+            <h4 id="id_title" data-testid="title">Описание вакансии</h4>
             <form>
               <div className="form-group">
-                <label htmlFor="title">Название</label>
+                <label id="id_title_label" htmlFor="title">Название</label>
                 <input
                   type="text"
                   className="form-control"
@@ -283,5 +283,9 @@ class Vacancy extends Component {
     );
   }
 }
-export {Vacancy};
+
+export {
+    Vacancy as VacancyForTest
+};
+
 export default withRouter(Vacancy);
