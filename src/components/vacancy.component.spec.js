@@ -32,8 +32,8 @@ describe('Try react-testing-library', () => {
     expect(title).toBeInTheDocument();
 
     const titleById = result.container.querySelector('#id_title_label');
-//    const titleById = getById("#id_title_label");
     expect(titleById).toBeInTheDocument();
+    expect(titleById.textContent).toBe("Название");
   });
 
 //  test('test title (render.querySelector)', () => {
