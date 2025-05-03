@@ -8,7 +8,7 @@ import axiosMock from 'axios'
 import { VacancyForTest, Vacancy } from "./vacancy.component";
 
 
-describe('Try react-testing-library', () => {
+describe('tests vacancy.component', () => {
   test('individual test', () => {
     expect(1).toBe(1);
     expect("value").toEqual("value");
@@ -75,6 +75,7 @@ describe('Try react-testing-library', () => {
     expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center");
   });
 
+// этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js
   test('button BACK check LABEL', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
@@ -84,13 +85,14 @@ describe('Try react-testing-library', () => {
     expect(btnReturn).toHaveTextContent("Вернуться");
   });
 
-  test('input for LINK in component', () => {
-    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
-    const vacancyComponent = render(<VacancyForTest {...router}/>);
-
-    const btnReturn = vacancyComponent.container.querySelector('#vacancy_link');
-    expect(btnReturn).toBeInTheDocument();
-  });
+// этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js
+//  test('input for LINK in component', () => {
+//    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+//    const vacancyComponent = render(<VacancyForTest {...router}/>);
+//
+//    const btnReturn = vacancyComponent.container.querySelector('#vacancy_link');
+//    expect(btnReturn).toBeInTheDocument();
+//  });
 });
 
 
