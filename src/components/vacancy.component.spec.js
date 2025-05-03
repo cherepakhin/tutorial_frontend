@@ -26,12 +26,14 @@ describe('Try react-testing-library', () => {
 //    let vacancy = {n: "N", name: "NAME", description: "DESCRIPTION", source: "SOURCE"};
 //    let prms = {params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}};
     let router = {router:{params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-      const {
-        getByText
-      } = render(<VacancyForTest {...router}/>);
+      const result = render(<VacancyForTest {...router}/>);
 
-    const title=getByText("Название");
+    const title = result.getByText("Название");
     expect(title).toBeInTheDocument();
+
+    const titleById = result.container.querySelector('#id_title_label');
+//    const titleById = getById("#id_title_label");
+    expect(titleById).toBeInTheDocument();
   });
 
 //  test('test title (render.querySelector)', () => {
