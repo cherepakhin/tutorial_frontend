@@ -10,7 +10,7 @@ import { VacancyForTest, Vacancy } from "./vacancy.component";
 
 describe('tests vacancy.component FOR REACT 17', () => {
   test('input for LINK in component (React17)', () => {
-    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
 //    const container = document.getElementById('root');
 //    const root = createRoot(container);
@@ -22,7 +22,7 @@ describe('tests vacancy.component FOR REACT 17', () => {
   });
 
   test('find by text (React17)', () => {
-    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     render(<VacancyForTest {...router}/>);
 
@@ -30,11 +30,35 @@ describe('tests vacancy.component FOR REACT 17', () => {
   });
 
   test('find by ID (React17)', () => {
-    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...router}/>);
 
     const title = result.container.querySelector('#id_title');
     expect(title).toBeInTheDocument();
+    expect(title.textContent).toEqual('Описание вакансии');
+  });
+
+  test('find label by ID (React17)', () => {
+    let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+
+    let result = render(<VacancyForTest {...router}/>);
+
+    const title = result.container.querySelector('#id_title_label');
+    expect(title).toBeInTheDocument();
+    expect(title.textContent).toEqual('Название');
+  });
+
+  test('input with id=#description (React17)', () => {
+    let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+
+    let result = render(<VacancyForTest {...params}/>);
+
+    const description = result.container.querySelector('#description');
+    expect(description).toBeInTheDocument();
+    expect(description).toHaveAttribute('id', "description");
+    expect(description).toHaveAttribute('class', "form-control");
+    expect(description).toHaveAttribute('type', "text");
+    expect(description).toHaveAttribute('value', "");
   });
 });
