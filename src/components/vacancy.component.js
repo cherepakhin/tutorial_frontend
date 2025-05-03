@@ -4,6 +4,7 @@ import { withRouter } from '../common/with-router';
 
 class Vacancy extends Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -30,6 +31,7 @@ class Vacancy extends Component {
   }
 
   componentDidMount() {
+    console.log("componentDidMount");
     console.log(this.props);
     this.getVacancy(this.props.router.params.n);
   }
@@ -203,8 +205,8 @@ class Vacancy extends Component {
     return (
       <div>
         {currentVacancy ? (
-          <div className="edit-form">
-            <h4>Описание вакансии</h4>
+          <div id="edit-form" className="edit-form">
+            <h4 data-testid="title">Описание вакансии</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="title">Название</label>

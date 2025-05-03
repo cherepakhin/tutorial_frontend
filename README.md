@@ -217,3 +217,10 @@ deleteVacancy() {
 "react-testing-library, в которой он видит простой инструмент, способный заменить enzyme"
 
 [A Guide To Testing React Components With Jest And React Testing Library](https://keploy.io/blog/community/a-guide-to-testing-react-components-with-jest-and-react-testing-library)
+
+[React: тестируем компоненты с помощью Jest и Testing Library](https://habr.com/ru/companies/timeweb/articles/670480/)
+
+https://blog.logrocket.com/testing-react-apps-jest-react-testing-library/
+
+~/prog/js/jest-testing
+
