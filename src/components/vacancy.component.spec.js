@@ -23,18 +23,18 @@ describe('Try react-testing-library', () => {
   });
 
   test('test title (render.getByText)', () => {
-    let router = {router:{params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const title_label = result.getByText("Название");
+    const title_label = vacancyComponent.getByText("Название");
     expect(title_label).toBeInTheDocument();
   });
 
   test('test title by id', () => {
-    let router = {router:{params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const titleById = result.container.querySelector('#id_title_label');
+    const titleById = vacancyComponent.container.querySelector('#id_title_label');
     expect(titleById).toBeInTheDocument();
     expect(titleById.textContent).toBe("Название");
   });
@@ -49,45 +49,45 @@ describe('Try react-testing-library', () => {
 
 
   test('test title (render.getByText)', () => {
-    let router = {router:{params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const title_label = result.getByText("Название");
+    const title_label = vacancyComponent.getByText("Название");
     expect(title_label).toBeInTheDocument();
   });
 
   test('test title querySelector by ID', () => {
-    let router = {router:{params: {n: "100", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const titleById = result.container.querySelector('#id_title_label');
+    const titleById = vacancyComponent.container.querySelector('#id_title_label');
     expect(titleById).toBeInTheDocument();
     expect(titleById.textContent).toBe("Название");
   });
 
   test('test INPUT for title querySelector by ID', () => {
-    let router = {router:{params: {n: "1", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const titleInput = result.container.querySelector('#title');
+    const titleInput = vacancyComponent.container.querySelector('#title');
     expect(titleInput).toBeInTheDocument();
     expect(titleInput.value).toBe("");
   });
 
   test('button BACK check CLASS', () => {
-    let router = {router:{params: {n: "1", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const btnReturn = result.container.querySelector('#id_btn_return');
+    const btnReturn = vacancyComponent.container.querySelector('#id_btn_return');
     expect(btnReturn).toBeInTheDocument();
     expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center");
   });
 
   test('button BACK check LABEL', () => {
-    let router = {router:{params: {n: "1", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
-    const result = render(<VacancyForTest {...router}/>);
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
 
-    const btnReturn = result.container.querySelector('#id_btn_return');
+    const btnReturn = vacancyComponent.container.querySelector('#id_btn_return');
     expect(btnReturn).toBeInTheDocument();
     expect(btnReturn).toHaveTextContent("Вернуться");
   });

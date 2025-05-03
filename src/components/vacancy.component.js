@@ -257,6 +257,7 @@ class Vacancy extends Component {
 
                 <button
                   type="submit"
+                  id="id_btn_submit"
                   className="btn btn-primary btn-7em text-center pad1px margin1px"
                   onClick={this.updateVacancy}
                 >
