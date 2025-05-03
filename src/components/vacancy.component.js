@@ -265,6 +265,7 @@ class Vacancy extends Component {
 
                 <button
                   type="submit"
+                  id="id_btn_return"
                   className="btn btn-warning btn-7em text-center"
                   onClick={this.goBack}
                 >
