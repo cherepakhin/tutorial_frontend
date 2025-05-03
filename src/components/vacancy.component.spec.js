@@ -83,6 +83,15 @@ describe('Try react-testing-library', () => {
     expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center");
   });
 
+  test('button BACK check LABEL', () => {
+    let router = {router:{params: {n: "1", name: "NAME_100", description: "DESCRIPTION_100", source: "SOURCE_100"}}};
+    const result = render(<VacancyForTest {...router}/>);
+
+    const btnReturn = result.container.querySelector('#id_btn_return');
+    expect(btnReturn).toBeInTheDocument();
+    expect(btnReturn).toHaveTextContent("Вернуться");
+  });
+
 });
 
 
