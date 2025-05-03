@@ -40,14 +40,6 @@ describe('Try react-testing-library', () => {
   });
 
 
-//    const titleById = result.container.querySelector('#id_title_label');
-//    expect(titleById).toBeInTheDocument();
-//    expect(titleById.textContent).toBe("Название");
-//
-//    const titleInput = result.container.querySelector('#title');
-//    expect(titleInput).toBeInTheDocument();
-
-
   test('test title (render.getByText)', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
@@ -92,6 +84,13 @@ describe('Try react-testing-library', () => {
     expect(btnReturn).toHaveTextContent("Вернуться");
   });
 
+  test('input for LINK in component', () => {
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
+
+    const btnReturn = vacancyComponent.container.querySelector('#vacancy_link');
+    expect(btnReturn).toBeInTheDocument();
+  });
 });
 
 

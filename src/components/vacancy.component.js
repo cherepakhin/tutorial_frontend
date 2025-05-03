@@ -36,6 +36,21 @@ class Vacancy extends Component {
     this.getVacancy(this.props.router.params.n);
   }
 
+  getVacancy(n) {
+    console.log(n);
+    this.isChangedVacancy=false;
+    VacancyService.get(n)
+      .then(response => {
+        this.setState({
+          currentVacancy: response.data
+        });
+//        console.log(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+
   setChanged() {
     console.log("setChanged");
     this.isChangedVacancy = true;
@@ -79,21 +94,6 @@ class Vacancy extends Component {
         source: source
       }
     }));
-  }
-
-  getVacancy(n) {
-    console.log(n);
-    this.isChangedVacancy=false;
-    VacancyService.get(n)
-      .then(response => {
-        this.setState({
-          currentVacancy: response.data
-        });
-//        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
   }
 
   onChangeStatus(status) {
@@ -233,7 +233,7 @@ class Vacancy extends Component {
                 <input
                   type="text"
                   className="form-control"
-                  id="link"
+                  id="vacancy_link"
                   value={currentVacancy.source}
                   onChange={this.onChangeSource}
                 />
