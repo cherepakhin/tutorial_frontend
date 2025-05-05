@@ -201,7 +201,7 @@ class Vacancy extends Component {
 
   render() {
     const { currentVacancy } = this.state;
-
+    console.log(currentVacancy);
     return (
       <div>
         {currentVacancy ? (
