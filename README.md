@@ -4,7 +4,37 @@
 
 Заготовка для React проекта.
 
-В проекте НЕ ИСПОЛЬЗУЕТСЯ Redux. Компоненты напрямую вызывают backend.
+В проекте НЕ ИСПОЛЬЗУЕТСЯ Redux. Компоненты напрямую вызывают backend (vacancy.service.js). Пример:
+
+````shell
+class Vacancy extends Component {
+  ...
+  getVacancy(n) {
+    console.log(n);
+    this.isChangedVacancy=false;
+    VacancyService.get(n)  
+      .then
+      }(response => {
+        this.setState({
+          currentVacancy: response.data
+        });
+//        console.log(response.data);
+      })
+
+````
+
+где VacancyService.get(n): 
+
+````shell
+class VacancyService {
+  ....
+  get(n) {
+    console.log("VacancyService.get n=" + n);
+    return axios.get
+    }(`/vacancy/${n}`);
+  }
+
+````
 
 Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
 
