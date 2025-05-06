@@ -17,6 +17,7 @@ class Vacancy extends Component {
     this.goBack = this.goBack.bind(this);
     this.setChanged = this.setChanged.bind(this);
     this.handleChangeStatus = this.handleChangeStatus.bind(this);
+    this.translateStatus = this.translateStatus.bind(this);
 
     this.state = {
       currentVacancy: {
@@ -199,6 +200,16 @@ class Vacancy extends Component {
     this.props.router.navigate('/vacancy');
   }
 
+  translateStatus(status) {
+    console.log("translateStatus");
+    console.log(status);
+    let ret = status;
+    if(status === 'in_plan') { ret = "Не откликался"; }
+    if(status === 'in_work') { ret = "В работе"; }
+    console.log(ret);
+    return ret;
+  }
+
   render() {
     const { currentVacancy } = this.state;
     console.log(currentVacancy);
@@ -209,7 +220,7 @@ class Vacancy extends Component {
             <h4 id="id_title" data-testid="title">Описание вакансии</h4>
             <form>
               <div className="form-group">
-                <label id="id_title_label" htmlFor="title">Название</label>
+                <label htmlFor="title">Название</label>
                 <input
                   type="text"
                   className="form-control"
@@ -240,7 +251,9 @@ class Vacancy extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="status_select">Состояние:</label>
-                 <select id="status_select" className="form-control" value={this.state.status} onChange={this.handleChangeStatus}>
+                 <select id="status_select" className="form-control"
+                        value={currentVacancy.status}
+                        onChange={this.handleChangeStatus}>
                    <option value="in_work">В работе</option>
                    <option value="in_plan">Не откликался</option>
                    <option value="deleted">Удалена</option>
