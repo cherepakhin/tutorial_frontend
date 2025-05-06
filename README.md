@@ -108,6 +108,12 @@ PORT=8081
 
 ## Project setup
 
+````shell
+nvm ls
+nvm use 16.15.1
+nvm ls
+````
+
 In the project directory, you can run:
 
 ```
