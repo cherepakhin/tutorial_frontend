@@ -14,7 +14,7 @@ export default class VacancyList extends Component {
 
     this.state = {
       vacancies: [],
-      currentVacancy: null,
+      currentVacancy: {"n": 0},
       currentIndex: -1,
       searchName: ""
     };
@@ -55,6 +55,7 @@ export default class VacancyList extends Component {
   }
 
   setActiveVacancy(vacancy, index) {
+    console.log("selected n:" + vacancy.n)
     this.setState({
       currentVacancy: {...vacancy},
       currentIndex: index
@@ -103,9 +104,9 @@ export default class VacancyList extends Component {
     const { searchName, vacancies, currentVacancy, currentIndex } = this.state;
 
     return (
-      <div className="list row">
-        <div className="col-md-8">
-          <div className="input-group mb-3">
+    <div className="col-12">
+      <div className="list row col-12">
+          <div className="input-group mb-3 padding-left-0">
             <input
               id="input-search-by-name"
               type="text"
@@ -120,87 +121,45 @@ export default class VacancyList extends Component {
                 className="btn btn-outline-secondary"
                 type="button"
                 onClick={this.searchName}
-              >
-                Найти
-              </button>
+              >Найти</button>
             </div>
-          </div>
         </div>
-        <div className="col-md-6">
-          <h4>Список вакансий</h4>
-
-          <ul className="list-group">
+      </div>
+      <div className="col-12">
+        <div className="list-group col-4">
+            <h4>Список вакансий</h4>
             {vacancies &&
               vacancies.map((vacancy, index) => (
-                <div
-                  className={
-                    "list-group-item " +
-                    (index === currentIndex ? "active" : "")
-                  }
+                <div className={ "list-group-item " + (index === currentIndex ? "active" : "")}
                   onClick={() => this.setActiveVacancy(vacancy, index)}
                   key={index}
                 >
                   {vacancy.n}. {vacancy.title}
                 </div>
               ))}
-          </ul>
-
-          <Link to={"/add"} className="ml-0 mt-2 btn btn-danger btn-7em">
-            Добавить
-          </Link>
         </div>
-        <div className="col-md-6">
-          {currentVacancy ? (
+        <div className="col-4" id="description_block">
+          <div>
+            <h4>Описание</h4>
             <div>
-              <h4>Описание</h4>
-              <div>
-                <label>
-                  <strong>N:</strong>
-                </label>{" "}
-                {currentVacancy.n}
-              </div>
-              <div>
-                <label>
-                  <strong>Название:</strong>
-                </label>{" "}
-                {currentVacancy.title}
-              </div>
-              <div>
-                <label>
-                  <strong>Описание:</strong>
-                </label>{" "}
-                {currentVacancy.description}
-              </div>
-              <div>
-                <label>
-                  <strong>Источник:</strong>
-                </label>{" "}
-                <a href={currentVacancy.source}
-                   target="_blank" rel="noopener noreferrer">
-                    {currentVacancy.source}</a>
-              </div>
-              <div>
-                <label>
-                  <strong>Статус:</strong>
-                </label>{" "}
-                {this.translateStatus(currentVacancy.status)}
-              </div>
-
-              <Link
-                to={"/vacancies/" + currentVacancy.n}
-                className="btn btn-warning btn-7em"
-              >
-                Изменить
-              </Link>
+              <strong>N: </strong>{currentVacancy.n}
             </div>
-          ) : (
             <div>
-              <br />
-              <p>Нажми на вакансию...</p>
+              <strong>Название: </strong>{currentVacancy.title}
             </div>
-          )}
+            <div>
+              <strong>Описание: </strong>{currentVacancy.description}
+            </div>
+            <div>
+              <strong>Источник: </strong>{currentVacancy.source}
+            </div>
+            <div>
+              <strong>Статус: </strong>{currentVacancy.status}
+            </div>
+          </div>
         </div>
       </div>
-    );
+    </div>
+    )
   }
 }
