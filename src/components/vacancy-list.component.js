@@ -104,8 +104,8 @@ export default class VacancyList extends Component {
     const { searchName, vacancies, currentVacancy, currentIndex } = this.state;
 
     return (
-    <div className="col-12">
-      <div className="list row col-12">
+    <div className="col-md-12">
+      <div className="list row col-md-12">
           <div className="input-group mb-3 padding-left-0">
             <input
               id="input-search-by-name"
@@ -125,14 +125,12 @@ export default class VacancyList extends Component {
             </div>
         </div>
       </div>
-      <div>
-          <div className="list row col-12">
-              <h4 className="col-md-4 inline">Список вакансий</h4>
-              <h4 className="col-md-8 inline padding-left-1em">Описание</h4>
-          </div>
+      <div className="list row col-md-12">
+         <h4 className="col-md-4 inline padding-left-0">Список вакансий</h4>
+         <h4 className="col-md-8 inline padding-left-05em">Описание</h4>
       </div>
-      <div className="list row col-12">
-      <div className="list-group col-4 inline">
+      <div className="list row col-md-12">
+      <div className="list-group col-md-4 inline">
             {vacancies &&
               vacancies.map((vacancy, index) => (
                 <div className={ "list-group-item " + (index === currentIndex ? "active" : "")}
@@ -143,7 +141,7 @@ export default class VacancyList extends Component {
                 </div>
               ))}
       </div>
-      <div className="col-8 inline padding-left-1em" id="description_block">
+      <div className="col-md-8 inline padding-left-1em" id="description_block">
         <div>
           <div>
               <strong>N: </strong>{currentVacancy.n}
