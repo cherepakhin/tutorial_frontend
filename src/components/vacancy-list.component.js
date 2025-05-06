@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import VacancyService from "../services/vacancy.service";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 
 export default class VacancyList extends Component {
   constructor(props) {
@@ -125,9 +125,14 @@ export default class VacancyList extends Component {
             </div>
         </div>
       </div>
-      <div className="col-12">
-        <div className="list-group col-4">
-            <h4>Список вакансий</h4>
+      <div>
+          <div className="list row col-12">
+              <h4 className="col-md-4 inline">Список вакансий</h4>
+              <h4 className="col-md-8 inline padding-left-1em">Описание</h4>
+          </div>
+      </div>
+      <div className="list row col-12">
+      <div className="list-group col-4 inline">
             {vacancies &&
               vacancies.map((vacancy, index) => (
                 <div className={ "list-group-item " + (index === currentIndex ? "active" : "")}
@@ -137,27 +142,26 @@ export default class VacancyList extends Component {
                   {vacancy.n}. {vacancy.title}
                 </div>
               ))}
-        </div>
-        <div className="col-4" id="description_block">
+      </div>
+      <div className="col-8 inline padding-left-1em" id="description_block">
+        <div>
           <div>
-            <h4>Описание</h4>
-            <div>
               <strong>N: </strong>{currentVacancy.n}
-            </div>
-            <div>
-              <strong>Название: </strong>{currentVacancy.title}
-            </div>
-            <div>
-              <strong>Описание: </strong>{currentVacancy.description}
-            </div>
-            <div>
-              <strong>Источник: </strong>{currentVacancy.source}
-            </div>
-            <div>
-              <strong>Статус: </strong>{currentVacancy.status}
-            </div>
+          </div>
+          <div>
+            <strong>Название: </strong>{currentVacancy.title}
+          </div>
+          <div>
+            <strong>Описание: </strong>{currentVacancy.description}
+          </div>
+          <div>
+            <strong>Источник: </strong><a href={currentVacancy.source}>{currentVacancy.source}</a>
+          </div>
+          <div>
+            <strong>Статус: </strong>{currentVacancy.status}
           </div>
         </div>
+      </div>
       </div>
     </div>
     )

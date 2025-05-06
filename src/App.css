@@ -52,3 +52,13 @@
 .padding-left-0 {
     padding-left: 0px;
 }
+
+.inline {
+    display: inline-block;
+}
+
+.padding-left-1em {
+    padding-left: 1em;
+}
+
+
