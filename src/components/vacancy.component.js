@@ -247,7 +247,7 @@ class Vacancy extends Component {
                  </select>
               </div>
             </form>
-            <div className="btn-toolbar">
+            <div className="btn-toolbar margin-top-0_5em">
                 <button
                   className="btn btn-danger btn-7em text-center"
                   onClick={this.deleteVacancy}

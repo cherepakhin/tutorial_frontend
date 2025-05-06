@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import VacancyService from "../services/vacancy.service";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class VacancyList extends Component {
   constructor(props) {
@@ -160,6 +160,9 @@ export default class VacancyList extends Component {
           <div>
             <strong>Статус: </strong>{currentVacancy.status}
           </div>
+          <Link to={"/vacancies/" + currentVacancy.n} className="btn btn-primary btn-7em margin-top-0_5em">Изменить</Link>
+          {/* TODO: реализовать удаление с диалогом подтверждения */}
+          <Link to={"/vacancies/" + currentVacancy.n} className="btn btn-danger btn-7em margin-left_0_5em margin-top-0_5em">Удалить</Link>
         </div>
       </div>
       </div>
