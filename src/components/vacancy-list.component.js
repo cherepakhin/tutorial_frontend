@@ -117,7 +117,7 @@ export default class VacancyList extends Component {
             <div className="input-group-append">
               <button
                 id="button-find"
-                className="btn btn-outline-secondary"
+                className="btn btn-primary"
                 type="button"
                 onClick={this.searchName}
               >

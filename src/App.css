@@ -19,6 +19,10 @@
     margin-left: 0;
 }
 
+.btn-4em {
+    width: 4em;
+}
+
 .btn-6em {
     width: 6em;
 }
@@ -37,7 +41,12 @@
 
 .btn {
     border-radius: 0rem;
+    color: white;
  }
+
+.btn-10em {
+    width: 10em;
+}
 
 .pad1px {
     padding-right: 1em;
@@ -47,4 +56,8 @@
 .margin1px {
     margin-right: 0.5em;
     margin-left: 0.5em;
+}
+
+.margin-left-space {
+    margin-left: 0.2em;
 }

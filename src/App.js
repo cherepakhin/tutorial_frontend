@@ -1,7 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { BrowserRouter } from 'react-router-dom';
 
 import AddVacancy from "./components/add-vacancy.component";
 import Vacancy from "./components/vacancy.component";
@@ -13,10 +12,14 @@ function App() {
         <nav className="navbar navbar-expand navbar-dark bg-dark">
 
           <div className="navbar-nav mr-auto">
-            <li className="nav-item">
-            </li>
-            <li className="nav-item">
-            </li>
+            <button
+                id="button-find"
+                className="btn btn-primary"
+                type="button">Список вакансий</button>
+            <button
+                id="button-find"
+                className="btn btn-secondary  margin-left-space"
+                type="button">Помощь</button>
           </div>
         </nav>
 
