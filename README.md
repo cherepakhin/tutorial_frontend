@@ -107,11 +107,16 @@ yarn add --dev sinon
 yarn test
 ````
 
-На моем ноуте работает версия Node 16.20.2:
+Установка нужной версии node:
 
 ````shell
+$ nvm use node 16.10.0
+
 $ node --version
-v16.20.2
+v16.10.0
+
+Проверка
+$ yarn
 ````
 
 Для mock использован sinon. (см. tutorial.service.spec.js)
