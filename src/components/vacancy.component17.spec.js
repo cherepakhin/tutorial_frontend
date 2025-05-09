@@ -10,9 +10,9 @@ import { VacancyForTest, Vacancy } from "./vacancy.component";
 
 describe('tests vacancy.component FOR REACT 17', () => {
   test('check description render vacancy.component FOR REACT 17', () => {
-    let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
-    let result = render(<VacancyForTest {...params}/>);
+    let result = render(<VacancyForTest {...router}/>);
 
     const description = result.container.querySelector('#description');
     expect(description).toBeInTheDocument();
