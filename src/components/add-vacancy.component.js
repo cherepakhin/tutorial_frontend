@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import VacancyService from "../services/vacancy.service";
+import { withRouter } from '../common/with-router';
 
-export default class AddVacancy extends Component {
+class AddVacancy extends Component {
   constructor(props) {
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
@@ -9,6 +10,7 @@ export default class AddVacancy extends Component {
     this.onChangeSource = this.onChangeSource.bind(this);
     this.saveVacancy = this.saveVacancy.bind(this);
     this.newVacancy = this.newVacancy.bind(this);
+    this.goBack = this.goBack.bind(this);
 
     this.state = {
       n: -1,
@@ -75,6 +77,11 @@ export default class AddVacancy extends Component {
     });
   }
 
+  goBack() {
+    console.log("goBack");
+    this.props.router.navigate('/vacancy');
+  }
+
   render() {
     return (
       <div className="submit-form">
@@ -88,7 +95,7 @@ export default class AddVacancy extends Component {
         ) : (
           <div>
             <div className="form-group">
-              <label htmlFor="title">Вакансия</label>
+              <label htmlFor="title">Название</label>
               <input
                 type="text"
                 className="form-control"
@@ -129,9 +136,21 @@ export default class AddVacancy extends Component {
             <button onClick={this.saveVacancy} className="btn btn-success">
               Сохранить
             </button>
+            <button
+                  type="submit"
+                  id="id_btn_return"
+                  className="btn btn-warning btn-8em text-center margin-left-space"
+                  onClick={this.goBack}
+            >Вернуться</button>
           </div>
         )}
       </div>
     );
   }
 }
+
+export {
+    AddVacancy as AddVacancyForTest
+};
+
+export default withRouter(AddVacancy);
