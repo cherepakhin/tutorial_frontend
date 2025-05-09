@@ -14,11 +14,11 @@ function App() {
           <div className="navbar-nav mr-auto">
             <button
                 id="button-find"
-                className="btn btn-primary"
+                className="btn btn-primary btn-10em"
                 type="button">Список вакансий</button>
             <button
                 id="button-find"
-                className="btn btn-secondary  margin-left-space"
+                className="btn btn-secondary btn-10em margin-left-space"
                 type="button">Помощь</button>
           </div>
         </nav>
