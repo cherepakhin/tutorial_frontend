@@ -37,12 +37,13 @@ class Vacancy extends Component {
   }
 
   getVacancy(n) {
-    console.log(n);
+    console.log("getVacancy n=" + n);
     this.isChangedVacancy=false;
     VacancyService.get(n)
       .then(response => {
+        console.log("response" + JSON.stringify(response));
         this.setState({
-          currentVacancy: response.data
+          currentVacancy: {...response.data}
         });
 //        console.log(response.data);
       })
