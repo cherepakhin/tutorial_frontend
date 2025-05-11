@@ -4,6 +4,8 @@
 
 Заготовка для React проекта.
 
+__Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/))
+
 Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
 
 React Tutorial Application in that:
