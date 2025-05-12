@@ -98,7 +98,7 @@ describe('tests vacancy.component', () => {
     expect(description).toHaveAttribute('value', "");
   });
 
-  test('input for LINK in component (React17)', () => {
+  test('input for LINK in component', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
 //    const container = document.getElementById('root');
@@ -110,7 +110,7 @@ describe('tests vacancy.component', () => {
     expect(linkElement).toBeInTheDocument();
   });
 
-  test('find by text (React17)', () => {
+  test('find by text', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     render(<VacancyForTest {...router}/>);
@@ -118,7 +118,7 @@ describe('tests vacancy.component', () => {
     expect(screen.getByText('Описание вакансии')).toBeInTheDocument();
   });
 
-  test('find by ID (React17)', () => {
+  test('find by ID', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...router}/>);
@@ -128,7 +128,7 @@ describe('tests vacancy.component', () => {
     expect(title.textContent).toEqual('Описание вакансии');
   });
 
-  test('find label by ID (React17)', () => {
+  test('find label by ID', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...router}/>);
@@ -138,7 +138,7 @@ describe('tests vacancy.component', () => {
     expect(title.textContent).toEqual('Название');
   });
 
-  test('input with id=#description (React17)', () => {
+  test('input with id=#description', () => {
     let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...params}/>);
