@@ -29,7 +29,7 @@ class VacancyService {
   }
 
   get(n) {
-    console.log("VacancyService.get n=" + n);
+//    console.log("VacancyService.get n=" + n);
     return axios.get(`/vacancy/${n}`);
   }
 

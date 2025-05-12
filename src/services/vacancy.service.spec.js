@@ -14,7 +14,7 @@ describe('VacancyService', () => {
     sandbox.restore();
   });
 
-  test('http.get /vacancy/1', () => {
+  test('http.get /vacancy/1', async() => {
     // Создание stub для http запросов
     // МОКИРУЕТСЯ только HTTP запрос GET с параметрами запроса (адрес, cors) httpMyParam
     // из 'http-common'
@@ -49,7 +49,7 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
-  test('create /vacancy/', () => {
+  test('create /vacancy/', async() => {
     // postStub - mock,stub для http.
     // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
     // И sandbox.stub мокирует именно http requester.

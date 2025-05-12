@@ -1,10 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 import VacancyService from "../services/vacancy.service";
 import { withRouter } from '../common/with-router';
 
 class Vacancy extends Component {
+
   constructor(props) {
-    console.log(props);
     super(props);
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
@@ -41,7 +42,7 @@ class Vacancy extends Component {
     this.isChangedVacancy=false;
     VacancyService.get(n)
       .then(response => {
-        console.log("response" + JSON.stringify(response));
+//        console.log("response" + JSON.stringify(response));
         this.setState({
           currentVacancy: {...response.data}
         });
@@ -286,6 +287,12 @@ class Vacancy extends Component {
     );
   }
 }
+
+//TODO propTypes
+//Vacancy.propTypes = {
+//            children: PropTypes.any,
+//            onClickOut: PropTypes.func,
+//        };
 
 export {
     Vacancy as VacancyForTest

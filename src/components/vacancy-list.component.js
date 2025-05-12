@@ -15,7 +15,7 @@ export default class VacancyList extends Component {
     this.state = {
       vacancies: [],
       currentVacancy: null,
-      currentIndex: -1,
+      currentIndex: 0,
       searchName: ""
     };
 
@@ -102,7 +102,8 @@ export default class VacancyList extends Component {
 
   render() {
     const { searchName, vacancies, currentVacancy, currentIndex } = this.state;
-
+    console.log("searchName");
+    console.log(searchName, vacancies, currentVacancy, currentIndex);
     return (
       <div className="list row">
         <div className="col-md-8">
