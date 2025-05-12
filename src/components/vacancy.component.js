@@ -207,7 +207,7 @@ class Vacancy extends Component {
     return (
       <div>
         {currentVacancy ? (
-          <div id="edit-form" className="edit-form">
+          <div id="edit-form" className="edit-form ml-0">
             <h4 id="id_title" data-testid="title">Описание вакансии</h4>
             <form>
               <div className="form-group">
