@@ -106,7 +106,7 @@ export default class VacancyList extends Component {
     console.log(searchName, vacancies, currentVacancy, currentIndex);
     return (
       <div className="list row">
-        <div className="col-md-8">
+        <div className="ml-0 pl-0 col-md-8">
           <div className="input-group mb-3">
             <input
               id="input-search-by-name"
@@ -128,7 +128,7 @@ export default class VacancyList extends Component {
             </div>
           </div>
         </div>
-        <div className="col-md-6">
+        <div className="ml-0 pl-0 col-md-6">
           <h4>Список вакансий</h4>
 
           <ul className="list-group">
