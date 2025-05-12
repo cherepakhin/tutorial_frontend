@@ -16,21 +16,31 @@ function App() {
           <div className="navbar-nav mr-auto">
             <button
                 id="button-find"
-                className="btn btn-primary btn-10em"
+                className="btn btn-primary btn-8em"
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
                       window.location.href='/vacancy';
                       }}
-                >Список вакансий</button>
+                >Вакансии</button>
 
             <button
-                id="button-find"
-                className="btn btn-secondary btn-10em margin-left-space"
+                id="button-add"
+                className="btn btn-secondary btn-8em margin-left-space"
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/help';
+                      window.location.href='/vacancy/add';
+                      }}
+                >Добавить</button>
+
+            <button
+                id="button-help"
+                className="btn btn-secondary btn-8em margin-left-space"
+                type="button"
+                onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href='/vacancy/help';
                       }}
                 >Помощь</button>
           </div>
@@ -41,9 +51,9 @@ function App() {
               <Routes>
                 <Route path="/" element={<VacancyList/>} />
                 <Route path="/vacancy" element={<VacancyList/>} />
-                <Route path="/add" element={<AddVacancy/>} />
+                <Route path="/vacancy/add" element={<AddVacancy/>} />
                 <Route path="/vacancies/:n" element={<Vacancy/>} />
-                <Route path="/help" element={<HelpPage/>} />
+                <Route path="/vacancy/help" element={<HelpPage/>} />
               </Routes>
           </BrowserRouter>
         </div>
