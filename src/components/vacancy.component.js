@@ -42,11 +42,11 @@ class Vacancy extends Component {
     this.isChangedVacancy=false;
     VacancyService.get(n)
       .then(response => {
-//        console.log("response" + JSON.stringify(response));
+        console.log("response" + JSON.stringify(response));
         this.setState({
           currentVacancy: {...response.data}
         });
-//        console.log(response.data);
+        console.log(response.data);
       })
       .catch(e => {
         console.log(e);
@@ -231,7 +231,7 @@ class Vacancy extends Component {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="link">Источник</label>
+                <label htmlFor="vacancy_link">Источник</label>
                 <input
                   type="text"
                   className="form-control"

@@ -132,8 +132,7 @@ export default class VacancyList extends Component {
           <h4>Список вакансий</h4>
 
           <ul className="list-group">
-            {vacancies &&
-              vacancies.map((vacancy, index) => (
+            {vacancies.map((vacancy, index) => (
                 <div
                   className={
                     "list-group-item " +
@@ -158,34 +157,39 @@ export default class VacancyList extends Component {
               <div>
                 <label>
                   <strong>N:</strong>
-                </label>{" "}
-                {currentVacancy.n}
+                  {" "}
+                  {currentVacancy.n}
+                </label>
               </div>
               <div>
                 <label>
                   <strong>Название:</strong>
-                </label>{" "}
-                {currentVacancy.title}
+                  {" "}
+                  {currentVacancy.title}
+                </label>
               </div>
               <div>
                 <label>
                   <strong>Описание:</strong>
-                </label>{" "}
-                {currentVacancy.description}
+                  {" "}
+                  {currentVacancy.description}
+                </label>
               </div>
               <div>
                 <label>
                   <strong>Источник:</strong>
-                </label>{" "}
-                <a href={currentVacancy.source}
-                   target="_blank" rel="noopener noreferrer">
-                    {currentVacancy.source}</a>
+                  {" "}
+                  <a href={currentVacancy.source}
+                                     target="_blank" rel="noopener noreferrer">
+                                      {currentVacancy.source}</a>
+                </label>
               </div>
               <div>
                 <label>
                   <strong>Статус:</strong>
-                </label>{" "}
-                {this.translateStatus(currentVacancy.status)}
+                  {" "}
+                  {this.translateStatus(currentVacancy.status)}
+                </label>
               </div>
 
               <Link
