@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -23,6 +23,7 @@ function App() {
                       window.location.href='/vacancy';
                       }}
                 >Список вакансий</button>
+
             <button
                 id="button-find"
                 className="btn btn-secondary btn-10em margin-left-space"

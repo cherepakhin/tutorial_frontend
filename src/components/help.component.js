@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from '../common/with-router';
 
-class HelpPage extends Component {
+export class HelpPage extends Component {
 
   render() {
     return (
@@ -9,9 +9,5 @@ class HelpPage extends Component {
         )
     }
 }
-
-export {
-    HelpPage as HelpPageForTest
-};
 
 export default withRouter(HelpPage);
