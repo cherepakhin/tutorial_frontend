@@ -94,7 +94,8 @@ export default class VacancyList extends Component {
   }
 
   translateStatus(status) {
-      if(status === 'in_plan') { return "В работе"; }
+      if(status === 'in_plan') { return "Не откликался"; }
+      if(status === 'in_work') { return "В работе"; }
       if(status === 'deleted') { return "Удалена"; }
       return status;
   }

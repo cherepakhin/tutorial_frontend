@@ -4,7 +4,7 @@
 
 Заготовка для React проекта.
 
-__Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/))
+__Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/)). Для работы с backend сделан сервисный слой __services__. Что-то типа __state__ расположен в самих компонентах.
 
 Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
 
