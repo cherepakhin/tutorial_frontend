@@ -16,7 +16,7 @@ function App() {
           <div className="navbar-nav mr-auto">
             <button
                 id="button-find"
-                className="btn btn-primary btn-8em"
+                className="btn btn-primary btn-7em"
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
@@ -26,7 +26,7 @@ function App() {
 
             <button
                 id="button-add"
-                className="btn btn-secondary btn-8em margin-left-space"
+                className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
@@ -36,7 +36,7 @@ function App() {
 
             <button
                 id="button-help"
-                className="btn btn-secondary btn-8em margin-left-space"
+                className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
