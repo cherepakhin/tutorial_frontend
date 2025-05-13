@@ -133,7 +133,9 @@ class AddVacancy extends Component {
               />
             </div>
 
-            <button onClick={this.saveVacancy} className="btn btn-success btn-7em">
+            <button
+                className="btn btn-success btn-7em"
+                onClick={this.saveVacancy}>
               Сохранить
             </button>
             <button
