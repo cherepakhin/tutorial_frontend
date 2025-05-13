@@ -133,13 +133,13 @@ class AddVacancy extends Component {
               />
             </div>
 
-            <button onClick={this.saveVacancy} className="btn btn-success">
+            <button onClick={this.saveVacancy} className="btn btn-success btn-7em">
               Сохранить
             </button>
             <button
                   type="submit"
                   id="id_btn_return"
-                  className="btn btn-warning btn-8em text-center margin-left-space"
+                  className="btn btn-warning btn-7em text-center margin-left-space"
                   onClick={this.goBack}
             >Вернуться</button>
           </div>
