@@ -20,7 +20,7 @@ function App() {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/vacancy';
+                      window.location.href='/vacancies';
                       }}
                 >Вакансии</button>
 
@@ -30,7 +30,7 @@ function App() {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/vacancy/add';
+                      window.location.href='/vacancies/add';
                       }}
                 >Добавить</button>
 
@@ -50,10 +50,10 @@ function App() {
           <BrowserRouter>
               <Routes>
                 <Route path="/" element={<VacancyList/>} />
-                <Route path="/vacancy" element={<VacancyList/>} />
-                <Route path="/vacancy/add" element={<AddVacancy/>} />
+                <Route path="/vacancies" element={<VacancyList/>} />
+                <Route path="/vacancies/add" element={<AddVacancy/>} />
                 <Route path="/vacancies/:n" element={<Vacancy/>} />
-                <Route path="/vacancy/help" element={<HelpPage/>} />
+                <Route path="/vacancies/help" element={<HelpPage/>} />
               </Routes>
           </BrowserRouter>
         </div>

@@ -2,7 +2,7 @@
   "name": "vacancy_frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://v.perm.ru/vacancy/",
+  "homepage": "https://v.perm.ru/vacancies/",
   "dependencies": {
     "axios": "^0.27.2",
     "bootstrap": "^4.6.2",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "PUBLIC_URL=/vacancy react-scripts build",
+    "build": "PUBLIC_URL=/vacancies react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

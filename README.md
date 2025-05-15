@@ -179,7 +179,7 @@ $ serve -s build
 
 ````shell
 export default axios.create({
-  baseURL: "http://192.168.1.57:8980/api",
+  baseURL: "https://v.perm.ru:8443",
   mode: "no-cors",
   headers: {
     "Content-type": "application/json"
@@ -192,7 +192,7 @@ export default axios.create({
 ````shell
   "scripts": {
     ....
-    "build": "PUBLIC_URL=/vacancy react-scripts build",
+    "build": "PUBLIC_URL=/vacancies react-scripts build",
     ....
 }
 ````

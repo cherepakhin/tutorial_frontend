@@ -198,7 +198,7 @@ class Vacancy extends Component {
   goBack() {
     console.log("goBack");
     console.log("isChangedVacancy:" + this.isChangedVacancy);
-    this.props.router.navigate('/vacancy');
+    this.props.router.navigate('/vacancies');
   }
 
   render() {
