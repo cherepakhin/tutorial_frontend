@@ -242,7 +242,7 @@ class Vacancy extends Component {
               </div>
               <div className="form-group">
                 <label htmlFor="status_select">Состояние:</label>
-                 <select id="status_select" className="form-control" value={this.state.status} onChange={this.handleChangeStatus}>
+                 <select id="status_select" className="form-control" value={currentVacancy.status} onChange={this.handleChangeStatus}>
                    <option value="in_work">В работе</option>
                    <option value="in_plan">Не откликался</option>
                    <option value="deleted">Удалена</option>
