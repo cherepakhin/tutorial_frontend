@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
 import VacancyService from "../services/vacancy.service";
 import { withRouter } from '../common/with-router';
 
