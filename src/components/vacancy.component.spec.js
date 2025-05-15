@@ -75,7 +75,6 @@ describe('tests vacancy.component', () => {
     expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center margin-left-space");
   });
 
-// этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js
   test('button BACK check LABEL', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
