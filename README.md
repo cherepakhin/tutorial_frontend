@@ -229,5 +229,7 @@ deleteVacancy() {
 
 https://blog.logrocket.com/testing-react-apps-jest-react-testing-library/
 
-~/prog/js/jest-testing
 
+Основная ветка __main__.
+
+Примеры тестов jest в ~/prog/js/jest-testing.
