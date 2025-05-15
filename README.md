@@ -231,5 +231,6 @@ https://blog.logrocket.com/testing-react-apps-jest-react-testing-library/
 
 
 Основная ветка __main__.
+Ветку __master__ не удалять. Это пример старта.
 
 Примеры тестов jest в ~/prog/js/jest-testing.
