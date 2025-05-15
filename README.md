@@ -2,7 +2,7 @@
 
 Проект от [React CRUD example to consume Web API](https://bezkoder.com/react-crud-web-api/). 
 
-Заготовка для React проекта.
+Заготовка для React проекта. React 17.
 
 __Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/)). Для работы с backend сделан сервисный слой __services__. Что-то типа __state__ расположен в самих компонентах.
 
