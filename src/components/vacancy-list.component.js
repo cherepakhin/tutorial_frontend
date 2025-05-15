@@ -28,7 +28,7 @@ export default class VacancyList extends Component {
 
   componentDidMount() {
     console.log("mount");
-    this.retrieveVacancies();
+    this.retrieveVacancies(); // подгрузить вакансии при монтировании
   }
 
   onChangeSearchName(e) {
@@ -39,6 +39,7 @@ export default class VacancyList extends Component {
     });
   }
 
+  // Загрузка вакансий. VacancyService сервис получения вакансий с backend (Redux не используется).
   retrieveVacancies() {
      VacancyService.getAll().then(response => {
           console.log(response.data);
@@ -61,6 +62,7 @@ export default class VacancyList extends Component {
     });
   }
 
+  // Удаление всех вакансий. Не используется. Оставлено для примера.
   removeAllVacancies() {
     VacancyService.deleteAll()
       .then(response => {
@@ -72,6 +74,7 @@ export default class VacancyList extends Component {
       });
   }
 
+  // Отбор вакансий по названию.
   searchName() {
     this.setState({
       currentVacancy: null,

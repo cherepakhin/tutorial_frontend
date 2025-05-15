@@ -2,6 +2,7 @@ import axios from "../http-common";
 // Не удалять комментарий этот коммент и ниже строчку. Эта зависимость нужна для кода "Пример запроса".
 // import axios from "axios";
 
+// Сервис обмена с backend. Redux не используется.
 class VacancyService {
   getAll() {
     console.log("VacancyService.getAll()");

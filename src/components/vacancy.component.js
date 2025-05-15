@@ -37,9 +37,11 @@ class Vacancy extends Component {
     this.getVacancy(this.props.router.params.n);
   }
 
+  // Получить вакансию по ID
   getVacancy(n) {
     console.log("getVacancy n=" + n);
     this.isChangedVacancy=false;
+    // Получение вакансии с backend (Redux не используется)
     VacancyService.get(n)
       .then(response => {
         console.log("response" + JSON.stringify(response));
@@ -145,6 +147,7 @@ class Vacancy extends Component {
 
   }
 
+  // Сохранение вакансии в backend
   updateVacancy() {
     VacancyService.update(
       this.state.currentVacancy.n,
@@ -182,6 +185,7 @@ class Vacancy extends Component {
 
   }
 
+  // Удаление вакансии (redux не используется)
   deleteVacancy() {
     VacancyService.delete(this.state.currentVacancy.n)
       .then(response => {
@@ -195,6 +199,7 @@ class Vacancy extends Component {
       });
   }
 
+  // Выход из диалога изменения вакансии и возврат к списку вакансий
   goBack() {
     console.log("goBack");
     console.log("isChangedVacancy:" + this.isChangedVacancy);
@@ -294,6 +299,7 @@ class Vacancy extends Component {
 //            onClickOut: PropTypes.func,
 //        };
 
+// Экспорт для UNIT тестирования
 export {
     Vacancy as VacancyForTest
 };

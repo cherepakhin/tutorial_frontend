@@ -1,11 +1,11 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom"; // Redux не испольуется. Используется Route.
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-import AddVacancy from "./components/add-vacancy.component";
-import Vacancy from "./components/vacancy.component";
-import VacancyList from "./components/vacancy-list.component";
-import HelpPage from "./components/help.component";
+import AddVacancy from "./components/add-vacancy.component"; // Страница ДОБАВЛЕНИЯ вакансии
+import Vacancy from "./components/vacancy.component"; // Страница ИЗМЕНЕНИЯ вакансии
+import VacancyList from "./components/vacancy-list.component"; // компонент списка вакансий
+import HelpPage from "./components/help.component"; // Страница помощи
 
 function App() {
 
