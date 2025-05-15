@@ -46,7 +46,7 @@ class Vacancy extends Component {
         this.setState({
           currentVacancy: {...response.data}
         });
-        console.log(response.data);
+        console.log("response.data" + JSON.stringify(response.data));
       })
       .catch(e => {
         console.log(e);

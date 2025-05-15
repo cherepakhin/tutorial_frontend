@@ -72,7 +72,7 @@ describe('tests vacancy.component', () => {
 
     const btnReturn = vacancyComponent.container.querySelector('#id_btn_return');
     expect(btnReturn).toBeInTheDocument();
-    expect(btnReturn).toHaveClass("btn btn-warning btn-8em text-center margin-left-space");
+    expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center margin-left-space");
   });
 
 // этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js
