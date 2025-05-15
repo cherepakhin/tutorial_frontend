@@ -18,6 +18,7 @@ class Vacancy extends Component {
     this.goBack = this.goBack.bind(this);
     this.setChanged = this.setChanged.bind(this);
     this.handleChangeStatus = this.handleChangeStatus.bind(this);
+    this.isChangedVacancy=false;
 
     this.state = {
       currentVacancy: {
