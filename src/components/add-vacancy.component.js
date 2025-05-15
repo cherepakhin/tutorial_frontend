@@ -79,7 +79,7 @@ class AddVacancy extends Component {
 
   goBack() {
     console.log("goBack");
-    this.props.router.navigate('/vacancy');
+    this.props.router.navigate('/vacancies');
   }
 
   render() {
