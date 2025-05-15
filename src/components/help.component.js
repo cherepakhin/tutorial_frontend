@@ -5,9 +5,15 @@ export class HelpPage extends Component {
 
   render() {
     return (
-        <div>Страница с описанием программы</div>
+        <div>
+           <h5>Страница с описанием программы</h5>
+        </div>
         )
     }
 }
+
+export {
+    HelpPage as HelpPageForTest
+};
 
 export default withRouter(HelpPage);

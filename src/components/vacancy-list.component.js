@@ -150,7 +150,7 @@ export default class VacancyList extends Component {
           </ul>
 
           <Link to={"/add"} className="ml-0 mt-2 btn btn-danger btn-7em"
-            onClick={ ()=> window.location.href='/vacancy/add'}
+            onClick={ ()=> window.location.href='/vacancies/add'}
           >
             Добавить
           </Link>

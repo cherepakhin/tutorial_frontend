@@ -40,7 +40,7 @@ function App() {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/vacancy/help';
+                      window.location.href='/vacancies/help';
                       }}
                 >Помощь</button>
           </div>
