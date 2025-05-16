@@ -5,6 +5,7 @@ import { withRouter } from '../common/with-router';
 class AddVacancy extends Component {
   constructor(props) {
     super(props);
+
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
     this.onChangeSource = this.onChangeSource.bind(this);

@@ -256,7 +256,7 @@ class Vacancy extends Component {
             </form>
             <div className="btn-toolbar">
                 <button
-                  className="btn btn-danger btn-7em text-center"
+                  className="btn btn-danger btn-7em pad01em text-center"
                   onClick={this.deleteVacancy}
                 >
                   Удалить
@@ -265,7 +265,7 @@ class Vacancy extends Component {
                 <button
                   type="submit"
                   id="id_btn_submit"
-                  className="btn btn-primary btn-7em text-center margin-left-space"
+                  className="btn btn-primary btn-7em pad01em text-center margin-left-space"
                   onClick={this.updateVacancy}
                 >
                   Сохранить
@@ -274,10 +274,10 @@ class Vacancy extends Component {
                 <button
                   type="submit"
                   id="id_btn_return"
-                  className="btn btn-warning btn-7em text-center margin-left-space"
+                  className="btn btn-warning btn-7em pad01em text-center margin-left-space"
                   onClick={this.goBack}
                 >
-                  Вернуться
+                  Назад
                 </button>
             </div>
             <div className="mt-2">{this.state.message}</div>

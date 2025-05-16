@@ -5,7 +5,8 @@ export class HelpPage extends Component {
 
   constructor(props) {
     super(props);
-    console.log("HelpPage");
+    console.log("constructor HelpPage. props:");
+    console.log(props);
   }
 
   render() {

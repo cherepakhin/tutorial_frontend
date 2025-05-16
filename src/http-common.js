@@ -11,14 +11,10 @@ import axios from "axios";
 //  return response
 //})
 
-//  baseURL: "http://localhost:8090/api", - через HTTP РАБОТАЕТ
-//  On Your Network:  http://192.168.1.57:8081/vacancy - НЕ РАБОТАЕТ
-//  baseURL: "http://v.perm.ru:8090/api",
-
 // для разработки baseURL: "http://127.0.0.1:8080/api",
-// для размещения на сайте baseURL: "https://v.perm.ru:8443",
+// для размещения на сайте baseURL: "https://v.perm.ru:8443/api",
 export default axios.create({
-  baseURL: "https://v.perm.ru:8443",
+  baseURL: "https://v.perm.ru:8443/api",
 
   mode: "no-cors",
   headers: {

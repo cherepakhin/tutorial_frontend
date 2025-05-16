@@ -1,3 +1,4 @@
+import React, { Component } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom"; // Redux не испольуется. Используется Route.
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -6,10 +7,20 @@ import AddVacancy from "./components/add-vacancy.component"; // Страница
 import Vacancy from "./components/vacancy.component"; // Страница ИЗМЕНЕНИЯ вакансии
 import VacancyList from "./components/vacancy-list.component"; // компонент списка вакансий
 import HelpPage from "./components/help.component"; // Страница помощи
+//import { withRouter } from './common/with-router';
 
-function App() {
+class App extends Component {
 
-  return (
+  constructor(props) {
+    super(props);
+    console.log("App this.props:");
+    console.log(props); // {}
+    this.activeBtn = "1";
+  }
+
+  render() {
+    console.log(this);
+    return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
 
@@ -49,17 +60,18 @@ function App() {
         <div className="container mt-3">
           <BrowserRouter>
               <Routes>
-                <Route path="/" element={<VacancyList/>} />
-                <Route path="/vacancies" element={<VacancyList/>} />
-                <Route path="/vacancies/add" element={<AddVacancy/>} />
-                <Route path="/vacancies/:n" element={<Vacancy/>} />
-                <Route path="/vacancies/help" element={<HelpPage/>} />
+                <Route path="/" element={<VacancyList {...this.props}/>} />
+                <Route path="/vacancies" element={<VacancyList {...this.props}/>} />
+                <Route path="/vacancies/add" element={<AddVacancy {...this.props}/>} />
+                <Route path="/vacancies/:n" element={<Vacancy {...this.props}/>} />
+                <Route path="/vacancies/help" element={<HelpPage {...this.props}/>} />
               </Routes>
           </BrowserRouter>
         </div>
       </div>
   );
+  }
 }
 
-
+//export default withRouter(App);
 export default App;

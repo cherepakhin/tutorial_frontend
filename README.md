@@ -173,7 +173,7 @@ Done in 28.39s.
 $ serve -s build
 ````
 
-Файлы из папки build скопировать в Apache /var/www/main/tutorials.
+Файлы из папки build скопировать в Apache /var/www/main/vacancies.
 
 Адрес __backend сервиса__  указан в src/http-common.js:
 
