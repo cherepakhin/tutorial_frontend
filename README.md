@@ -173,7 +173,41 @@ Done in 28.39s.
 $ serve -s build
 ````
 
+Открыть http://<адрес apache2 сервера>/vacancies/.
+
+
+Локальный запуск:
+
+````shell
+~/prog/js/vacancy_frontend_17$ ./run.sh
+
+Compiled successfully!
+
+You can now view vacancy_frontend in the browser.
+
+  Local:            http://localhost:8081/vacancies
+  On Your Network:  http://192.168.1.57:8081/vacancies
+
+Note that the development build is not optimized.
+To create a production build, use yarn build.
+
+webpack compiled successfully
+
+````
+
+### Размещенеие на сервере
+
 Файлы из папки build скопировать в Apache /var/www/main/vacancies.
+
+Корневой адрес приложения для frontend указан в package.json:
+
+````shell
+  "scripts": {
+    ....
+    "build": "PUBLIC_URL=/vacancies react-scripts build",
+    ....
+}
+````
 
 Адрес __backend сервиса__  указан в src/http-common.js:
 
@@ -187,20 +221,9 @@ export default axios.create({
 });
 ````
 
-Корневой адрес приложения для frontend указан в package.json:
+### Разное
 
-````shell
-  "scripts": {
-    ....
-    "build": "PUBLIC_URL=/vacancies react-scripts build",
-    ....
-}
-````
-
-Открыть http://<адрес apache2 сервера>/tutorials/.
-
-mapStateToProps (redux) 
-
+mapStateToProps (redux)
 
 Переход на главную страницу после удаления позиции ("this.props.router.navigate('/vacancy')"):
 

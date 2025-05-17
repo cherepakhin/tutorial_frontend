@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom"; // Redux не испольуется. Используется Route.
+import { Routes, Route, BrowserRouter, useNavigate } from "react-router-dom"; // Redux не испольуется. Используется Route.
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -15,7 +16,14 @@ class App extends Component {
     super(props);
     console.log("App this.props:");
     console.log(props); // {}
-    this.activeBtn = "1";
+    this.activeBtn = "1"; // TODO: подсвеченная кнопка.
+    this.handleClickHelp3 = this.handleClickHelp3.bind(this);
+  }
+
+  handleClickHelp3() {
+    console.log('handleClickHelp3 /vacancies/page/help');
+    window.location.href='/vacancies/page/help';
+//    this.props.navigate('/vacancies/page/help')
   }
 
   render() {
@@ -41,19 +49,43 @@ class App extends Component {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/vacancies/add';
+{/* Работает на ноуте. */}
+{/* В App.js переход через this.props.router.navigate не сработает. */}
+{/* И поэтому нужно использовать "window.location.href" */}
+{/*                     this.props.router.navigate('/vacancies/add');*/}
+                      window.location.href='/vacancies/page/add';
                       }}
                 >Добавить</button>
-
-            <button
-                id="button-help"
-                className="btn btn-secondary btn-7em margin-left-space"
+{/* переход через Route. Работает на ноуте. */}
+            <a className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
+                href="/vacancies/page/help">Помощь</a> {/* OK на notebook!!!! */}
+
+{/*         Неработающие варианты
+            <button className="button-help"
                 onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href='/vacancies/help';
-                      }}
-                >Помощь</button>
+                                  e.preventDefault();
+                                  console.log("click Help1 (ok note)");
+                                  window.location.href='/vacancies/page/help';
+                                  }}>Help1 (ok note)</button>
+            <button className="button-help"
+                onClick={(e) => {
+                                  e.preventDefault();
+                                  console.log("Help2 (bad)");
+                                  useNavigate('/vacancies/page/help');
+                                  }}>Help2 (bad)</button>
+
+            <button className="button-help"
+                onClick={this.handleClickHelp3}>Help3 (bad)</button>
+            <Link to={"/add"} className="ml-0 mt-2 btn btn-danger btn-7em"
+                onClick={ ()=> {window.location.href='/vacancies/page/add';}}
+            >Help3</Link>
+
+            <Link to={"/vacancies/page/help"} className="nav-link">Tutorials</Link>
+            <button className="button-help" href="/vacancies/page/help">a help</button>
+
+*/}
+
           </div>
         </nav>
 
@@ -62,9 +94,9 @@ class App extends Component {
               <Routes>
                 <Route path="/" element={<VacancyList {...this.props}/>} />
                 <Route path="/vacancies" element={<VacancyList {...this.props}/>} />
-                <Route path="/vacancies/add" element={<AddVacancy {...this.props}/>} />
-                <Route path="/vacancies/:n" element={<Vacancy {...this.props}/>} />
-                <Route path="/vacancies/help" element={<HelpPage {...this.props}/>} />
+                <Route path="/vacancies/page/add" element={<AddVacancy {...this.props}/>} />
+                <Route path="/vacancies/page/edit/:n" element={<Vacancy {...this.props}/>} />
+                <Route path="/vacancies/page/help" element={<HelpPage {...this.props}/>} />
               </Routes>
           </BrowserRouter>
         </div>
