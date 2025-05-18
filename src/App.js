@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Routes, Route, BrowserRouter, useNavigate, useHistory } from "react-router-dom"; // Redux не испольуется. Используется Route.
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom"; // need for variants use case
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -16,12 +16,8 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     console.log("App this.props:");
-    console.log(props); // {}
+    console.log(props);
     this.activeBtn = "1"; // TODO: подсвеченная кнопка.
-  }
-
-  toHelp() {
-
   }
 
   render() {

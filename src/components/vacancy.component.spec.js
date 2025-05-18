@@ -5,7 +5,7 @@ import '@testing-library/jest-dom'
 //import 'react-testing-library/extend-expect'
 // Mock-объект находится в директории __mocks__
 import axiosMock from 'axios'
-import { VacancyForTest, Vacancy } from "./vacancy.component";
+import { VacancyForTest } from "./vacancy.component";
 
 
 describe('tests vacancy.component', () => {

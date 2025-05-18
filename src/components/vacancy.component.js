@@ -160,6 +160,7 @@ class Vacancy extends Component {
         });
       })
       .catch(e => {
+        //TODO: show error dialog
         console.log(e);
       });
     console.log("isChangedVacancy:" + this.isChangedVacancy);
