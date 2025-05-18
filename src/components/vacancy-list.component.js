@@ -155,7 +155,7 @@ export default class VacancyList extends Component {
             Добавить
           </Link>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 pl-0">
           {currentVacancy ? (
             <div>
               <h4>Описание</h4>
