@@ -41,10 +41,10 @@ export default class App extends Component {
                       }}
                 >Вакансии</button>
 
-{/*Так переход тоже работает только на ноуте*/}
+{/*Переход работает. ОБЯЗАТЕЛЬНО НУЖЕН файл public/.htaccess*/}
             <a
                     className="btn btn-secondary btn-7em margin-left-space"
-                    href="/vacancies/page/add">Добавить(link)</a>
+                    href="/vacancies/page/add">Добавить (a)</a>
 
 
             <button
@@ -53,20 +53,23 @@ export default class App extends Component {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-{/* Работает на ноуте. */}
+{/*Переход работает. ОБЯЗАТЕЛЬНО НУЖЕН файл public/.htaccess*/}
 {/* В App.js переход через this.props.router.navigate не сработает. */}
 {/* И поэтому нужно использовать "window.location.href" */}
 {/*                     this.props.router.navigate('/vacancies/add');*/}
                       window.location.href='/vacancies/page/add';
+
 //                      this.props.router.navigate('/vacancies');
                       }}
-                >Добавить</button>
+                >Добавить (btn)</button>
 
-{/* переход через Route. Работает на ноуте. */}
             <a className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
-                href="/vacancies/page/help">Помощь</a> {/* OK на notebook!!!! */}
+                href="/vacancies/page/help">Помощь (a)</a>
 
+
+
+{/*         Неработающие варианты
 
             <button
                 id="button-add"
@@ -74,13 +77,10 @@ export default class App extends Component {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
-                      window.location.href='/vacancies/page/help';
-//                      this.props.router.navigate('/vacancies');
+                      this.props.router.navigate('/vacancies/page/help');
                       }}
-                >Help4</button>
+                >Помощь (btn, navigate)</button>
 
-
-{/*         Неработающие варианты
             <button className="button-help"
                 onClick={(e) => {
                                   e.preventDefault();
