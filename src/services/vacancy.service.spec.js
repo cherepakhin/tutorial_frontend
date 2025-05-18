@@ -49,6 +49,24 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
+  test('should get a vacancy by id. Check result.', async () => {
+    const getStub = sandbox.stub(httpMyParam, 'get');
+    // http get on '/vacancy/2' return {n:2}
+    getStub.returns({n: 2});
+    let vacancy = VacancyService.get(2);
+    // let vacancy = VacancyService.get(3); FAIL
+
+    expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
+    expect(vacancy.n).toBe(2);
+  });
+
+  test('should get a vacancy by id with fail ID.', async () => {
+    const getStub = sandbox.stub(httpMyParam, 'get');
+    VacancyService.get(3);
+
+    expect(getStub.calledOnceWith('/vacancy/2')).toBe(false);
+  });
+
   test('create /vacancy/', async() => {
     // postStub - mock,stub для http.
     // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
