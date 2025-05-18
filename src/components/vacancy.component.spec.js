@@ -81,7 +81,7 @@ describe('tests vacancy.component', () => {
 
     const btnReturn = vacancyComponent.container.querySelector('#id_btn_return');
     expect(btnReturn).toBeInTheDocument();
-    expect(btnReturn).toHaveTextContent("Вернуться");
+    expect(btnReturn).toHaveTextContent("Назад");
   });
 
   test('check description render vacancy.component', () => {
