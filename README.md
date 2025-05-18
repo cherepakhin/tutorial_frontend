@@ -7,6 +7,7 @@
 __Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/)). Для работы с backend сделан сервисный слой __services__. Что-то типа __state__ расположен в самих компонентах.
 
 Простой пример в git ветке __demo_route__.
+Ветку __master__ не удалять. Это пример старта проекта с React.
 
 Build a React.js CRUD Application to consume Web API, display and modify data with Router, Axios & Bootstrap.
 
