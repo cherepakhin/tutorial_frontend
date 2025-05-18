@@ -257,3 +257,35 @@ https://blog.logrocket.com/testing-react-apps-jest-react-testing-library/
 Ветку __master__ не удалять. Это пример старта.
 
 Примеры тестов jest в ~/prog/js/jest-testing.
+
+
+### Маршрутизация с apache2
+
+Для работы React Routing в каталоге с приложением разместить файл [.htaccess](doc/.htaccess). 
+
+````shell
+<IfModule mod_rewrite.c>
+RewriteEngine on
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+# Rewrite everything else to index.html to allow html5 state links
+RewriteRule ^ index.html [L]
+</IfModule>
+````
+
+Содержимое каталога проекта на сервере:
+
+````shell
+root@v:/var/www/main/vacancies#  ls -a
+asset-manifest.json  
+.htaccess  <--------- 
+logo192.png  
+manifest.json  
+static
+favicon.ico          
+index.html  
+logo512.png  
+robots.txt
+````

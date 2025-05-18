@@ -11,7 +11,7 @@ import HelpPage from "./components/help.component"; // Страница помо
 //import { withRouter } from './common/with-router';
 
 
-export default class App extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -20,9 +20,6 @@ export default class App extends Component {
     this.activeBtn = "1"; // TODO: подсвеченная кнопка.
   }
 
-  toHelp() {
-
-  }
 
   render() {
     console.log(this);
@@ -58,27 +55,18 @@ export default class App extends Component {
 {/* И поэтому нужно использовать "window.location.href" */}
 {/*                     this.props.router.navigate('/vacancies/add');*/}
                       window.location.href='/vacancies/page/add';
-//                      this.props.router.navigate('/vacancies');
+                      this.props.router.navigate('/vacancies');
                       }}
                 >Добавить</button>
+            <button className="button-help"
+                onClick={this.navigateTo}>navigateTo</button>
+            <button className="button-help"
+                onClick={}>handleClickHelp3</button>
 
 {/* переход через Route. Работает на ноуте. */}
             <a className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
                 href="/vacancies/page/help">Помощь</a> {/* OK на notebook!!!! */}
-
-
-            <button
-                id="button-add"
-                className="btn btn-secondary btn-7em margin-left-space"
-                type="button"
-                onClick={(e) => {
-                      e.preventDefault();
-                      window.location.href='/vacancies/page/help';
-//                      this.props.router.navigate('/vacancies');
-                      }}
-                >Help4</button>
-
 
 {/*         Неработающие варианты
             <button className="button-help"
@@ -123,3 +111,6 @@ export default class App extends Component {
   );
   }
 }
+
+//export default withRouter(App);
+export default App;
