@@ -14,7 +14,7 @@ describe('VacancyService', () => {
     sandbox.restore();
   });
 
-  test('http.get /vacancy/1', async() => {
+  test('http.get /vacancy/1', () => {
     // Создание stub для http запросов
     // МОКИРУЕТСЯ только HTTP запрос GET с параметрами запроса (адрес, cors) httpMyParam
     // из 'http-common'
@@ -34,13 +34,13 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
   });
 
-  test('http.get /vacancy/', async () => {
+  test('http.get /vacancy/', () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.getAll();
     expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
   });
 
-  test('should get a vacancy by id', async () => {
+  test('should get a vacancy by id', () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
 
     VacancyService.get(2);
@@ -49,7 +49,7 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
-  test('should get a vacancy by id. Check result.', async () => {
+  test('should get a vacancy by id. Check result.', () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     // http get on '/vacancy/2' return {n:2}
     getStub.returns({n: 2});
@@ -60,7 +60,7 @@ describe('VacancyService', () => {
     expect(vacancy.n).toBe(2);
   });
 
-  test('should get a vacancy by id with fail ID.', async () => {
+  test('should get a vacancy by id with fail ID.', () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.get(3);
 
@@ -105,7 +105,7 @@ describe('VacancyService', () => {
     expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
   });
 
-  test('update /vacancy/', async() => {
+  test('update /vacancy/', () => {
     let N = 100;
     const vacancyForUpdate = {
             n: N,

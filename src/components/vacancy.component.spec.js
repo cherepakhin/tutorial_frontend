@@ -6,6 +6,7 @@ import '@testing-library/jest-dom'
 // Mock-объект находится в директории __mocks__
 import axiosMock from 'axios'
 import { VacancyForTest } from "./vacancy.component";
+import Vacancy from "./vacancy.component";
 
 
 describe('tests vacancy.component', () => {
@@ -30,15 +31,21 @@ describe('tests vacancy.component', () => {
     expect(title_label).toBeInTheDocument();
   });
 
-  test('test title by id', () => {
+  test('test title by id (with vacancyComponent)', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
-
     const titleById = vacancyComponent.container.querySelector('#id_title_label');
     expect(titleById).toBeInTheDocument();
     expect(titleById.textContent).toBe("Название");
   });
 
+  test('test title by id (with container)', () => {
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const { container } = render(<VacancyForTest {...router}/>);
+    const titleById = container.querySelector('#id_title_label');
+    expect(titleById).toBeInTheDocument();
+    expect(titleById.textContent).toBe("Название");
+  });
 
   test('test title (render.getByText)', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
@@ -75,7 +82,7 @@ describe('tests vacancy.component', () => {
     expect(btnReturn).toHaveClass("btn btn-warning btn-7em text-center margin-left-space");
   });
 
-  test('button BACK check LABEL', () => {
+  test('button BACK check LABEL',() => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
 
@@ -84,7 +91,7 @@ describe('tests vacancy.component', () => {
     expect(btnReturn).toHaveTextContent("Назад");
   });
 
-  test('check description render vacancy.component', () => {
+  test('check description render vacancy.component (USED let result = render(...))', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...router}/>);
@@ -97,7 +104,7 @@ describe('tests vacancy.component', () => {
     expect(description).toHaveAttribute('value', "");
   });
 
-  test('input for LINK in component', () => {
+  test('input for LINK in component (USED SCREEN)', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
 //    const container = document.getElementById('root');
@@ -120,6 +127,10 @@ describe('tests vacancy.component', () => {
   test('find by ID', () => {
     let router = {router: {params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
+    // Unfortunately, Enzyme is no longer supported as a testing library
+    // for the latest versions of React and the preferred testing library
+    // is react-testing-library.
+    // https://stackoverflow.com/questions/75962520/how-to-shallow-render-in-react-18
     let result = render(<VacancyForTest {...router}/>);
 
     const title = result.container.querySelector('#id_title');
@@ -137,7 +148,8 @@ describe('tests vacancy.component', () => {
     expect(title.textContent).toEqual('Название');
   });
 
-  test('input with id=#description', () => {
+  test('input with id=#description', done => {
+    console.log("done1");
     let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 
     let result = render(<VacancyForTest {...params}/>);
@@ -148,6 +160,7 @@ describe('tests vacancy.component', () => {
     expect(description).toHaveAttribute('class', "form-control");
     expect(description).toHaveAttribute('type', "text");
     expect(description).toHaveAttribute('value', "");
+    done();
   });
 
 // этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js

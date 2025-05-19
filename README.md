@@ -295,3 +295,14 @@ logo512.png
 robots.txt
 ````
 
+
+При тестировании появляется сообщение __"Cannot log after tests are done. Did you forget to wait for something async in your test?"__  
+Для исправвления нужно добавить "--maxWorkers=2" (источник [https://habr.com/ru/articles/710342/](https://habr.com/ru/articles/710342/)).
+
+package.json:
+
+````shell
+....
+  "test": "react-scripts test --maxWorkers=2",
+....  
+````
