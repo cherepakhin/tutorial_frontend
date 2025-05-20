@@ -24,13 +24,13 @@ class VacancyService {
 //
 
     let vacancies = axios.get(`/vacancy/`);
-    console.log("getAll received result: " + vacancies);
+    console.log("getAll received result: " + JSON.stringify(vacancies));
     console.log(vacancies);
     return vacancies;
   }
 
   get(n) {
-//    console.log("VacancyService.get n=" + n);
+    console.log("VacancyService.get n=" + n);
     return axios.get(`/vacancy/${n}`);
   }
 
@@ -46,18 +46,16 @@ class VacancyService {
         comment: vacancy.comment,
         company: vacancy.company
     };
-    console.log("VacancyService json for put")
-    console.log(newVacancy);
+    console.log("VacancyService json for put:" + JSON.stringify(newVacancy));
 
     let createdVacancy = axios.put("/vacancy/", newVacancy);
-    console.log("createdVacancy");
-    console.log(createdVacancy);
+    console.log("createdVacancy: " + JSON.stringify(createdVacancy));
     return createdVacancy;
   }
 
   update(n, data) {
     console.log("VacancyService.update: n=" + n);
-    console.log(data);
+    console.log("VacancyService data for update:" + JSON.stringify(data));
     return axios.post(`/vacancy/`, data);
   }
 

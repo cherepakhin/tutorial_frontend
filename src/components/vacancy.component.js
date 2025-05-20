@@ -32,8 +32,7 @@ class Vacancy extends Component {
   }
 
   componentDidMount() {
-    console.log("componentDidMount");
-    console.log(this.props);
+    console.log("componentDidMount this.props: " + JSON.stringify(this.props));
     this.getVacancy(this.props.router.params.n);
   }
 

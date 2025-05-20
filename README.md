@@ -247,7 +247,7 @@ deleteVacancy() {
 
 ````
 
-[Enzyme больше не поддерживается. нужно использовать react-testing-library] (https://habr.com/ru/companies/ruvds/articles/353076/)
+__[Enzyme больше не поддерживается. нужно использовать react-testing-library](https://habr.com/ru/companies/ruvds/articles/353076/).__
 
 "react-testing-library, в которой он видит простой инструмент, способный заменить enzyme"
 
@@ -305,4 +305,10 @@ package.json:
 ....
   "test": "react-scripts test --maxWorkers=2",
 ....  
+````
+
+Форматированный вывод объекта:
+
+````shell
+    console.log("response" + JSON.stringify(response);
 ````
