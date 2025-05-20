@@ -159,29 +159,29 @@ export default class VacancyList extends Component {
           {currentVacancy ? (
             <div>
               <h4>Описание</h4>
-              <div>
-                <label>
+              <div className="list-group-item-noborder">
+                <label className="label_vacancy">
                   <strong>N:</strong>
                   {" "}
                   {currentVacancy.n}
                 </label>
               </div>
-              <div>
-                <label>
+              <div className="list-group-item-noborder">
+                <label className="label_vacancy">
                   <strong>Название:</strong>
                   {" "}
                   {currentVacancy.title}
                 </label>
               </div>
-              <div>
-                <label>
+              <div className="list-group-item-noborder">
+                <label className="label_vacancy">
                   <strong>Описание:</strong>
                   {" "}
                   {currentVacancy.description}
                 </label>
               </div>
-              <div>
-                <label>
+              <div className="list-group-item-noborder">
+                <label className="label_vacancy">
                   <strong>Источник:</strong>
                   {" "}
                   <a href={currentVacancy.source}
@@ -189,8 +189,8 @@ export default class VacancyList extends Component {
                                       {currentVacancy.source}</a>
                 </label>
               </div>
-              <div>
-                <label>
+              <div className="list-group-item-noborder">
+                <label className="label_vacancy">
                   <strong>Статус:</strong>
                   {" "}
                   {this.translateStatus(currentVacancy.status)}

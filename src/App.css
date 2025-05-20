@@ -79,3 +79,12 @@
     background-color: #fff;
     border: 1px solid rgba(0,0,0,.125);
 }
+
+.list-group-item-noborder {
+    padding: 0em 0em;
+    margin: 0em 0em 0em 0em;
+}
+
+.label_vacancy {
+    margin-bottom: 0.3em;
+}
