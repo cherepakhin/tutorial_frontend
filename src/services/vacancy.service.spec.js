@@ -46,6 +46,8 @@ describe('VacancyService', () => {
     VacancyService.get(2);
 
     // Проверяется что HTTP запрос /vacancy/2 был вызван
+    // проверяется только вызов, результат вызова в тесте не важен.
+    // тест с проверкой результата см. ниже в "should get a vacancy by id. Check result."
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
@@ -63,7 +65,7 @@ describe('VacancyService', () => {
   test('should get a vacancy by id with fail ID.', () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.get(3);
-
+    // не /vacancy/2. Просто пример.
     expect(getStub.calledOnceWith('/vacancy/2')).toBe(false);
   });
 
@@ -96,12 +98,9 @@ describe('VacancyService', () => {
 
     // Тест VacancyService.create
     const createdVacancy = VacancyService.create(newVacancy);
-
-    console.log("createdVacancy");
-    console.log(createdVacancy);
+    console.log("createdVacancy:" + JSON.stringify(createdVacancy));
 
     expect(putStub.calledOnceWith('/vacancy/', newVacancy)).toBe(true);
-
     expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
   });
 
