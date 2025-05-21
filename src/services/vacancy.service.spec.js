@@ -34,13 +34,13 @@ describe('VacancyService', () => {
     expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
   });
 
-  test('http.get /vacancy/', () => {
+  test('http.get /vacancy/', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.getAll();
-    expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
+    await expect(getStub.calledOnceWith('/vacancy/')).toBe(true);
   });
 
-  test('should get a vacancy by id', () => {
+  test('should get a vacancy by id', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
 
     VacancyService.get(2);
@@ -48,28 +48,28 @@ describe('VacancyService', () => {
     // Проверяется что HTTP запрос /vacancy/2 был вызван
     // проверяется только вызов, результат вызова в тесте не важен.
     // тест с проверкой результата см. ниже в "should get a vacancy by id. Check result."
-    expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
+    await expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
   });
 
-  test('should get a vacancy by id. Check result.', () => {
+  test('should get a vacancy by id. Check result.', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     // http get on '/vacancy/2' return {n:2}
     getStub.returns({n: 2});
     const vacancy = VacancyService.get(2);
     // let vacancy = VacancyService.get(3); FAIL
 
-    expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
-    expect(vacancy.n).toBe(2);
+    await expect(getStub.calledOnceWith('/vacancy/2')).toBe(true);
+    await expect(vacancy.n).toBe(2);
   });
 
-  test('should get a vacancy by id with fail ID.', () => {
+  test('should get a vacancy by id with fail ID.', async () => {
     const getStub = sandbox.stub(httpMyParam, 'get');
     VacancyService.get(3);
     // не /vacancy/2. Просто пример.
-    expect(getStub.calledOnceWith('/vacancy/2')).toBe(false);
+    await expect(getStub.calledOnceWith('/vacancy/2')).toBe(false);
   });
 
-  test('create /vacancy/', async() => {
+  test('create /vacancy/', async () => {
     // postStub - mock,stub для http.
     // в vacancy.create использован axios. Axios в http-common.js СОЗДАЕТ http запросчик.
     // И sandbox.stub мокирует именно http requester.
@@ -100,11 +100,11 @@ describe('VacancyService', () => {
     const createdVacancy = VacancyService.create(newVacancy);
     console.log("createdVacancy:" + JSON.stringify(createdVacancy));
 
-    expect(putStub.calledOnceWith('/vacancy/', newVacancy)).toBe(true);
-    expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
+    await expect(putStub.calledOnceWith('/vacancy/', newVacancy)).toBe(true);
+    await expect(createdVacancy).toStrictEqual(createdVacancyFromBackend);
   });
 
-  test('update /vacancy/', () => {
+  test('update /vacancy/', async () => {
     let N = 100;
     const vacancyForUpdate = {
             n: N,
@@ -135,8 +135,8 @@ describe('VacancyService', () => {
     // Тест VacancyService.update
     const returnedVacancy = VacancyService.update(N, vacancyForUpdate);
 
-    expect(postStub.calledOnceWith('/vacancy/', vacancyForUpdate)).toBe(true);
-    expect(returnedVacancy).toStrictEqual(updatedVacancyFromBackend);
+    await expect(postStub.calledOnceWith('/vacancy/', vacancyForUpdate)).toBe(true);
+    await expect(returnedVacancy).toStrictEqual(updatedVacancyFromBackend);
   });
 
 // Комментарий не удалять
