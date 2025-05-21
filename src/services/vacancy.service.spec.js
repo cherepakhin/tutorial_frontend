@@ -14,7 +14,7 @@ describe('VacancyService', () => {
     sandbox.restore();
   });
 
-  test('http.get /vacancy/1', () => {
+  test('http.get /vacancy/1', async () => {
     // Создание stub для http запросов
     // МОКИРУЕТСЯ только HTTP запрос GET с параметрами запроса (адрес, cors) httpMyParam
     // из 'http-common'
@@ -31,7 +31,7 @@ describe('VacancyService', () => {
     // Проверяется что HTTP запрос /vacancy/1 был вызван
     // console.log отработает
     // axios.get(`/vacancy/${n}`) - замокан
-    expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
+    await expect(getStub.calledOnceWith('/vacancy/111')).toBe(true);
   });
 
   test('http.get /vacancy/', async () => {
