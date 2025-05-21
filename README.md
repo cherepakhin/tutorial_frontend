@@ -165,7 +165,7 @@ Tests:       1 skipped, 1 passed, 2 total
 
 'skipped array contains item' - тест в этом же файле (src/components/try_react_test.spec.js) и он пропущен.
 
-или так (есди в названии теста есть не только символы):
+или указать название в обратных кавычках (если в названии теста есть спецсимволы):
 
 ````shell
 yarn test -t `test title (render.getByText)`
