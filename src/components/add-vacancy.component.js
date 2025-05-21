@@ -144,7 +144,7 @@ class AddVacancy extends Component {
                   id="id_btn_return"
                   className="btn btn-warning btn-7em text-center margin-left-space"
                   onClick={this.goBack}
-            >Вернуться</button>
+            >Отмена</button>
           </div>
         )}
       </div>
