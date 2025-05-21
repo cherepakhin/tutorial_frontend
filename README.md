@@ -134,6 +134,43 @@ $ yarn
 yarn start
 ````
 
+### Test
+
+Прогон всех тестов:
+
+````shell
+yarn test
+````
+
+Прогон файла с тестами:
+
+````shell
+yarn test vacancy.service.spec.js
+````
+
+Прогон конкретного теста:
+
+````shell
+yarn test -t individual test
+
+ PASS  src/components/try_react_test.spec.js
+  Try react-testing-library
+    ✓ individual test (4 ms)
+    ○ skipped array contains item
+
+Test Suites: 1 passed, 1 total
+Tests:       1 skipped, 1 passed, 2 total
+
+````
+
+'skipped array contains item' - тест в этом же файле (src/components/try_react_test.spec.js) и он пропущен.
+
+или так (есди в названии теста есть не только символы):
+
+````shell
+yarn test -t `test title (render.getByText)`
+````
+
 ### Build
 
 ````shell

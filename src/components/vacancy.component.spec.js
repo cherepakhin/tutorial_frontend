@@ -16,13 +16,6 @@ describe('tests vacancy.component', () => {
     expect(true).toBeTruthy();
   });
 
-  test('array contains item', () => {
-    const array = ["item1", "item2"]
-    const item = "item1";
-
-    expect(array).toContain(item);
-  });
-
   test('test title (render.getByText)', () => {
     let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
     const vacancyComponent = render(<VacancyForTest {...router}/>);
