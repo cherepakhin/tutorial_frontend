@@ -43,10 +43,10 @@ class Vacancy extends Component {
     // Получение вакансии с backend (Redux не используется)
     VacancyService.get(n)
       .then(response => {
-        console.log("response" + JSON.stringify(response));
         this.setState({
           currentVacancy: {...response.data}
         });
+        console.log("response" + JSON.stringify(response));
         console.log("response.data" + JSON.stringify(response.data));
       })
       .catch(e => {
