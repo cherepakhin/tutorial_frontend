@@ -6,24 +6,53 @@ import '@testing-library/jest-dom'
 // Mock-объект находится в директории __mocks__
 import axiosMock from 'axios'
 import { VacancyForTest } from "./vacancy.component";
-import Vacancy from "./vacancy.component";
+//import Vacancy from "./vacancy.component";
 
+import sinon from 'sinon'; // sinon - MOCK for http request
 
 describe('tests vacancy.component', () => {
+
+  let sandbox;
+
+  beforeEach(() => {
+    sandbox = sinon.createSandbox();
+  });
+
+  afterEach(() => {
+    sandbox.restore();
+  });
+
   test('individual test', async () => {
     expect(1).toBe(1);
     await expect("value").toEqual("value");
     await expect(true).toBeTruthy();
   });
 
-//  test('test title (render.getByText)', async () => {
-//    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
-//    const vacancyComponent = render(<VacancyForTest {...router}/>);
-//
-//    const title_label = vacancyComponent.getByText("Название");
-//    await expect(title_label).toBeInTheDocument();
-//  });
-//
+  test('test title (render.getByText)', async () => {
+    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    const vacancyComponent = render(<VacancyForTest {...router}/>);
+
+    const title_label =  vacancyComponent.getByText("Название");
+
+    await expect(title_label).toBeInTheDocument();
+  });
+
+  test('input with id=#description', async () => {
+    console.log("done1");
+    let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+
+    let result = render(<VacancyForTest {...params}/>);
+
+    const description = result.container.querySelector('#description');
+
+    await expect(description).toBeInTheDocument();
+    await expect(description).toHaveAttribute('id', "description");
+    await expect(description).toHaveAttribute('class', "form-control");
+    await expect(description).toHaveAttribute('type', "text");
+    await expect(description).toHaveAttribute('value', "");
+  });
+
+
 //  test('test title by id (with vacancyComponent)', async () => {
 //    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 //    const vacancyComponent = render(<VacancyForTest {...router}/>);
@@ -31,7 +60,7 @@ describe('tests vacancy.component', () => {
 //    await expect(titleById).toBeInTheDocument();
 //    await expect(titleById.textContent).toBe("Название");
 //  });
-//
+
 //  test('test title by id (with container)', async () => {
 //    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 //    const { container } = render(<VacancyForTest {...router}/>);
@@ -141,21 +170,6 @@ describe('tests vacancy.component', () => {
 //
 //    await expect(title).toBeInTheDocument();
 //    await expect(title.textContent).toEqual('Название');
-//  });
-
-//  test('input with id=#description', async () => {
-//    console.log("done1");
-//    let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
-//
-//    let result = render(<VacancyForTest {...params}/>);
-//
-//    const description = result.container.querySelector('#description');
-//
-//    await expect(description).toBeInTheDocument();
-//    await expect(description).toHaveAttribute('id', "description");
-//    await expect(description).toHaveAttribute('class', "form-control");
-//    await expect(description).toHaveAttribute('type', "text");
-//    await expect(description).toHaveAttribute('value', "");
 //  });
 
 // этот тест для React 16.9. Нужно переписать на версии 17+. см vacancy.component17.spec.js
