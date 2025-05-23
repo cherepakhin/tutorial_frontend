@@ -165,6 +165,18 @@ Tests:       1 skipped, 1 passed, 2 total
 
 'skipped array contains item' - тест в этом же файле (src/components/try_react_test.spec.js) и он пропущен.
 
+Еще пример:
+
+````shell
+yarn test -t 'input with id=#description'
+
+Test Suites: 3 skipped, 1 passed, 1 of 4 total
+Tests:       12 skipped, 1 passed, 13 total
+Snapshots:   0 total
+Time:        4.327 s, estimated 5 s
+Ran all test suites with tests matching "input with id=#description".
+
+````
 или указать название в обратных кавычках (если в названии теста есть спецсимволы):
 
 ````shell
