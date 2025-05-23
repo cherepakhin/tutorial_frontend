@@ -39,7 +39,16 @@ describe('tests vacancy.component', () => {
 
   test('input with id=#description', async () => {
     console.log("done1");
-    let params = {router: {params:{n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+    let params = {
+        router: {
+            params:{
+                n: "1",
+                name: "NAME_1",
+                description: "DESCRIPTION_1",
+                source: "SOURCE_1"
+            }
+        }
+   };
 
     let result = render(<VacancyForTest {...params}/>);
 
