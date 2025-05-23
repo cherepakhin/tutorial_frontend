@@ -44,7 +44,9 @@ export default class VacancyList extends Component {
      VacancyService.getAll().then(response => {
           console.log(response.data);
           this.setState({
-            vacancies: response.data
+            vacancies: response.data,
+            currentVacancy: response.data[0],
+            currentIndex: 0
           });
        }).catch(e => {
          console.log(e);
