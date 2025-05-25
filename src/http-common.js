@@ -11,7 +11,10 @@ import axios from "axios";
 //  return response
 //})
 
-// для разработки baseURL: "http://127.0.0.1:8080/api",
+// для разработки baseURL:
+// httpie https://127.0.0.1:8443/api/vacancy/ - работает через БРАУЗЕР
+
+// для разработки baseURL: "https://127.0.0.1:8443/api",
 // для размещения на сайте baseURL: "https://v.perm.ru:8443/api",
 export default axios.create({
   baseURL: "https://v.perm.ru:8443/api",
