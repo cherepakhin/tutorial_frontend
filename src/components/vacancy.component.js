@@ -154,10 +154,17 @@ class Vacancy extends Component {
     )
       .then(response => {
         console.log(response.data);
-        this.setState({
-          message: "Обновлено."
-        });
-      })
+        //TODO: обновить в state измененную вакансию
+//        this.setState({
+//          message: "Обновлено."
+//        });
+        VacancyService.get(this.state.currentVacancy.n)
+          .then(response => {
+            this.setState({
+              currentVacancy: {...response.data}
+            });
+          });
+          })
       .catch(e => {
         //TODO: show error dialog
         console.log(e);

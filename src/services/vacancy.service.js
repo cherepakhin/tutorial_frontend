@@ -56,7 +56,9 @@ class VacancyService {
   update(n, data) {
     console.log("VacancyService.update: n=" + n);
     console.log("VacancyService data for update:" + JSON.stringify(data));
-    return axios.post(`/vacancy/`, data);
+    let response = axios.post(`/vacancy/`, data);
+    console.log("after update:"+ JSON.stringify(response));
+    return response;
   }
 
   delete(n) {
