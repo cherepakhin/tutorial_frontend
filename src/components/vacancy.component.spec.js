@@ -86,9 +86,13 @@ describe('tests vacancy.component', () => {
         }
    };
 
-    let result = render(<VacancyForTest {...params}/>);
+    let container = document.createElement('div');
+    document.body.appendChild(container);
+    await act(() => {
+        ReactDOMClient.createRoot(container).render(<VacancyForTest {...params}/>);
+    });
 
-    const description = result.container.querySelector('#description');
+    const description = container.querySelector('#description');
 
     await expect(description).toBeInTheDocument();
     await expect(description).toHaveAttribute('id', "description");
