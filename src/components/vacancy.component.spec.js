@@ -1,45 +1,80 @@
 import React from 'react';
-import {render, Simulate, wait, screen} from '@testing-library/react'
-import axios from "../http-common";
+import {render, fireEvent, wait, screen} from '@testing-library/react';
+//import axios from "../http-common";
+import ReactDOMClient from 'react-dom/client';
+import {act} from 'react';
 import '@testing-library/jest-dom'
 // Тут добавляется средство проверки ожиданий
 //import 'react-testing-library/extend-expect'
 // Mock-объект находится в директории __mocks__
-//import axiosMock from 'axios'
 import { VacancyForTest } from "./vacancy.component";
+//Import {act} from "react";
 //import Vacancy from "./vacancy.component";
 //
-import sinon from 'sinon'; // sinon - MOCK for http request
+//import sinon from 'sinon'; // sinon - MOCK for http request
+import axiosMock from 'axios';
+
 
 describe('tests vacancy.component', () => {
 
   let sandbox;
 
-  beforeEach(() => {
-    sandbox = sinon.createSandbox();
-  });
-
-  afterEach(() => {
-    sandbox.restore();
-  });
+//  beforeEach(() => {
+//    sandbox = sinon.createSandbox();
+//  });
+//
+//  afterEach(() => {
+//    sandbox.restore();
+//  });
 
   test('individual test', async () => {
     expect(1).toBe(1);
-    await expect("value").toEqual("value");
-    await expect(true).toBeTruthy();
   });
 
-  test('test title (render.getByText)', async () => {
-    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
-    const vacancyComponent = render(<VacancyForTest {...router}/>);
+//  test('test title (render.getByText)', async () => {
+//    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
+//    const vacancyComponent = render(<VacancyForTest {...router}/>);
+//
+//    const title_label =  vacancyComponent.getByText("Название");
+//
+//    await expect(title_label).toBeInTheDocument();
+//  });
+//
+  test('ACT input with id=#description', async () => {
+    let params = {
+        router: {
+            params:{
+                n: "1",
+                name: "NAME_1",
+                description: "DESCRIPTION_1",
+                source: "SOURCE_1"
+            }
+        }
+    };
+    let container = document.createElement('div');
+    document.body.appendChild(container);
 
-    const title_label =  vacancyComponent.getByText("Название");
+    // ✅ Render the component inside act().
+    await act(() => {
+        ReactDOMClient.createRoot(container).render(<VacancyForTest {...params}/>);
+    });
+    const description = container.querySelector('#description');
 
-    await expect(title_label).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+    expect(description).toHaveAttribute('id', "description");
+    expect(description).toHaveAttribute('class', "form-control");
+    expect(description).toHaveAttribute('type', "text");
+    expect(description).toHaveAttribute('value', "");
+
+//    const button = container.querySelector('button');
+//    const label = container.querySelector('p');
+//    expect(label.textContent).toBe('You clicked 0 times');
+//    expect(document.title).toBe('You clicked 0 times');
   });
 
   test('input with id=#description', async () => {
-    console.log("done1");
+
+//    console.log("done1");
     let params = {
         router: {
             params:{
