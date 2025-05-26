@@ -361,3 +361,8 @@ package.json:
 ````shell
     console.log("response" + JSON.stringify(response);
 ````
+
+Тестирование с act, render [https://spec-zone.ru/react~18/reference/react/act](https://spec-zone.ru/react~18/reference/react/act).
+
+__act__ — это вспомогательный инструмент для применения ожидающих обновлений React перед выполнением утверждений.
+

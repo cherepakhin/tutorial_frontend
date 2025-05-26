@@ -7,7 +7,7 @@ import '@testing-library/jest-dom'
 // Тут добавляется средство проверки ожиданий
 //import 'react-testing-library/extend-expect'
 // Mock-объект находится в директории __mocks__
-import { VacancyForTest } from "./vacancy.component";
+import {VacancyForTest} from "./vacancy.component";
 //Import {act} from "react";
 //import Vacancy from "./vacancy.component";
 //
@@ -31,6 +31,7 @@ describe('tests vacancy.component', () => {
     expect(1).toBe(1);
   });
 
+// https://spec-zone.ru/react~18/reference/react/act
 //  test('test title (render.getByText)', async () => {
 //    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
 //    const vacancyComponent = render(<VacancyForTest {...router}/>);
@@ -66,6 +67,7 @@ describe('tests vacancy.component', () => {
     expect(description).toHaveAttribute('type', "text");
     expect(description).toHaveAttribute('value', "");
 
+// Example use  container.querySelector
 //    const button = container.querySelector('button');
 //    const label = container.querySelector('p');
 //    expect(label.textContent).toBe('You clicked 0 times');
