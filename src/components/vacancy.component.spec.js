@@ -1,23 +1,20 @@
-import React from 'react';
+import {React, act} from 'react';
 import {render, fireEvent, wait, screen} from '@testing-library/react';
 //import axios from "../http-common";
 import ReactDOMClient from 'react-dom/client';
-import {act} from 'react';
 import '@testing-library/jest-dom'
 // Тут добавляется средство проверки ожиданий
 //import 'react-testing-library/extend-expect'
 // Mock-объект находится в директории __mocks__
 import {VacancyForTest} from "./vacancy.component";
-//Import {act} from "react";
-//import Vacancy from "./vacancy.component";
-//
+
 //import sinon from 'sinon'; // sinon - MOCK for http request
-import axiosMock from 'axios';
+//import axiosMock from 'axios';
 
 
 describe('tests vacancy.component', () => {
 
-  let sandbox;
+//  let sandbox;
 
 //  beforeEach(() => {
 //    sandbox = sinon.createSandbox();
@@ -27,20 +24,76 @@ describe('tests vacancy.component', () => {
 //    sandbox.restore();
 //  });
 
-  test('individual test', async () => {
-    expect(1).toBe(1);
+  it('demo getByTestId', () => {
+    let params = {
+        router: {
+            params:{
+                n: "1",
+                name: "NAME_1",
+                description: "DESCRIPTION_1",
+                source: "SOURCE_1"
+            }
+        }
+    };
+
+    const { getByTestId } = render(<VacancyForTest {...params}/>);
+
+    const titleElement = getByTestId('title');
+    expect(titleElement).toBeInTheDocument();
+    expect(titleElement.textContent).toBe("Описание вакансии");
+
+    const labelName = getByTestId('label_name');
+    expect(labelName).toBeInTheDocument();
+    expect(labelName.textContent).toBe("Название");
+
+    const labelNameById = getByTestId('label_name');
+    expect(labelNameById).toBeInTheDocument();
+    expect(labelNameById.textContent).toBe("Название");
+  });
+
+  it('demo querySelector', () => {
+    let params = {
+        router: {
+            params:{
+                n: "1",
+                name: "NAME_1",
+                description: "DESCRIPTION_1",
+                source: "SOURCE_1"
+            }
+        }
+    };
+
+    const element = render(<VacancyForTest {...params}/>);
+    const titleElement = element.container.querySelector('#id_title_label');
+
+    expect(titleElement.textContent).toBe("Название");
   });
 
 // https://spec-zone.ru/react~18/reference/react/act
 //  test('test title (render.getByText)', async () => {
-//    let router = {router:{params: {n: "1", name: "NAME_1", description: "DESCRIPTION_1", source: "SOURCE_1"}}};
-//    const vacancyComponent = render(<VacancyForTest {...router}/>);
+//    let params = {
+//        router: {
+//            params:{
+//                n: "1",
+//                name: "NAME_1",
+//                description: "DESCRIPTION_1",
+//                source: "SOURCE_1"
+//            }
+//        }
+//    };
 //
-//    const title_label =  vacancyComponent.getByText("Название");
+//    let container = document.createElement('div');
+//    document.body.appendChild(container);
 //
-//    await expect(title_label).toBeInTheDocument();
+//    await act(() => {
+//        ReactDOMClient.createRoot(container).render(<VacancyForTest {...params}/>);
+//    });
+//
+//    const title_label =  container.getByText("Название");
+//
+//    expect(title_label).toBeInTheDocument();
 //  });
-//
+
   test('ACT input with id=#description', async () => {
     let params = {
         router: {

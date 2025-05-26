@@ -223,7 +223,7 @@ class Vacancy extends Component {
             <h4 id="id_title" data-testid="title">Описание вакансии</h4>
             <form>
               <div className="form-group">
-                <label id="id_title_label" htmlFor="title">Название</label>
+                <label id="id_title_label" htmlFor="title" data-testid="label_name">Название</label>
                 <input
                   type="text"
                   className="form-control"
