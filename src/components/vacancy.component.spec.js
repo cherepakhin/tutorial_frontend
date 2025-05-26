@@ -69,6 +69,33 @@ describe('tests vacancy.component', () => {
     expect(titleElement.textContent).toBe("Название");
   });
 
+  test('ACT input with id=#description. NOT ASYNC', () => {
+    let params = {
+        router: {
+            params:{
+                n: "1",
+                name: "NAME_1",
+                description: "DESCRIPTION_1",
+                source: "SOURCE_1"
+            }
+        }
+    };
+    let container = document.createElement('div');
+    document.body.appendChild(container);
+
+    // ✅ Render the component inside act().
+    act(() => {
+        ReactDOMClient.createRoot(container).render(<VacancyForTest {...params}/>);
+    });
+    const description = container.querySelector('#description');
+
+    expect(description).toBeInTheDocument();
+    expect(description).toHaveAttribute('id', "description");
+    expect(description).toHaveAttribute('class', "form-control");
+    expect(description).toHaveAttribute('type', "text");
+    expect(description).toHaveAttribute('value', "");
+  });
+
 // https://spec-zone.ru/react~18/reference/react/act
 //  test('test title (render.getByText)', async () => {
 //    let params = {
@@ -109,6 +136,7 @@ describe('tests vacancy.component', () => {
     document.body.appendChild(container);
 
     // ✅ Render the component inside act().
+    // await потому что тест async () =>. Можно и без него (смю тесты выше).
     await act(() => {
         ReactDOMClient.createRoot(container).render(<VacancyForTest {...params}/>);
     });
@@ -129,7 +157,6 @@ describe('tests vacancy.component', () => {
 
   test('input with id=#description', async () => {
 
-//    console.log("done1");
     let params = {
         router: {
             params:{
