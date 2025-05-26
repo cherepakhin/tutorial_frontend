@@ -1,13 +1,14 @@
 import React from 'react';
 import {render, Simulate, wait, screen} from '@testing-library/react'
+import axios from "../http-common";
 import '@testing-library/jest-dom'
 // Тут добавляется средство проверки ожиданий
 //import 'react-testing-library/extend-expect'
 // Mock-объект находится в директории __mocks__
-import axiosMock from 'axios'
+//import axiosMock from 'axios'
 import { VacancyForTest } from "./vacancy.component";
 //import Vacancy from "./vacancy.component";
-
+//
 import sinon from 'sinon'; // sinon - MOCK for http request
 
 describe('tests vacancy.component', () => {
