@@ -40,7 +40,10 @@ class FindVacancy extends Component {
 
   doSelectVacancy() {
     //TODO
-    this.doCancel();
+    console.log(JSON.stringify(this.state));
+    // пример: {"title":"","description":"","status":"in_work"}
+
+    this.props.router.navigate('/vacancies');
   }
 
   doCancel() {
@@ -79,7 +82,7 @@ class FindVacancy extends Component {
             </div>
             <div className="form-group">
               <label htmlFor="status_select">Состояние:</label>
-              <select id="status_select" className="form-control" value={"Все"} onChange={this.handleChangeStatus}>
+              <select id="status_select" className="form-control" value={this.state.status} onChange={this.handleChangeStatus}>
                 <option value="all">Все</option>
                 <option value="in_work">В работе</option>
                 <option value="in_plan">Не откликался</option>

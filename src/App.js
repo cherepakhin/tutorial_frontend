@@ -57,7 +57,7 @@ export default class App extends Component {
 {/*                     this.props.router.navigate('/vacancies/add');*/}
                       window.location.href='/vacancies/page/find';
                       }}
-                >Выбрать</button>
+                >Найти</button>
 
             <a className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
