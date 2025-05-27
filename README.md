@@ -7,7 +7,7 @@
 Простой пример в git ветке __demo_route__.
 Ветку __master__ не удалять. Это пример старта проекта с React.
 
-Заготовка для React проекта. React 17.
+Заготовка для React проекта. React 18.
 
 __Redux не используется.__ ([пример приложения с Redux](https://www.bezkoder.com/react-redux-crud-example/)). Для работы с backend сделан сервисный слой __services__. Что-то типа __state__ расположен в самих компонентах.
 
@@ -233,7 +233,7 @@ $ serve -s build
 Локальный запуск:
 
 ````shell
-~/prog/js/vacancy_frontend_17$ ./run.sh
+~/prog/js/vacancy_frontend_18$ ./run.sh
 
 Compiled successfully!
 
