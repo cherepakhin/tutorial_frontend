@@ -10,7 +10,7 @@ export default class VacancyList extends Component {
     this.refreshList = this.refreshList.bind(this);
     this.setActiveVacancy = this.setActiveVacancy.bind(this);
     this.removeAllVacancies = this.removeAllVacancies.bind(this);
-    this.searchName = this.searchName.bind(this);
+    this.searchByName = this.searchByName.bind(this);
 
     this.state = {
       vacancies: [],
@@ -77,7 +77,7 @@ export default class VacancyList extends Component {
   }
 
   // Отбор вакансий по названию.
-  searchName() {
+  searchByName() {
     this.setState({
       currentVacancy: null,
       currentIndex: -1
@@ -126,7 +126,7 @@ export default class VacancyList extends Component {
                 id="button-find"
                 className="btn btn-primary btn-7em"
                 type="button"
-                onClick={this.searchName}
+                onClick={this.searchByName}
               >
                 Найти
               </button>

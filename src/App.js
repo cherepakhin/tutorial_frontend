@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
 import AddVacancy from "./components/add-vacancy.component"; // Страница ДОБАВЛЕНИЯ вакансии
+import FindVacancy from "./components/find_vacancy"; // Страница ОТБОРА вакансии
 import Vacancy from "./components/vacancy.component"; // Страница ИЗМЕНЕНИЯ вакансии
 import VacancyList from "./components/vacancy-list.component"; // компонент списка вакансий
 import HelpPage from "./components/help.component"; // Страница помощи
@@ -40,7 +41,7 @@ export default class App extends Component {
 {/*Переход работает. ОБЯЗАТЕЛЬНО НУЖЕН файл public/.htaccess*/}
             <a
                     className="btn btn-secondary btn-7em margin-left-space"
-                    href="/vacancies/page/add">Добавить (a)</a>
+                    href="/vacancies/page/add">Добавить</a>
 
 
             <button
@@ -49,19 +50,18 @@ export default class App extends Component {
                 type="button"
                 onClick={(e) => {
                       e.preventDefault();
+{/*Клмментарий не удалять.*/}
 {/*Переход работает. ОБЯЗАТЕЛЬНО НУЖЕН файл public/.htaccess*/}
 {/* В App.js переход через this.props.router.navigate не сработает. */}
 {/* И поэтому нужно использовать "window.location.href" */}
 {/*                     this.props.router.navigate('/vacancies/add');*/}
-                      window.location.href='/vacancies/page/add';
-
-//                      this.props.router.navigate('/vacancies');
+                      window.location.href='/vacancies/page/find';
                       }}
-                >Добавить (btn)</button>
+                >Выбрать</button>
 
             <a className="btn btn-secondary btn-7em margin-left-space"
                 type="button"
-                href="/vacancies/page/help">Помощь (a)</a>
+                href="/vacancies/page/help">Помощь</a>
 
 
 
@@ -110,6 +110,7 @@ export default class App extends Component {
                 <Route path="/" element={<VacancyList {...this.props}/>} />
                 <Route path="/vacancies" element={<VacancyList {...this.props}/>} />
                 <Route path="/vacancies/page/add" element={<AddVacancy {...this.props}/>} />
+                <Route path="/vacancies/page/find" element={<FindVacancy {...this.props}/>} />
                 <Route path="/vacancies/page/edit/:n" element={<Vacancy {...this.props}/>} />
                 <Route path="/vacancies/page/help" element={<HelpPage {...this.props}/>} />
               </Routes>
