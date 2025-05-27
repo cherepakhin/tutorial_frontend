@@ -366,3 +366,11 @@ package.json:
 
 __act__ — это вспомогательный инструмент для применения ожидающих обновлений React перед выполнением утверждений.
 
+
+#### Selenium
+
+[Уроки по использованию Selenium WebDriver для парсинга данных](https://sky.pro/wiki/python/uroki-po-ispolzovaniyu-selenium-webdriver-dlya-parsinga-dannyh/)
+
+[Selenium skillfactory.ru](https://blog.skillfactory.ru/glossary/selenium/)
+
+Файл [doc/selenium_test_vacancy.side](doc/selenium_test_vacancy.side) открыть в Selenium IDE. [Проведение теста](doc/selenium.mp4).

@@ -1,0 +1,97 @@
+{
+  "id": "a9105f7f-8812-4cc0-a029-219e3736bbf9",
+  "version": "2.0",
+  "name": "vac1",
+  "url": "https://v.perm.ru",
+  "tests": [{
+    "id": "7951e0d0-fb5a-451f-99c1-69252991ea60",
+    "name": "show start",
+    "commands": [{
+      "id": "5394689d-10ff-42c0-ac2e-96fa65338e5b",
+      "comment": "",
+      "command": "open",
+      "target": "/vacancies/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13ac1aa2-c9b4-487a-b126-c0bfad014b26",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1366x720",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b0ccaed-7643-41dd-ae1f-2c5386c7f903",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(2)",
+      "targets": [
+        ["css=.list-group-item:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/ul/div[2]", "xpath:idRelative"],
+        ["xpath=//ul/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7c6ec96d-0a02-4ac4-92ce-e4cb117a5113",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(3)",
+      "targets": [
+        ["css=.list-group-item:nth-child(3)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/ul/div[3]", "xpath:idRelative"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a1a26590-c914-4a32-b555-7706f3216c2c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.list-group-item:nth-child(4)",
+      "targets": [
+        ["css=.list-group-item:nth-child(4)", "css:finder"],
+        ["xpath=//div[@id='root']/div/div/div/div[2]/ul/div[4]", "xpath:idRelative"],
+        ["xpath=//div[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4958616d-bcab-4a46-b453-5661c60818e3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Изменить",
+      "targets": [
+        ["linkText=Изменить", "linkText"],
+        ["css=.btn-warning", "css:finder"],
+        ["xpath=//a[contains(text(),'Изменить')]", "xpath:link"],
+        ["xpath=//div[@id='root']/div/div/div/div[3]/div/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/vacancies/page/edit/4')]", "xpath:href"],
+        ["xpath=//div[3]/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Изменить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb338670-dcef-4adf-9425-5d5aceedd0eb",
+      "comment": "",
+      "command": "click",
+      "target": "id=id_btn_return",
+      "targets": [
+        ["id=id_btn_return", "id"],
+        ["css=#id_btn_return", "css:finder"],
+        ["xpath=//button[@id='id_btn_return']", "xpath:attributes"],
+        ["xpath=//div[@id='edit-form']/div/button[3]", "xpath:idRelative"],
+        ["xpath=//button[3]", "xpath:position"],
+        ["xpath=//button[contains(.,'Назад')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "af95f402-c888-4f5a-bc4a-1eb89687d554",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["7951e0d0-fb5a-451f-99c1-69252991ea60"]
+  }],
+  "urls": ["https://v.perm.ru/"],
+  "plugins": []
+}
